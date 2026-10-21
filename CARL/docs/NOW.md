@@ -8,8 +8,9 @@ BLOCKER: Two 10-minute decisions: adopt BIN/SKU v1; confirm the Tracker Sheet is
 FLOOR: Photograph one item on hand with a SKU card (10001) in frame; drop it in a Drive folder named 10001.
 GUARDRAIL: Do not open a new tool, agent, framework or dashboard redesign. Parking lot. What is the shipped unit this week?
 NORTH STAR: Replace lost income with owned, shippable assets before the January 2027 runway deadline.
-LAST TOUCHED: 2026-10-21 (Life OS dashboard v2 shipped; capsule unchanged)
+LAST TOUCHED: 2026-10-21 (v2.1: health/needs-decision, freshness, target line, export; morning push scheduled 08:18)
 
 ## CAPTURE
+- 2026-10-21: Morning push scheduled task created (cloud, bound to the Mac, iMessage at 08:18); Nicole shared as Editor
 - 2026-10-21: Life OS v2 dashboard shipped with ADHD toolkit; registry gained infra-secure-ops (gate), career-ops, house-of-carl, inverted-news, task-resumption
 - 2026-10-18: Decision: do not scaffold on Miessler's LifeOS; harvest TELOS, boundary, interview (CARL/docs/DECISION-build-vs-scaffold.md)

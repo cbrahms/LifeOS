@@ -120,6 +120,18 @@ details.editor summary{cursor:pointer;font-family:var(--mono);font-size:11px;let
 .pill.ready{border-color:var(--accent);color:var(--accent)}
 .pill.paused,.pill.archived{opacity:.6}
 .pill.shipped{background:var(--ok);color:#fff;border-color:var(--ok)}
+.pill.on-track{border-color:var(--ok);color:var(--ok)}
+.pill.at-risk{border-color:var(--warn);color:var(--warn)}
+.pill.off-track{border-color:var(--crit);color:var(--crit)}
+.quiet{font-family:var(--mono);font-size:11px;color:var(--warn)}
+.flag{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:11px;color:var(--ink-2)}
+.flag input{width:16px;height:16px;margin:0;accent-color:var(--crit)}
+.card.needs{border-color:var(--crit)}
+.attn{display:grid;gap:6px}
+.attn div{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;border-top:1px solid var(--line-2);padding-top:6px;font-size:13px}
+.attn div:first-child{border-top:0;padding-top:0}
+.chart .target{stroke:var(--crit);stroke-width:1.5;stroke-dasharray:4 3}
+.chart .bar-fill.under{fill:var(--warn)}
 .due{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
 .due.over{color:var(--crit)}
 .due.soon{color:var(--warn)}
@@ -252,9 +264,15 @@ footer{font-family:var(--mono);font-size:11px;color:var(--ink-3);border-top:1px 
         <h2>Sequence <span class="eyebrow">one primary build at a time</span></h2>
         <div class="seq" id="seq"></div>
       </div>
-      <div class="panel" id="p-quote" hidden>
-        <h2>From the shelf <button class="btn ghost sm" id="quote-next">Another</button></h2>
-        <div class="quote" id="quote"></div>
+      <div class="view" style="gap:14px">
+        <div class="panel" id="p-attn" hidden>
+          <h2>Decisions needed <span class="eyebrow" id="attn-count"></span></h2>
+          <div class="attn" id="attn"></div>
+        </div>
+        <div class="panel" id="p-quote" hidden>
+          <h2>From the shelf <button class="btn ghost sm" id="quote-next">Another</button></h2>
+          <div class="quote" id="quote"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -331,6 +349,8 @@ footer{font-family:var(--mono);font-size:11px;color:var(--ink-3);border-top:1px 
           <h2>About this page</h2>
           <p class="muted">Shared store: registry, capsule, log, parking lot. Private per viewer: modules, reps, values, ladder, evidence, settings. Source of truth for files: <code>cbrahms/LifeOS</code> → <code>CARL/</code>. Content library credits the four books and the ANCHOR workbook; quotes are theirs.</p>
           <p class="muted" id="lib-status" style="margin-top:6px">Library: loading…</p>
+          <div class="controls" style="margin-top:10px"><button class="btn ghost" id="export">Copy store as JSON</button><span class="muted" id="export-note">Registry, sequence, capsule, log, parking lot. Paste into CARL/registry/registry.json.</span></div>
+          <textarea id="export-box" rows="4" hidden aria-label="Exported JSON"></textarea>
         </div>
       </div>
     </div>
@@ -352,6 +372,10 @@ footer{font-family:var(--mono);font-size:11px;color:var(--ink-3);border-top:1px 
   const todayStr = localDate();
   const DOMAIN_COLOR = {'resale-os':'var(--d-resale)','ai-adhd-os':'var(--d-adhd)','ai-studio':'var(--d-studio)','cryptid-os':'var(--d-cryptid)','investing-os':'var(--d-invest)','household':'var(--d-house)','career':'var(--ink-2)','creative':'var(--d-cryptid)'};
   const STATUSES = ['idea','discovery','ready','active','paused','shipped','archived'];
+  const HEALTH = ['','on-track','at-risk','off-track'];
+  const TARGET_PER_WEEK = 3;
+  const QUIET_DAYS = 14;
+  const names = {}; // uid -> display name, resolved via user.profiles
   const VALUES8 = ['Self-care','Fitness','Creativity','Wisdom','Knowledge','Courage','Happiness','Independence'];
   const OPTS = [
     ['quotes','Quotes on the Now view','One line from the shelf, rotating. Off hides the panel.',true],
@@ -476,7 +500,17 @@ footer{font-family:var(--mono);font-size:11px;color:var(--ink-3);border-top:1px 
     const sel=$('#filter-domain'), ls=$('#l-domain'); sel.innerHTML='<option value="">All domains</option>'; ls.innerHTML='';
     state.domains.forEach(d=>{ const o=document.createElement('option'); o.value=d.id; o.textContent=d.name; sel.append(o); ls.append(o.cloneNode(true)); });
   }
+  function renderAttn(){
+    const need=state.projects.filter(p=>p.needs_decision && !['shipped','archived'].includes(p.status));
+    const quiet=state.projects.filter(p=>!p.needs_decision && ['active','ready'].includes(p.status) && (quietDays(p)||0)>=QUIET_DAYS);
+    const panel=$('#p-attn'); panel.hidden = !(need.length||quiet.length); if(panel.hidden) return;
+    $('#attn-count').textContent = `${need.length} waiting · ${quiet.length} quiet`;
+    $('#attn').innerHTML = need.map(p=>`<div><span><b>${esc(p.name)}</b><br><span class="muted">${esc(p.next_action||p.milestone||'')}</span></span><button class="btn ghost sm" data-goto="${esc(p.id)}">Open</button></div>`).join('')
+      + quiet.map(p=>`<div><span>${esc(p.name)} <span class="quiet">quiet ${quietDays(p)}d</span></span><button class="btn ghost sm" data-goto="${esc(p.id)}">Open</button></div>`).join('');
+  }
+  $('#attn').addEventListener('click',e=>{ const b=e.target.closest('[data-goto]'); if(!b) return; showView('registry'); $('#filter-domain').value=''; $('#filter-status').value=''; renderBoard(); const c=$(`.card[data-id="${b.dataset.goto}"]`); if(c) c.scrollIntoView({block:'center'}); });
   function renderBoard(){
+    renderAttn();
     const fd=$('#filter-domain').value, fs=$('#filter-status').value, board=$('#board');
     if(!state.projects.length){ board.innerHTML='<div class="empty"><b>Registry is empty</b>Add the first project with "Park an idea".</div>'; return; }
     board.innerHTML = state.domains.map(d=>{
@@ -486,18 +520,24 @@ footer{font-family:var(--mono);font-size:11px;color:var(--ink-3);border-top:1px 
       return `<div class="domain" style="--dc:${DOMAIN_COLOR[d.id]||'var(--line)'}"><h3>${esc(d.name)} <span class="pri">${esc(d.priority)}</span><span class="path" title="${esc(d.path_mac)}">${esc(d.path_mac)}</span></h3><div class="cards">${rows.map(card).join('')}</div></div>`;
     }).join('') || '<div class="empty"><b>No projects match</b>Clear a filter.</div>';
   }
+  function quietDays(p){ return p.updated ? daysBetween(p.updated,todayStr) : null; }
   function card(p){
     const ro=canWrite===false; const opts=STATUSES.map(s=>`<option value="${s}" ${s===p.status?'selected':''}>${s}</option>`).join('');
-    return `<div class="card" data-id="${esc(p.id)}" style="--dc:${DOMAIN_COLOR[p.domain]||'var(--line)'}"><div class="top"><div class="name">${esc(p.name)}</div><select class="pill ${esc(p.status)}" data-f="status" ${ro?'disabled':''}>${opts}</select></div>
+    const hopts=HEALTH.map(h=>`<option value="${h}" ${h===(p.health||'')?'selected':''}>${h||'health?'}</option>`).join('');
+    const q=quietDays(p); const quiet = (q!==null && q>=QUIET_DAYS && ['active','ready','discovery'].includes(p.status)) ? `<span class="quiet">quiet ${q}d</span>` : '';
+    return `<div class="card ${p.needs_decision?'needs':''}" data-id="${esc(p.id)}" style="--dc:${DOMAIN_COLOR[p.domain]||'var(--line)'}"><div class="top"><div class="name">${esc(p.name)}</div><select class="pill ${esc(p.status)}" data-f="status" ${ro?'disabled':''}>${opts}</select></div>
+      <div class="controls"><select class="pill ${esc(p.health||'')}" data-f="health" ${ro?'disabled':''}>${hopts}</select><label class="flag"><input type="checkbox" data-f="needs_decision" ${p.needs_decision?'checked':''} ${ro?'disabled':''}>needs decision</label>${quiet}</div>
       <div class="kv"><span>Owner</span><div>${esc(p.owner)} ${fmtDue(p.due)}</div><span>Milestone</span><div>${esc(p.milestone)||'<i style="color:var(--ink-3)">none</i>'}</div>
       <span>Next</span><input data-f="next_action" value="${esc(p.next_action)}" placeholder="one physical action" ${ro?'readonly':''}><span>Due</span><input data-f="due" value="${esc(p.due)}" placeholder="YYYY-MM-DD" ${ro?'readonly':''}><span>Evidence</span><input data-f="evidence" value="${esc(p.evidence)}" placeholder="link or note when done" ${ro?'readonly':''}></div>
       <div class="act"><button class="btn ghost sm" data-promote="${esc(p.id)}" ${ro?'disabled':''}>Make this NOW</button><button class="btn ghost sm" data-slice="${esc(p.id)}">Slice it</button></div></div>`;
   }
   $('#board').addEventListener('change',e=>{
     const el=e.target, c=el.closest('.card'); if(!c||!db||!el.dataset.f) return;
-    const p=state.projects.find(x=>x.id===c.dataset.id); if(!p) return; const val=el.value.trim(); if(p[el.dataset.f]===val) return;
+    const p=state.projects.find(x=>x.id===c.dataset.id); if(!p) return;
+    if(el.dataset.f==='needs_decision'){ write(db.doc('projects/'+p.id), {needs_decision:el.checked, updated:todayStr}, 'update'); return; }
+    const val=el.value.trim(); if(p[el.dataset.f]===val) return;
     if(el.dataset.f==='due'&&val&&!/^\d{4}-\d{2}-\d{2}$/.test(val)){ el.value=p.due||''; return; }
-    if(el.dataset.f==='status') el.className='pill '+val;
+    if(el.dataset.f==='status'||el.dataset.f==='health') el.className='pill '+val;
     write(db.doc('projects/'+p.id), {[el.dataset.f]:val, updated:todayStr}, 'update');
   });
   $('#board').addEventListener('click',e=>{
@@ -518,7 +558,8 @@ footer{font-family:var(--mono);font-size:11px;color:var(--ink-3);border-top:1px 
   function weekKey(d){ const x=new Date(d+'T00:00:00'); const day=(x.getDay()+6)%7; x.setDate(x.getDate()-day); return localDate(x); }
   function renderLog(){
     const items=[...state.log].sort((a,b)=>(b.date+b.ts).localeCompare(a.date+a.ts));
-    $('#log').innerHTML = items.length ? items.map(l=>`<li><time>${esc(l.date)}</time><div><span class="tag">[${esc(l.domain)}] ${esc(l.type)}</span> · ${esc(l.text)}${l.evidence?` · <a href="${esc(l.evidence)}" target="_blank" rel="noopener">evidence</a>`:''}</div></li>`).join('') : '<li><time>—</time><div class="muted">Nothing logged yet. The first entry is usually "listed 3 items".</div></li>';
+    const who=l=> l.by==='claude' ? ' · claude' : (l.by_id ? ' · '+(names[l.by_id]||'someone') : '');
+    $('#log').innerHTML = items.length ? items.map(l=>`<li><time>${esc(l.date)}</time><div><span class="tag">[${esc(l.domain)}] ${esc(l.type)}${esc(who(l))}</span> · ${esc(l.text)}${l.evidence?` · <a href="${esc(l.evidence)}" target="_blank" rel="noopener">evidence</a>`:''}</div></li>`).join('') : '<li><time>—</time><div class="muted">Nothing logged yet. The first entry is usually "listed 3 items".</div></li>';
     const cutoff=localDate(new Date(Date.now()-7*86400000)); const recent=items.filter(l=>l.date>=cutoff); const count=t=>recent.filter(l=>l.type===t).length;
     const shipped=count('shipped')+count('listed')+count('sold');
     $('#c-shipped').textContent=shipped; $('#h-shipped').textContent=shipped; $('#c-listed').textContent=count('listed'); $('#c-sold').textContent=count('sold');
@@ -527,13 +568,15 @@ footer{font-family:var(--mono);font-size:11px;color:var(--ink-3);border-top:1px 
     // chart: last 8 weeks
     const weeks=[]; for(let i=7;i>=0;i--){ const d=new Date(); d.setDate(d.getDate()-7*i); weeks.push(weekKey(localDate(d))); }
     const counts=weeks.map(w=>items.filter(l=>['shipped','listed','sold'].includes(l.type)&&weekKey(l.date)===w).length);
-    const max=Math.max(3,...counts); const W=520,H=170,pl=28,pb=26,pt=12; const cw=(W-pl-8)/weeks.length;
+    const max=Math.max(TARGET_PER_WEEK+1,...counts); const W=520,H=170,pl=28,pb=26,pt=12; const cw=(W-pl-8)/weeks.length;
     const grid=[0,Math.ceil(max/2),max].map(v=>{ const y=pt+(H-pt-pb)*(1-v/max); return `<line class="grid" x1="${pl}" x2="${W-4}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}"/><text x="${pl-6}" y="${(y+3).toFixed(1)}" text-anchor="end">${v}</text>`; }).join('');
-    const bars=counts.map((c,i)=>{ const bh=(H-pt-pb)*(c/max); const x=pl+i*cw+3, w=cw-6, y=H-pb-bh; const cur=i===counts.length-1; return `<rect class="bar-fill ${cur?'':'dim'}" x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${w.toFixed(1)}" height="${bh.toFixed(1)}" rx="${c?3:0}"><title>week of ${weeks[i]}: ${c}</title></rect>${c?`<text class="lbl" x="${(x+w/2).toFixed(1)}" y="${(y-4).toFixed(1)}" text-anchor="middle">${c}</text>`:''}<text x="${(x+w/2).toFixed(1)}" y="${H-8}" text-anchor="middle">${weeks[i].slice(5)}</text>`; }).join('');
+    const ty=pt+(H-pt-pb)*(1-TARGET_PER_WEEK/max);
+    const target=`<line class="target" x1="${pl}" x2="${W-4}" y1="${ty.toFixed(1)}" y2="${ty.toFixed(1)}"/><text x="${W-6}" y="${(ty-4).toFixed(1)}" text-anchor="end">target ${TARGET_PER_WEEK}/wk</text>`;
+    const bars=target+counts.map((c,i)=>{ const bh=(H-pt-pb)*(c/max); const x=pl+i*cw+3, w=cw-6, y=H-pb-bh; const cur=i===counts.length-1; return `<rect class="bar-fill ${cur?(c<TARGET_PER_WEEK?'under':''):'dim'}" x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${w.toFixed(1)}" height="${bh.toFixed(1)}" rx="${c?3:0}"><title>week of ${weeks[i]}: ${c}</title></rect>${c?`<text class="lbl" x="${(x+w/2).toFixed(1)}" y="${(y-4).toFixed(1)}" text-anchor="middle">${c}</text>`:''}<text x="${(x+w/2).toFixed(1)}" y="${H-8}" text-anchor="middle">${weeks[i].slice(5)}</text>`; }).join('');
     $('#chart').innerHTML=`<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Shipped units per week, last 8 weeks">${grid}${bars}</svg>`;
     $('#chart-table').innerHTML='<tr><th>Week of</th><th>Shipped units</th></tr>'+weeks.map((w,i)=>`<tr><td>${w}</td><td>${counts[i]}</td></tr>`).join('');
   }
-  $('#addlog').addEventListener('submit',async e=>{ e.preventDefault(); if(!db) return; const entry={date:todayStr,ts:String(Date.now()),domain:$('#l-domain').value,type:$('#l-type').value,text:$('#l-text').value.trim(),evidence:$('#l-evidence').value.trim()}; if(!entry.text) return; await write(db.doc('meta/log'),{entries:[entry,...state.log].slice(0,400)}); $('#l-text').value=''; $('#l-evidence').value=''; });
+  $('#addlog').addEventListener('submit',async e=>{ e.preventDefault(); if(!db) return; const ts=String(Date.now()); const entry={date:todayStr,ts,domain:$('#l-domain').value,type:$('#l-type').value,text:$('#l-text').value.trim(),evidence:$('#l-evidence').value.trim(),by_id:uid||''}; if(!entry.text) return; await write(db.doc('log/'+todayStr+'-'+ts),entry); $('#l-text').value=''; $('#l-evidence').value=''; });
 
   // ---------- TOOLKIT ----------
   let timerId=null, timerEnd=0;
@@ -563,7 +606,7 @@ footer{font-family:var(--mono);font-size:11px;color:var(--ink-3);border-top:1px 
     if(modOn('daily-artifacts')){ const m=state.meta||{}; out.push(`<div class="mod"><h4>Morning brief <small>auto-filled</small></h4><div class="big">Day ${$('#dayno').textContent} · ${esc($('#primary').textContent)}</div><ul><li>ONE action: ${esc(m.next_action||'—')}</li><li>Where you stopped: ${esc(m.blocker?('blocker: '+m.blocker):'no blocker recorded')}</li><li>Start cue: open the file, write one line.</li></ul></div>`); }
     if(modOn('flight-plan')){ const e=(me.days[todayStr]||{}).energy||3; out.push(`<div class="mod"><h4>Flight plan <small>energy-slotted</small></h4><ol><li>${e>=4?'90-min block on the primary build':'25-min floor block'} · WHY: it is the only slot that moves the metric</li><li>Admin pile (15 min) · WHY: low-dopamine tasks fit the post-block dip</li><li>${e>=4?'Second 90-min block, or stop':'Stop. Floor day is a success.'}</li></ol><div class="muted">Add 50% to every estimate. Two blocks max, never a quota.</div></div>`); }
     if(modOn('focus-block')){ const fx=lib.exercises.filter(x=>x.module==='focus-block'); const x=fx.find(y=>/ritual|60/i.test(y.name))||fx[0]; if(x) out.push(`<div class="mod"><h4>Focus block <small>${esc(x.duration_min?x.duration_min+' min':'')}</small></h4><b>${esc(x.name)}</b><ol>${(x.steps||[]).map(s=>`<li>${esc(s)}</li>`).join('')}</ol></div>`); }
-    if(modOn('weekly-review')){ const items=[...state.log]; const cutoff=localDate(new Date(Date.now()-7*86400000)); const r=items.filter(l=>l.date>=cutoff); const sh=r.filter(l=>['shipped','listed','sold'].includes(l.type)).length; const open=state.projects.filter(p=>['active','ready'].includes(p.status)).length; out.push(`<div class="mod"><h4>Sunday review <small>20 min · ratio before advice</small></h4><div class="big">${sh} shipped · ${open} open loops</div><ol><li>Shipped units this week: ${sh}. Say the number out loud.</li><li>Keep/Kill each of the ${open} active or ready items. Kill means paused, not deleted.</li><li>One line for the Bio-File (what the week proved about you).</li><li>Did I expand the system? If yes, cut it back.</li><li>Write tomorrow's single action into the capsule.</li></ol></div>`); }
+    if(modOn('weekly-review')){ const items=[...state.log]; const cutoff=localDate(new Date(Date.now()-7*86400000)); const r=items.filter(l=>l.date>=cutoff); const sh=r.filter(l=>['shipped','listed','sold'].includes(l.type)).length; const openP=state.projects.filter(p=>['active','ready'].includes(p.status)); const open=openP.length; const quietest=openP.slice().sort((a,b)=>(quietDays(b)||0)-(quietDays(a)||0)).slice(0,3).map(p=>p.name.split(':')[0]+' ('+(quietDays(p)||0)+'d)').join('; ')||'none'; out.push(`<div class="mod"><h4>Sunday review <small>20 min · ratio before advice</small></h4><div class="big">${sh} shipped · ${open} open loops</div><ol><li>Shipped units this week: ${sh}. Say the number out loud.</li><li>Keep/Kill each of the ${open} active or ready items. Kill means paused, not deleted. Quietest first: ${esc(quietest)}</li><li>One line for the Bio-File (what the week proved about you).</li><li>Did I expand the system? If yes, cut it back.</li><li>Write tomorrow's single action into the capsule.</li></ol></div>`); }
     $('#mods').innerHTML = out.join('') || '<div class="empty"><b>No modules on</b>Switch some on in Settings.</div>';
     wireToolkit();
     renderBrowse();
@@ -571,7 +614,7 @@ footer{font-family:var(--mono);font-size:11px;color:var(--ink-3);border-top:1px 
   function wireToolkit(){
     const ut=$('#us-task'); if(ut){ ut.addEventListener('input',()=>{ const t=ut.value.trim(); const o=$('#us-out'); if(!t){ o.textContent='Type the task.'; return; } const ex=lib.exercises.filter(x=>modOn(x.module)&&/start|initiat|first|stuck|unstick|paralys/i.test((x.trigger||'')+' '+(x.name||''))); const x=pick(ex); const tp=pick(lib.tips.filter(y=>modOn(y.module)&&/cannot start|frozen|blank page/i.test(y.trigger||''))); const step=t.length>60?t.slice(0,60)+'…':t; o.innerHTML=`<div class="big">First physical step: open the thing "${esc(step)}" lives in. Do nothing else.</div>${tp?`<div class="tip" style="margin-top:8px"><span class="k">${esc(tp.trigger)}</span><div>${esc(tp.text)}<small>${esc(tp.source)}</small></div></div>`:''}${x?`<div class="item" style="margin-top:8px"><div class="h"><b>${esc(x.name)}</b><span class="src">${esc(x.source)}</span></div><ol>${(x.steps||[]).slice(0,5).map(s=>`<li>${esc(s)}</li>`).join('')}</ol></div>`:''}`; }); }
     const go=$('#timer-go'); if(go){ go.addEventListener('click',()=>{ clearInterval(timerId); timerEnd=Date.now()+120000; timerId=setInterval(()=>{ const s=Math.max(0,Math.round((timerEnd-Date.now())/1000)); $('#timer').textContent=Math.floor(s/60)+':'+pad(s%60); if(s<=0){ clearInterval(timerId); $('#timer').textContent='done'; } },250); }); $('#timer-stop').addEventListener('click',()=>{ clearInterval(timerId); $('#timer').textContent='2:00'; }); }
-    const pf=$('#pl-form'); if(pf){ pf.addEventListener('submit',async e=>{ e.preventDefault(); if(!db) return; const t=$('#pl-text').value.trim(); if(!t) return; await write(db.doc('meta/parking'),{items:[{date:todayStr,text:t},...(state.parking||[])].slice(0,100)}); $('#pl-text').value=''; }); }
+    const pf=$('#pl-form'); if(pf){ pf.addEventListener('submit',async e=>{ e.preventDefault(); if(!db) return; const t=$('#pl-text').value.trim(); if(!t) return; const ts=String(Date.now()); await write(db.doc('parking/'+todayStr+'-'+ts),{date:todayStr,ts,text:t,by_id:uid||''}); $('#pl-text').value=''; }); }
     const vt=$('#vals'); if(vt){ vt.addEventListener('change',e=>{ const el=e.target; me.values=me.values||{}; if(el.dataset.target){ me.values.target=el.dataset.target; } else if(el.dataset.v){ me.values[el.dataset.v]=me.values[el.dataset.v]||{}; me.values[el.dataset.v][el.dataset.k]=el.value; } saveMe(); }); }
     const lv=$('#lad-val'); if(lv){ const lad=()=>{ me.ladder=me.ladder||{rungs:['','','','',''],done:[false,false,false,false,false]}; return me.ladder; }; lv.addEventListener('change',()=>{ lad().value=lv.value.trim(); saveMe(); }); $$('[data-lad]').forEach(c=>c.addEventListener('change',()=>{ lad().done[Number(c.dataset.lad)]=c.checked; if(c.checked){ const r=todayRec(); r.mastery=true; r.mastery_text=r.mastery_text||('Climbed rung '+(Number(c.dataset.lad)+1)+' of the '+(me.ladder.value||'')+' ladder'); } saveMe(); renderReps(); })); $$('[data-ladt]').forEach(i=>i.addEventListener('change',()=>{ lad().rungs[Number(i.dataset.ladt)]=i.value.trim(); saveMe(); })); }
     const ef=$('#ev-form'); if(ef){ ef.addEventListener('submit',e=>{ e.preventDefault(); const b=$('#ev-belief').value.trim(); if(!b) return; me.evidence=(me.evidence||[]).concat([{date:todayStr,belief:b,str:$('#ev-str').value.trim(),against:$('#ev-against').value.trim(),rev:$('#ev-rev').value.trim()}]).slice(-50); saveMe(); renderMods(); }); }
@@ -594,6 +637,12 @@ footer{font-family:var(--mono);font-size:11px;color:var(--ink-3);border-top:1px 
     $('#mod-toggles').innerHTML = lib.modules.map(m=>`<label class="toggle"><input type="checkbox" data-mod="${esc(m.id)}" ${modOn(m.id)?'checked':''}><span><b>${esc(m.name)}</b><small>${esc(m.description)}</small><div class="src">${esc(m.book_or_source)}</div></span></label>`).join('');
     $('#opt-toggles').innerHTML = OPTS.map(([id,n,d])=>`<label class="toggle"><input type="checkbox" data-opt="${id}" ${optOn(id)?'checked':''}><span><b>${esc(n)}</b><small>${esc(d)}</small></span></label>`).join('');
   }
+  $('#export').addEventListener('click',async()=>{
+    const out={exported:new Date().toISOString(),domains:state.domains,sequence:state.sequence,now:state.meta,projects:state.projects,log:state.log,parking:state.parking};
+    const txt=JSON.stringify(out,null,2); const box=$('#export-box');
+    try{ await navigator.clipboard.writeText(txt); $('#export-note').textContent='Copied. Paste into CARL/registry/registry.json.'; }
+    catch(e){ box.hidden=false; box.value=txt; box.select(); $('#export-note').textContent='Clipboard blocked here; select the text below and copy.'; }
+  });
   $('#view-settings').addEventListener('change',e=>{ const el=e.target; me.settings=me.settings||{modules:{},opts:{}}; if(el.dataset.mod){ me.settings.modules=me.settings.modules||{}; me.settings.modules[el.dataset.mod]=el.checked; } else if(el.dataset.opt){ me.settings.opts=me.settings.opts||{}; me.settings.opts[el.dataset.opt]=el.checked; } else return; saveMe(); renderAll(); });
 
   // ---------- persistence ----------
@@ -625,8 +674,8 @@ footer{font-family:var(--mono);font-size:11px;color:var(--ink-3);border-top:1px 
     db.doc('meta/now').onSnapshot(s=>{ state.meta=s.exists?s.data():{}; renderMeta(); renderTip(); renderMods(); },onErr);
     db.doc('meta/registry').onSnapshot(s=>{ const d=s.exists?s.data():{}; state.domains=d.domains||[]; state.sequence=d.sequence||[]; renderDomainsSelects(); renderSeq(); renderBoard(); },onErr);
     db.collection('projects').onSnapshot(s=>{ state.projects=s.docs.map(d=>d.data()); renderBoard(); },onErr);
-    db.doc('meta/log').onSnapshot(s=>{ state.log=(s.exists&&s.data().entries)||[]; renderLog(); },onErr);
-    db.doc('meta/parking').onSnapshot(s=>{ state.parking=(s.exists&&s.data().items)||[]; renderMods(); },onErr);
+    db.collection('log').onSnapshot(async s=>{ state.log=s.docs.map(d=>d.data()); const ids=[...new Set(state.log.map(l=>l.by_id).filter(x=>x&&!names[x]))]; if(user&&ids.length){ try{ const ps=await user.profiles(ids); ids.forEach(i=>{ names[i]=(ps[i]&&ps[i].name)||'someone'; }); }catch(e){} } renderLog(); renderMods(); },onErr);
+    db.collection('parking').onSnapshot(s=>{ state.parking=s.docs.map(d=>d.data()).sort((a,b)=>(b.date+b.ts).localeCompare(a.date+a.ts)); renderMods(); },onErr);
     if(uid){ try{ meRef=db.doc('data/users/'+uid+'/adhd'); meRef.onSnapshot(s=>{ if(s.exists&&!meVersionLoaded){ const d=s.data(); if(d&&typeof d==='object'){ me=Object.assign(me, JSON.parse(JSON.stringify(d))); } } meVersionLoaded=true; renderAll(); },e=>console.error(e)); }catch(e){ console.error(e); } }
   }
   boot();
