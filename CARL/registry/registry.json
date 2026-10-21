@@ -1,0 +1,384 @@
+{
+  "schema": "lifeos-registry/2",
+  "updated": "2026-10-21",
+  "domains": [
+    {
+      "color": "pink",
+      "id": "resale-os",
+      "name": "Resale OS (Magpie & Mantis)",
+      "path_mac": "iCloud All Content/Projects/ResaleOS \u00b7 repo ~/git/ecosystem-repo-starters/resale-os",
+      "priority": "P1"
+    },
+    {
+      "color": "blue",
+      "id": "ai-adhd-os",
+      "name": "AI + ADHD OS (ADHD AI Lab)",
+      "path_mac": "iCloud All Content/Projects/yt-adhd-vault \u00b7 ~/Projects/youtube-intelligence-pipeline \u00b7 repo starters/ai-adhd-os",
+      "priority": "P2"
+    },
+    {
+      "color": "amber",
+      "id": "ai-studio",
+      "name": "AI Studio (book + consulting)",
+      "path_mac": "iCloud All Content/Projects/101 Ways to use AI wrong \u00b7 repo starters/ai-studio",
+      "priority": "P3"
+    },
+    {
+      "color": "violet",
+      "id": "cryptid-os",
+      "name": "Cryptid OS",
+      "path_mac": "iCloud All Content/Projects/yt-cryptid-vault \u00b7 repo starters/cryptid-os",
+      "priority": "parked"
+    },
+    {
+      "color": "coral",
+      "id": "investing-os",
+      "name": "Investing OS",
+      "path_mac": "repo starters/investing-research",
+      "priority": "parked"
+    },
+    {
+      "color": "green",
+      "id": "household",
+      "name": "Household (private)",
+      "path_mac": "life-os/private/ (gitignored)",
+      "priority": "maintain"
+    },
+    {
+      "id": "career",
+      "name": "Career (job search, consulting presence)",
+      "path_mac": "~/Projects/careerops",
+      "priority": "maintain",
+      "color": "slate"
+    },
+    {
+      "id": "creative",
+      "name": "Creative (art, music, satire)",
+      "path_mac": "iCloud Documents/Areas/creative",
+      "priority": "parked",
+      "color": "plum"
+    }
+  ],
+  "sequence": [
+    {
+      "domain": "resale-os",
+      "end": "2026-10-29",
+      "exit_criteria": "Accounts steps 1\u201313 done; BIN/SKU adopted; 20-photo field test passed; 10 live listings with SKUs in the Tracker; one SKU through the comps pipeline",
+      "label": "Magpie & Mantis / Resale OS",
+      "owner": "nicole+carl",
+      "slot": 1,
+      "start": "2026-10-15"
+    },
+    {
+      "domain": "ai-adhd-os",
+      "end": "2026-11-26",
+      "exit_criteria": "Episode 1 published; packaging (title+thumb+intro) tested on 3 ideas; outlier log started",
+      "label": "ADHD AI Lab (YT - AI for ADHD)",
+      "owner": "carl",
+      "slot": 2,
+      "start": "2026-10-30"
+    },
+    {
+      "domain": "ai-studio",
+      "end": "2026-12-31",
+      "exit_criteria": "Title locked; outline locked; 10 entries drafted; sales page draft",
+      "label": "101 Ways to Use AI Wrong (book)",
+      "owner": "carl",
+      "slot": 3,
+      "start": "2026-11-27"
+    },
+    {
+      "domain": "ai-studio",
+      "end": "",
+      "exit_criteria": "Gate: 1+ AI/Anthropic certification complete; one packaged offer; first paid engagement",
+      "gate": "certification",
+      "label": "AI Consulting side income",
+      "owner": "carl",
+      "slot": 4,
+      "start": "conditional"
+    }
+  ],
+  "projects": [
+    {
+      "domain": "ai-studio",
+      "due": "2026-12-05",
+      "evidence": "iCloud Projects/101 Ways to use AI wrong; starters/ai-studio/publishing/100-ways-you-use-ai-wrong",
+      "id": "book-ai-wrong",
+      "milestone": "Title locked; outline locked",
+      "name": "101 Ways to Use AI Wrong (book)",
+      "next_action": "Confirm title (folder: '101 Ways to use AI wrong'; docx: '100_Better_Ways_to_Use_AI'; handoff: '100 Ways You Use AI Wrong'); locate the current draft",
+      "owner": "carl",
+      "status": "idea",
+      "updated": "2026-10-15"
+    },
+    {
+      "domain": "cryptid-os",
+      "due": "",
+      "evidence": "",
+      "id": "cryptid-corpus",
+      "milestone": "Cited corpus prototype",
+      "name": "Sourced encounter corpus",
+      "next_action": "Parked until slot 2 ships",
+      "owner": "carl",
+      "status": "paused",
+      "updated": "2026-10-15"
+    },
+    {
+      "domain": "household",
+      "due": "",
+      "evidence": "",
+      "id": "homelab-m1pro",
+      "milestone": "Verified restore, then erased and reachable headless",
+      "name": "M1 Pro backup, verify, erase, headless AI host",
+      "next_action": "Parked; not required for Resale OS MVP",
+      "owner": "carl",
+      "status": "paused",
+      "updated": "2026-10-15"
+    },
+    {
+      "domain": "household",
+      "due": "2026-10-22",
+      "evidence": "",
+      "id": "lifeos-adopt",
+      "milestone": "7 consecutive days of NOW.md updates",
+      "name": "Life OS adoption (this repo)",
+      "next_action": "Answer QUESTIONS.md; git add + commit in ~/git/ecosystem-repo-starters/life-os",
+      "owner": "carl",
+      "status": "active",
+      "updated": "2026-10-15"
+    },
+    {
+      "domain": "resale-os",
+      "due": "2026-10-22",
+      "evidence": "ResaleOS/reference/resaleos-accounts-checklist.md (step 1 done 2026-10-14)",
+      "id": "mm-accounts",
+      "milestone": "Steps 1\u201313 done (domain, Gmail, hello@, Instagram, FB Page, eBay email+rename, Etsy, OfferUp)",
+      "name": "Accounts checklist (19 steps): identity, handles, marketplaces",
+      "next_action": "Step 3: create magpieandmantis@gmail.com with 2FA, backup codes to the shared vault",
+      "owner": "carl",
+      "status": "active",
+      "updated": "2026-10-15"
+    },
+    {
+      "domain": "resale-os",
+      "due": "2026-10-18",
+      "evidence": "ResaleOS/BIN-SKU.md (proposed 2026-09-28, on hold pending the name, which is now decided)",
+      "id": "mm-bin-sku",
+      "milestone": "Convention marked DECIDED; first bins labeled; Tracker uses it",
+      "name": "Adopt BIN/SKU convention v1 (SKU 10001+, BIN CC-NN)",
+      "next_action": "Read BIN-SKU.md together (10 min); say yes or change the code table; label 3 bins",
+      "owner": "nicole+carl",
+      "status": "ready",
+      "updated": "2026-10-15"
+    },
+    {
+      "domain": "resale-os",
+      "due": "2026-10-18",
+      "evidence": "Tracker sheet in use; comps pipeline bound to it; v5 build-out recommends SQLite+sqlite-vec on the mini (not Postgres)",
+      "id": "mm-canonical-store",
+      "milestone": "One canonical store named in DATA_CONTRACT.md with a cutover rule",
+      "name": "Canonical item record: Tracker Sheet vs Replit app vs Mac-mini SQLite",
+      "next_action": "Decide: ResaleOS_Reseller_Tracker (Google Sheet) stays canonical through 2026-12-31; Replit app and SQLite are not systems of record until a dated cutover",
+      "owner": "carl",
+      "status": "discovery",
+      "updated": "2026-10-15"
+    },
+    {
+      "domain": "resale-os",
+      "due": "2026-10-25",
+      "evidence": "v5 IOS_APP_SPEC exists (58h to MVP) but is out of scope this window",
+      "id": "mm-field-capture",
+      "milestone": "20 photos at one sale with airplane mode toggled twice: zero lost originals, SKU on every item",
+      "name": "Nicole rapid-capture field test (phone tools, no new app)",
+      "next_action": "At the next sale: shoot 20 items with the Camera app, one SKU card per item in frame; note the most annoying moment",
+      "owner": "nicole",
+      "status": "ready",
+      "updated": "2026-10-15"
+    },
+    {
+      "domain": "resale-os",
+      "due": "2026-10-29",
+      "evidence": "",
+      "id": "mm-first-listings",
+      "milestone": "10 Tracker rows with status listed, SKU, cost, list price, platform",
+      "name": "First 10 items listed with SKUs in the Tracker",
+      "next_action": "List 3 items already on hand on askagoat this week; put SKU BIN in Custom label",
+      "owner": "nicole",
+      "status": "ready",
+      "updated": "2026-10-15"
+    },
+    {
+      "domain": "resale-os",
+      "due": "",
+      "evidence": "ResaleOS_Build_Out_Package_v5/",
+      "id": "mm-ios-app",
+      "milestone": "T-01 \u2192 T-16 field-ready MVP",
+      "name": "Native iOS capture app + Mac-mini service (v5 spec, 23 tasks, 82h)",
+      "next_action": "Parked until 10 listings and the field test prove the manual loop; then decide DEC-01..05",
+      "owner": "carl",
+      "status": "paused",
+      "updated": "2026-10-15"
+    },
+    {
+      "domain": "resale-os",
+      "due": "2026-10-29",
+      "evidence": "accounts checklist steps 14\u201319; DBA publication takes 4\u20136 weeks",
+      "id": "mm-legal-tax",
+      "milestone": "EIN issued; DBA filed; business checking open",
+      "name": "Tax status \u2192 EIN \u2192 DBA \u2192 business checking \u2192 eBay Business",
+      "next_action": "Step 14: settle partnership vs sole-proprietor with a tax preparer (Sean can advise); it sets the EIN type",
+      "owner": "carl",
+      "status": "ready",
+      "updated": "2026-10-15"
+    },
+    {
+      "domain": "resale-os",
+      "due": "2026-10-22",
+      "evidence": "ResaleOS/web; ResaleOS_Plan.md status board",
+      "id": "mm-replit-app",
+      "milestone": "Prompt A verified (golden test passes, build:artifact runs); Prompt B decision",
+      "name": "ResaleOS web app (Replit, localStorage, no backend)",
+      "next_action": "Open the Replit report for Prompt A (sent 2026-10-03); record pass/fail; hold Prompt B until BIN/SKU is decided",
+      "owner": "carl",
+      "status": "discovery",
+      "updated": "2026-10-15"
+    },
+    {
+      "domain": "resale-os",
+      "due": "2026-10-22",
+      "evidence": "reference/resaleos-comps-playbook.md v1 (2026-10-06); v5 RESEARCH_FINDINGS: eBay Finding API dead Feb 2025, sold search behind login since 2026-07-22",
+      "id": "mm-sold-comps",
+      "milestone": "One SKU goes needs_comps \u2192 comps_ready with median, range, N",
+      "name": "Sold-comp pipeline: verify Spark comps or switch to CompSniper",
+      "next_action": "Check whether ResaleComps.gs + Spark tasks are installed in the Tracker; if not, install per comps playbook \u00a72 or route via the CompSniper connector",
+      "owner": "carl",
+      "status": "discovery",
+      "updated": "2026-10-15"
+    },
+    {
+      "domain": "ai-studio",
+      "due": "",
+      "evidence": "",
+      "id": "studio-certs",
+      "milestone": "One certification complete",
+      "name": "AI / Anthropic certifications",
+      "next_action": "List the certifications that exist and pick one with a date",
+      "owner": "carl",
+      "status": "idea",
+      "updated": "2026-10-15"
+    },
+    {
+      "domain": "ai-studio",
+      "due": "",
+      "evidence": "",
+      "id": "studio-consulting-offer",
+      "milestone": "One packaged offer + price",
+      "name": "AI consulting offer (local businesses)",
+      "next_action": "Blocked by studio-certs gate",
+      "owner": "carl",
+      "status": "idea",
+      "updated": "2026-10-15"
+    },
+    {
+      "domain": "ai-adhd-os",
+      "due": "2026-11-12",
+      "evidence": "Working name ADHD AI Lab, @ADHDAILab; Subscribr channel 63339 created 2026-10-10",
+      "id": "yt-episode-1",
+      "milestone": "Published on YouTube",
+      "name": "ADHD AI Lab \u2014 Episode 1",
+      "next_action": "Write the title + thumbnail text + 15-second promise for 3 candidate ideas in one file",
+      "owner": "carl",
+      "status": "ready",
+      "updated": "2026-10-15"
+    },
+    {
+      "domain": "ai-adhd-os",
+      "due": "2026-11-05",
+      "evidence": "",
+      "id": "yt-icon-method",
+      "milestone": "Source confirmed; working adaptation written",
+      "name": "Verify ICON / Shane Hummus method provenance",
+      "next_action": "Find the primary source for the method name",
+      "owner": "carl",
+      "status": "idea",
+      "updated": "2026-10-15"
+    },
+    {
+      "domain": "ai-adhd-os",
+      "due": "2026-11-05",
+      "evidence": "yt-adhd-vault 5-stage pipeline + ~/Projects/youtube-intelligence-pipeline exist; all output/ folders empty",
+      "id": "yt-outlier-library",
+      "milestone": "25 outlier videos logged with why-it-worked notes",
+      "name": "Outlier research library (run the existing pipeline)",
+      "next_action": "Run yt-adhd-vault stage 01 against _config/channels.yaml for the 8 niche competitors; outputs are currently empty",
+      "owner": "carl",
+      "status": "idea",
+      "updated": "2026-10-15"
+    },
+    {
+      "id": "infra-secure-ops",
+      "domain": "household",
+      "name": "Minimum secure ops: MFA on accounts, encrypted backup, one restore test",
+      "status": "ready",
+      "owner": "carl",
+      "milestone": "Restore test passes for one record + one original photo + one context file",
+      "next_action": "Turn on FileVault on the daily driver and confirm MFA on Google, GitHub, eBay",
+      "due": "2026-11-05",
+      "evidence": "Handoff playbook step 4: gate before real resale data lands anywhere",
+      "updated": "2026-10-21"
+    },
+    {
+      "id": "career-ops",
+      "domain": "career",
+      "name": "CareerOps: LinkedIn headline/About, consulting one-pager, certification dates",
+      "status": "paused",
+      "owner": "carl",
+      "milestone": "LinkedIn updated; one-pager has a working contact",
+      "next_action": "Verify exact names and dates of Datadog, Grafana, AppDynamics certifications",
+      "due": "",
+      "evidence": "NOW.md capture 2026-10-10",
+      "updated": "2026-10-21"
+    },
+    {
+      "id": "studio-house-of-carl",
+      "domain": "ai-studio",
+      "name": "House of Carl portfolio site (Sites preview)",
+      "status": "idea",
+      "owner": "carl",
+      "milestone": "Private preview with projects index and gallery",
+      "next_action": "",
+      "due": "",
+      "evidence": "PLAN.md in handoff",
+      "updated": "2026-10-21"
+    },
+    {
+      "id": "creative-inverted-news",
+      "domain": "creative",
+      "name": "Inverted News (political-art app + Atlas)",
+      "status": "paused",
+      "owner": "carl",
+      "milestone": "",
+      "next_action": "",
+      "due": "",
+      "evidence": "OS_REPO_TOPOLOGY.md",
+      "updated": "2026-10-21"
+    },
+    {
+      "id": "adhd-task-resumption",
+      "domain": "ai-adhd-os",
+      "name": "Task-resumption prosthetic (ADH-002)",
+      "status": "idea",
+      "owner": "carl",
+      "milestone": "",
+      "next_action": "",
+      "due": "",
+      "evidence": "Handoff: sub-lane of AI + ADHD OS; the Control Room capsule is the v0",
+      "updated": "2026-10-21"
+    }
+  ],
+  "notes": [
+    "Slot = focus window; exit criteria = finish line (handoff digest e1)",
+    "Book title aliases: '101 AI Mistakes' / '100 Ways You Use AI Wrong \u2014 and How to Fix It' until Carl confirms",
+    "infra-secure-ops is a cross-cutting gate with no slot"
+  ]
+}
