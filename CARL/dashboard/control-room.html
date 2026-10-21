@@ -1,0 +1,634 @@
+<title>Life OS Control Room</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an operator's console with a re-entry capsule up front. Five views behind a tab strip; stencil labels, tabular numerals, one signal accent, domain hues on the registry. ADHD toolkit modules switch on and off per viewer. */
+:root{
+  --bg:#eef0ee; --panel:#f8f9f7; --ink:#1b1f1d; --ink-2:#4a524d; --ink-3:#7c857f; --line:#cfd5d0; --line-2:#e1e6e2;
+  --accent:#d9541e; --accent-ink:#ffffff; --accent-soft:#fbe6dc; --ok:#2f7d4f; --warn:#b7790f; --crit:#b3261e;
+  --d-resale:#c2437a; --d-adhd:#2d6cb5; --d-studio:#b8860b; --d-cryptid:#6c4fb3; --d-invest:#c75443; --d-house:#3b8a5c;
+  --display:"Archivo Narrow","Arial Narrow",system-ui,sans-serif; --body:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#161a18; --panel:#1f2422; --ink:#e8ebe8; --ink-2:#b4bcb6; --ink-3:#7f8882; --line:#363d39; --line-2:#2a302d;
+  --accent:#ff7a3d; --accent-ink:#1b1f1d; --accent-soft:#3a2418; --ok:#5fc08a; --warn:#e0a63a; --crit:#f0665c;
+  --d-resale:#e6699d; --d-adhd:#6aa2e6; --d-studio:#e0b53d; --d-cryptid:#a68de6; --d-invest:#ef8070; --d-house:#6fc08f; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#161a18; --panel:#1f2422; --ink:#e8ebe8; --ink-2:#b4bcb6; --ink-3:#7f8882; --line:#363d39; --line-2:#2a302d;
+  --accent:#ff7a3d; --accent-ink:#1b1f1d; --accent-soft:#3a2418; --ok:#5fc08a; --warn:#e0a63a; --crit:#f0665c;
+  --d-resale:#e6699d; --d-adhd:#6aa2e6; --d-studio:#e0b53d; --d-cryptid:#a68de6; --d-invest:#ef8070; --d-house:#6fc08f; color-scheme:dark }
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:14px;line-height:1.45;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px 56px;font-variant-numeric:tabular-nums}
+.wrap{max-width:1280px;margin:0 auto;display:grid;gap:14px}
+h1,h2,h3,h4{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:.01em}
+h1{font-size:28px;font-weight:700;text-transform:uppercase}
+h2{font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2)}
+h3{font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+h4{font-size:15px;font-weight:600}
+p{margin:0}
+a{color:var(--accent)}
+.eyebrow{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3)}
+header{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:flex-end;justify-content:space-between;border-bottom:2px solid var(--ink);padding-bottom:10px}
+header .meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+header .meta b{color:var(--ink);font-weight:500}
+nav.tabs{display:flex;gap:4px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+nav.tabs button{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:transparent;border:0;border-bottom:3px solid transparent;color:var(--ink-2);padding:8px 12px;cursor:pointer;margin-bottom:-1px}
+nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+nav.tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.view{display:grid;gap:14px}
+.panel{background:var(--panel);border:1px solid var(--line);padding:14px 16px;min-width:0}
+.panel>h2{margin-bottom:10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.g2{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:14px}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+@media (max-width:860px){.g2{grid-template-columns:1fr}}
+.btn{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:var(--ink);color:var(--bg);border:1px solid var(--ink);padding:7px 12px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.sm{padding:4px 8px;font-size:11px}
+.btn:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn:disabled{opacity:.5;cursor:default}
+input,textarea,select{font:inherit;font-size:13px;color:var(--ink);background:var(--bg);border:1px solid var(--line);padding:7px 8px;min-width:0}
+textarea{resize:vertical;width:100%}
+.row{display:grid;grid-template-columns:110px 1fr;gap:6px 10px;align-items:start;margin-top:8px}
+.row label{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);padding-top:9px}
+.row input,.row textarea{width:100%}
+/* capsule */
+.capsule{border-left:6px solid var(--accent)}
+.capsule .action{font-family:var(--display);font-size:24px;font-weight:600;line-height:1.15;margin:4px 0 8px}
+.capsule .why{color:var(--ink-2);font-size:13px;margin-bottom:8px}
+.capsule .guard{border:1px dashed var(--crit);color:var(--crit);padding:6px 8px;font-family:var(--mono);font-size:12px;margin:8px 0}
+.capsule .floor{background:var(--accent-soft);padding:8px 10px;font-size:13px;margin-top:6px}
+.energy{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.energy button{width:34px;height:34px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-family:var(--display);font-size:16px;font-weight:600;cursor:pointer}
+.energy button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.energy .read{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+details.editor{margin-top:10px}
+details.editor summary{cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+/* quotes / tips */
+.quote{border-top:2px solid var(--ink);padding-top:10px;display:grid;gap:6px}
+.quote blockquote{margin:0;font-family:var(--display);font-size:19px;font-weight:500;line-height:1.3}
+.quote cite{font-family:var(--mono);font-size:11px;color:var(--ink-3);font-style:normal}
+.tip{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;padding:10px 12px;border:1px solid var(--line);background:var(--bg)}
+.tip .k{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);padding-top:3px;white-space:nowrap}
+.tip small{display:block;color:var(--ink-3);font-family:var(--mono);font-size:11px;margin-top:4px}
+/* rep of the day */
+.reps{display:grid;gap:6px}
+.rep{display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:start;padding:8px 0;border-top:1px solid var(--line-2)}
+.rep:first-child{border-top:0}
+.rep input[type=checkbox]{width:20px;height:20px;margin:1px 0 0;accent-color:var(--accent)}
+.rep b{font-weight:600}
+.rep .m{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.rep input[type=text]{width:100%;margin-top:4px;padding:4px 6px;font-size:13px}
+.streak{display:flex;gap:4px;flex-wrap:wrap;align-items:center;margin-top:8px}
+.streak i{width:14px;height:14px;border:1px solid var(--line);background:var(--bg);display:inline-block}
+.streak i.d{background:var(--ok);border-color:var(--ok)}
+.streak i.t{outline:2px solid var(--accent);outline-offset:1px}
+.streak span{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-left:6px}
+.mood{display:flex;gap:4px}
+.mood button{width:28px;height:28px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-family:var(--mono);font-size:12px;cursor:pointer}
+.mood button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+/* sequence */
+.seq{display:grid;gap:8px}
+.slot{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:start;padding:8px 0;border-top:1px solid var(--line-2)}
+.slot:first-child{border-top:0;padding-top:0}
+.slot .n{font-family:var(--display);font-size:20px;font-weight:700;color:var(--ink-3);line-height:1}
+.slot.live .n{color:var(--accent)}
+.slot .t{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.slot .t b{font-weight:600}
+.slot .t span{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.bar{position:relative;height:8px;background:var(--line-2);margin:6px 0 4px;overflow:hidden}
+.bar i{position:absolute;top:0;bottom:0;left:0;background:var(--dc,var(--ink-3));opacity:.85}
+.bar u{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--accent)}
+.slot .x{font-size:12px;color:var(--ink-2)}
+/* registry */
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.domain{margin-top:14px}
+.domain h3{display:flex;align-items:center;gap:8px;padding-bottom:6px;border-bottom:2px solid var(--dc,var(--line))}
+.domain h3 .pri{font-family:var(--mono);font-size:11px;color:var(--ink-3);font-weight:400;letter-spacing:.1em}
+.domain h3 .path{font-family:var(--mono);font-size:11px;color:var(--ink-3);font-weight:400;margin-left:auto;text-transform:none;letter-spacing:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:50%}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:10px}
+.card{border:1px solid var(--line);border-left:4px solid var(--dc,var(--line));background:var(--bg);padding:10px 12px;display:grid;gap:6px;min-width:0}
+.card .top{display:flex;gap:8px;align-items:flex-start;justify-content:space-between}
+.card .name{font-weight:600;line-height:1.25}
+.card .kv{display:grid;grid-template-columns:72px 1fr;gap:3px 8px;font-size:13px}
+.card .kv span{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);padding-top:2px}
+.card .kv input{width:100%;font-size:13px;background:transparent;border:0;border-bottom:1px dashed var(--line);padding:1px 0}
+.card .kv input:focus{outline:0;border-bottom:1px solid var(--accent)}
+.card .act{display:flex;gap:6px;justify-content:flex-end}
+.pill{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);padding:2px 6px;background:var(--panel);color:var(--ink-2);appearance:none;cursor:pointer}
+.pill.active{border-color:var(--ok);color:var(--ok)}
+.pill.ready{border-color:var(--accent);color:var(--accent)}
+.pill.paused,.pill.archived{opacity:.6}
+.pill.shipped{background:var(--ok);color:#fff;border-color:var(--ok)}
+.due{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.due.over{color:var(--crit)}
+.due.soon{color:var(--warn)}
+/* log */
+.counters{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.counters div{border:1px solid var(--line);padding:8px 10px;background:var(--bg)}
+.counters b{display:block;font-family:var(--display);font-size:24px;font-weight:700;line-height:1}
+.counters span{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3)}
+.log{list-style:none;margin:0;padding:0;display:grid;gap:6px;max-height:420px;overflow:auto}
+.log li{display:grid;grid-template-columns:84px 1fr;gap:8px;font-size:13px;border-top:1px solid var(--line-2);padding-top:6px}
+.log li time{font-family:var(--mono);font-size:11px;color:var(--ink-3);padding-top:2px}
+.log li .tag{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2)}
+.addlog{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.addlog .full{grid-column:1/-1}
+.chart{width:100%;height:auto;display:block}
+.chart text{font-family:var(--mono);font-size:10px;fill:var(--ink-3)}
+.chart .bar-fill{fill:var(--accent)}
+.chart .bar-fill.dim{fill:var(--line)}
+.chart .grid{stroke:var(--line-2);stroke-width:1}
+.chart .lbl{fill:var(--ink);font-size:11px}
+/* toolkit */
+.mods{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.mod{border:1px solid var(--line);background:var(--bg);padding:12px 14px;display:grid;gap:8px;min-width:0;align-content:start}
+.mod h4{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.mod h4 small{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:400}
+.mod ol,.mod ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:13px}
+.mod .big{font-family:var(--display);font-size:20px;font-weight:600;line-height:1.2}
+.timer{font-family:var(--display);font-size:40px;font-weight:700;line-height:1;letter-spacing:.02em}
+.list{display:grid;gap:8px}
+.item{border:1px solid var(--line);background:var(--bg);padding:8px 10px;font-size:13px;display:grid;gap:4px}
+.item .h{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.item .h b{font-weight:600}
+.item .src{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.item .dnd{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px}
+.item .dnd div b{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.item ol,.item ul{margin:4px 0 0;padding-left:18px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{text-align:left;padding:5px 6px;border-bottom:1px solid var(--line-2);vertical-align:top}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
+td select,td input{width:100%;padding:3px 4px;font-size:12px}
+.tbl{overflow-x:auto}
+/* settings */
+.toggle{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:start;padding:8px 0;border-top:1px solid var(--line-2)}
+.toggle:first-child{border-top:0}
+.toggle input{width:40px;height:22px;appearance:none;background:var(--line);border:0;position:relative;cursor:pointer;border-radius:11px;margin:2px 0 0}
+.toggle input::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--panel);transition:left .15s}
+.toggle input:checked{background:var(--ok)}
+.toggle input:checked::after{left:21px}
+.toggle b{display:block;font-weight:600}
+.toggle small{color:var(--ink-2);font-size:12px}
+.toggle .src{font-family:var(--mono);font-size:10px;color:var(--ink-3);letter-spacing:.06em}
+.status-line{font-family:var(--mono);font-size:11px;color:var(--ink-3);display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.status-line .dot{width:8px;height:8px;border-radius:50%;background:var(--ink-3);display:inline-block;margin-right:6px}
+.status-line.ok .dot{background:var(--ok)}
+.status-line.err .dot{background:var(--crit)}
+.empty{border:1px dashed var(--line);padding:16px;color:var(--ink-2);font-size:13px}
+.empty b{display:block;font-family:var(--display);font-size:16px;color:var(--ink);margin-bottom:4px}
+.muted{color:var(--ink-3);font-size:12px}
+footer{font-family:var(--mono);font-size:11px;color:var(--ink-3);border-top:1px solid var(--line);padding-top:10px;display:flex;flex-wrap:wrap;gap:6px 20px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:600px){.counters{grid-template-columns:repeat(2,1fr)}.row{grid-template-columns:1fr}.row label{padding-top:0}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">Carl &amp; Nicole · control room</div>
+      <h1>Life OS</h1>
+    </div>
+    <div class="meta">
+      <div>TODAY <b id="today">—</b></div>
+      <div>WORKING DAY <b id="dayno">—</b></div>
+      <div>PRIMARY BUILD <b id="primary">—</b></div>
+      <div>DAYS LEFT IN SLOT <b id="daysleft">—</b></div>
+      <div>SHIPPED · 7D <b id="h-shipped">0</b></div>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" id="tabs">
+    <button role="tab" data-view="now" aria-selected="true">Now</button>
+    <button role="tab" data-view="registry">Registry</button>
+    <button role="tab" data-view="log">Log</button>
+    <button role="tab" data-view="toolkit">Toolkit</button>
+    <button role="tab" data-view="settings">Settings</button>
+  </nav>
+
+  <div class="status-line" id="conn"><span class="dot"></span><span id="conn-text">Connecting to the shared store…</span><span id="who"></span></div>
+
+  <!-- NOW -->
+  <section class="view" id="view-now">
+    <div class="g2">
+      <div class="panel capsule">
+        <h2>Re-entry capsule <span class="eyebrow" id="cap-when">last touched —</span></h2>
+        <div class="eyebrow">Single next physical action</div>
+        <div class="action" id="now-action">—</div>
+        <div class="why" id="now-why"></div>
+        <div class="guard" id="now-guard" hidden></div>
+        <div class="energy" id="energy">
+          <span class="eyebrow">Energy</span>
+          <button data-e="1">1</button><button data-e="2">2</button><button data-e="3">3</button><button data-e="4">4</button><button data-e="5">5</button>
+          <span class="read" id="energy-read">unset · tap today's level</span>
+        </div>
+        <div class="floor" id="now-floor" hidden></div>
+        <details class="editor">
+          <summary>Edit the capsule</summary>
+          <div class="row">
+            <label for="f-action">Next action</label><textarea id="f-action" rows="2"></textarea>
+            <label for="f-blocker">Blocker</label><input id="f-blocker">
+            <label for="f-floor">Floor task</label><input id="f-floor">
+            <label for="f-guard">Guardrail</label><input id="f-guard" placeholder="Do not open … until …">
+            <label for="f-north">North star</label><textarea id="f-north" rows="2"></textarea>
+          </div>
+          <div class="controls" style="margin-top:8px"><button class="btn primary" id="save-now" disabled>Save capsule</button><span class="muted">Saves to the shared store; Nicole sees it too.</span></div>
+        </details>
+      </div>
+      <div class="view" style="gap:14px">
+        <div class="panel" id="p-rep" hidden>
+          <h2>Rep of the day <span class="eyebrow">ANCHOR · standing daily rep · ~6 min</span></h2>
+          <div class="reps" id="reps"></div>
+          <div class="streak" id="streak"></div>
+        </div>
+        <div class="panel" id="p-tip" hidden>
+          <h2>For right now <button class="btn ghost sm" id="tip-next">Another</button></h2>
+          <div id="tip"></div>
+        </div>
+      </div>
+    </div>
+    <div class="g2">
+      <div class="panel">
+        <h2>Sequence <span class="eyebrow">one primary build at a time</span></h2>
+        <div class="seq" id="seq"></div>
+      </div>
+      <div class="panel" id="p-quote" hidden>
+        <h2>From the shelf <button class="btn ghost sm" id="quote-next">Another</button></h2>
+        <div class="quote" id="quote"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTRY -->
+  <section class="view" id="view-registry" hidden>
+    <div class="panel">
+      <h2>Registry <span class="controls">
+        <select id="filter-domain"><option value="">All domains</option></select>
+        <select id="filter-status"><option value="">All statuses</option></select>
+        <button class="btn ghost" id="add-project">+ Park an idea</button>
+      </span></h2>
+      <div id="board"><div class="empty"><b>Loading the registry</b>Projects appear here grouped by domain. Change a status with the pill; edit a next action inline; both save to the shared store.</div></div>
+    </div>
+  </section>
+
+  <!-- LOG -->
+  <section class="view" id="view-log" hidden>
+    <div class="g2">
+      <div class="panel">
+        <h2>Activity log <span class="eyebrow">newest first</span></h2>
+        <div class="counters" id="counters">
+          <div><b id="c-shipped">0</b><span>shipped · 7d</span></div>
+          <div><b id="c-listed">0</b><span>listed · 7d</span></div>
+          <div><b id="c-sold">0</b><span>sold · 7d</span></div>
+          <div><b id="c-money">$0</b><span>money in · 7d</span></div>
+        </div>
+        <ul class="log" id="log"></ul>
+        <form class="addlog" id="addlog">
+          <select id="l-domain"></select>
+          <select id="l-type">
+            <option>shipped</option><option>listed</option><option>sold</option><option>money-in</option><option>money-out</option><option>decision</option><option>status</option><option>blocker</option><option>learned</option>
+          </select>
+          <input class="full" id="l-text" placeholder="What happened (one line). For sold / money-in, include the dollar amount, e.g. $42" required>
+          <input id="l-evidence" placeholder="Evidence / link (optional)">
+          <button class="btn primary" type="submit" id="l-submit" disabled>Log it</button>
+        </form>
+      </div>
+      <div class="panel">
+        <h2>Shipped units per week <span class="eyebrow">the one metric</span></h2>
+        <p class="muted" style="margin-bottom:8px">Shipped + listed + sold entries, by week. Output, not potential.</p>
+        <div id="chart"></div>
+        <div class="tbl" style="margin-top:10px"><table id="chart-table"></table></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLKIT -->
+  <section class="view" id="view-toolkit" hidden>
+    <div class="panel">
+      <h2>Toolkit <span class="eyebrow">modules you switched on · change them in Settings</span></h2>
+      <div class="mods" id="mods"></div>
+    </div>
+    <div class="panel" id="p-browse">
+      <h2>Exercises and protocols <span class="controls"><select id="br-trigger"><option value="">Any situation</option></select><select id="br-module"><option value="">Any module</option></select></span></h2>
+      <div class="list" id="browse"></div>
+    </div>
+  </section>
+
+  <!-- SETTINGS -->
+  <section class="view" id="view-settings" hidden>
+    <div class="g2">
+      <div class="panel">
+        <h2>ADHD modules <span class="eyebrow">per viewer · saved privately</span></h2>
+        <p class="muted" style="margin-bottom:8px">Each module adds one thing to Now or the Toolkit. Off means gone, not greyed out. The rep workbook rule applies: do not expand this page; shrink the rep.</p>
+        <div id="mod-toggles"></div>
+      </div>
+      <div class="view">
+        <div class="panel">
+          <h2>Display</h2>
+          <div id="opt-toggles"></div>
+        </div>
+        <div class="panel">
+          <h2>About this page</h2>
+          <p class="muted">Shared store: registry, capsule, log, parking lot. Private per viewer: modules, reps, values, ladder, evidence, settings. Source of truth for files: <code>cbrahms/LifeOS</code> → <code>CARL/</code>. Content library credits the four books and the ANCHOR workbook; quotes are theirs.</p>
+          <p class="muted" id="lib-status" style="margin-top:6px">Library: loading…</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Store ↔ CARL/registry/registry.json, reconciled weekly</span>
+    <span id="updated">—</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  const $ = (s,el=document)=>el.querySelector(s);
+  const $$ = (s,el=document)=>[...el.querySelectorAll(s)];
+  const esc = s => String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const pad=n=>String(n).padStart(2,'0');
+  const localDate = d=>{ d=d||new Date(); return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); };
+  const todayStr = localDate();
+  const DOMAIN_COLOR = {'resale-os':'var(--d-resale)','ai-adhd-os':'var(--d-adhd)','ai-studio':'var(--d-studio)','cryptid-os':'var(--d-cryptid)','investing-os':'var(--d-invest)','household':'var(--d-house)','career':'var(--ink-2)','creative':'var(--d-cryptid)'};
+  const STATUSES = ['idea','discovery','ready','active','paused','shipped','archived'];
+  const VALUES8 = ['Self-care','Fitness','Creativity','Wisdom','Knowledge','Courage','Happiness','Independence'];
+  const OPTS = [
+    ['quotes','Quotes on the Now view','One line from the shelf, rotating. Off hides the panel.',true],
+    ['tips','Contextual tip on the Now view','Picks a tip by situation: morning, evening, low energy, returning after a gap.',true],
+    ['affirmations','Affirmations in the quote rotation','Off by default. The evidence log is the stronger lever for this profile.',false],
+    ['household','Show the household domain in the registry','Nicole may prefer it hidden on the shared screen.',true],
+    ['gapnotice','Say nothing about gaps','When you return after 2+ days: no commentary, just the capsule. (Interrupt protocol.)',true],
+  ];
+  const DEFAULT_MODS = {}; // filled from library default_on
+
+  let db=null, user=null, uid=null, canWrite=null, lib=null;
+  let state = { meta:null, projects:[], domains:[], sequence:[], log:[], parking:[] };
+  let me = { settings:{modules:{}, opts:{}}, days:{}, values:{}, ladder:{}, evidence:[], updated:'' };
+  let meRef=null, meVersionLoaded=false, saveTimer=null;
+  const conn=$('#conn'), connText=$('#conn-text');
+  const setConn=(cls,msg)=>{ conn.className='status-line '+cls; connText.textContent=msg; };
+  $('#today').textContent=todayStr;
+  STATUSES.forEach(s=>{ const o=document.createElement('option'); o.value=s; o.textContent=s; $('#filter-status').append(o); });
+
+  // ---------- tabs ----------
+  const VIEWS=['now','registry','log','toolkit','settings'];
+  function showView(v){ if(!VIEWS.includes(v)) v='now'; $$('#tabs button').forEach(b=>b.setAttribute('aria-selected', b.dataset.view===v?'true':'false')); VIEWS.forEach(x=>{ $('#view-'+x).hidden = x!==v; }); try{ localStorage.setItem('lifeos.view',v); }catch(e){} }
+  $('#tabs').addEventListener('click',e=>{ const b=e.target.closest('button'); if(b) showView(b.dataset.view); });
+  (function(){ let v=(location.hash||'').slice(1); if(!VIEWS.includes(v)){ try{ v=localStorage.getItem('lifeos.view')||'now'; }catch(e){ v='now'; } } showView(v); })();
+
+  // ---------- helpers ----------
+  function daysBetween(a,b){ return Math.round((new Date(b+'T00:00:00')-new Date(a+'T00:00:00'))/86400000); }
+  function fmtDue(d){ if(!d) return ''; const n=daysBetween(todayStr,d); const cls=n<0?'over':(n<=3?'soon':''); return `<span class="due ${cls}">due ${d}${n<0?' · '+(-n)+'d over':''}</span>`; }
+  const pick = arr => arr && arr.length ? arr[Math.floor(Math.random()*arr.length)] : null;
+  function modOn(id){ const m=me.settings.modules||{}; return id in m ? !!m[id] : !!DEFAULT_MODS[id]; }
+  function optOn(id){ const o=me.settings.opts||{}; if(id in o) return !!o[id]; const d=OPTS.find(x=>x[0]===id); return d?d[3]:false; }
+  function enabledModules(){ return lib ? lib.modules.filter(m=>modOn(m.id)) : []; }
+  function hourNow(){ return new Date().getHours(); }
+
+  // ---------- NOW ----------
+  function renderMeta(){
+    const m=state.meta||{};
+    $('#now-action').textContent = m.next_action || 'No next action recorded. Open "Edit the capsule" and write one.';
+    $('#now-why').textContent = m.north_star ? 'Why it matters: '+m.north_star : '';
+    const g=$('#now-guard'); g.hidden=!m.guardrail; g.textContent = m.guardrail ? 'GUARDRAIL · '+m.guardrail : '';
+    $('#f-action').value=m.next_action||''; $('#f-blocker').value=m.blocker||''; $('#f-floor').value=m.floor_task||''; $('#f-guard').value=m.guardrail||''; $('#f-north').value=m.north_star||'';
+    $('#dayno').textContent = m.start_date ? (daysBetween(m.start_date,todayStr)+1) : '—';
+    $('#updated').textContent='Capsule updated '+(m.updated||'—');
+    const gap = m.updated ? daysBetween(m.updated,todayStr) : 0;
+    $('#cap-when').textContent = m.updated ? ('last touched '+m.updated+(gap>=2 && !optOn('gapnotice') ? ' · '+gap+' days ago' : '')) : 'last touched —';
+    renderEnergy();
+  }
+  function todayRec(){ return me.days[todayStr] || (me.days[todayStr]={}); }
+  function renderEnergy(){
+    const e = (me.days[todayStr]||{}).energy;
+    $$('#energy button').forEach(b=>b.setAttribute('aria-pressed', String(Number(b.dataset.e)===e)));
+    const m=state.meta||{}; const fl=$('#now-floor');
+    const late = hourNow()>=14;
+    if(e && (e<=2)){ fl.hidden=false; fl.innerHTML='<b>Floor day.</b> Energy '+e+'. The ask is the floor task only, and a floor day is a success: <i>'+esc(m.floor_task||'(no floor task recorded; write one in the capsule)')+'</i>'; $('#energy-read').textContent='energy '+e+' · floor task applies'; }
+    else if(e){ fl.hidden = !(late && m.floor_task); fl.innerHTML = '<b>Past 14:00.</b> If no block is logged yet, drop to the floor task: <i>'+esc(m.floor_task||'')+'</i>'; $('#energy-read').textContent='energy '+e+(e>=4?' · two 90-min blocks max':' · one 90-min block, then the floor'); }
+    else { fl.hidden=true; $('#energy-read').textContent='unset · tap today\'s level'; }
+  }
+  $('#energy').addEventListener('click',e=>{ const b=e.target.closest('button[data-e]'); if(!b) return; const r=todayRec(); r.energy = (r.energy===Number(b.dataset.e)) ? null : Number(b.dataset.e); renderEnergy(); renderTip(); saveMe(); });
+  $('#save-now').addEventListener('click',()=>{
+    if(!db) return;
+    const m=Object.assign({}, state.meta||{}, { next_action:$('#f-action').value.trim(), blocker:$('#f-blocker').value.trim(), floor_task:$('#f-floor').value.trim(), guardrail:$('#f-guard').value.trim(), north_star:$('#f-north').value.trim(), updated:todayStr });
+    if(!m.start_date) m.start_date=todayStr;
+    write(db.doc('meta/now'), m);
+  });
+
+  // rep of the day
+  const REPS=[ ['micro','One values micro-action','2–10 min · behavioral activation','what was it?'], ['savor','Savor it','30 sec · register the mastery feeling',null], ['mastery','Mastery log line','1 min · one sentence of evidence','I did …'], ['mood','Mood / energy tick','15 sec · 1–5 before bed',null] ];
+  function renderReps(){
+    const on = lib && modOn('anchor-method'); $('#p-rep').hidden=!on; if(!on) return;
+    const r=me.days[todayStr]||{};
+    $('#reps').innerHTML = REPS.map(([k,t,m,ph])=>`<div class="rep"><input type="checkbox" id="rep-${k}" data-rep="${k}" ${r[k]?'checked':''}><div><b>${t}</b><div class="m">${m}</div>${ph?`<input type="text" data-rept="${k}" placeholder="${esc(ph)}" value="${esc(r[k+'_text']||'')}">`:''}${k==='mood'?`<div class="mood" style="margin-top:4px">${[1,2,3,4,5].map(n=>`<button data-mood="${n}" aria-pressed="${r.mood===n}">${n}</button>`).join('')}</div>`:''}</div><span class="m">${r[k]?'done':''}</span></div>`).join('');
+    // streak strip: last 14 days
+    const cells=[]; let done7=0, missed=0, lastTwoMissed=false;
+    for(let i=13;i>=0;i--){ const d=new Date(); d.setDate(d.getDate()-i); const k=localDate(d); const rec=me.days[k]||{}; const did=!!(rec.micro); if(i<7&&did) done7++; cells.push(`<i class="${did?'d':''}${k===todayStr?' t':''}" title="${k}"></i>`); }
+    const y1=localDate(new Date(Date.now()-86400000)), y2=localDate(new Date(Date.now()-2*86400000));
+    lastTwoMissed = !(me.days[y1]||{}).micro && !(me.days[y2]||{}).micro && Object.keys(me.days).length>0;
+    $('#streak').innerHTML = cells.join('')+`<span>${done7}/7 this week${lastTwoMissed?' · never-miss-twice tripped: do the next-smallest-step today, no re-planning':''}</span>`;
+  }
+  $('#reps').addEventListener('change',e=>{ const k=e.target.dataset.rep||e.target.dataset.rept; if(!k) return; const r=todayRec(); if(e.target.dataset.rep) r[k]=e.target.checked; else r[k+'_text']=e.target.value.trim(); renderReps(); saveMe(); });
+  $('#reps').addEventListener('click',e=>{ const b=e.target.closest('button[data-mood]'); if(!b) return; const r=todayRec(); r.mood = r.mood===Number(b.dataset.mood)?null:Number(b.dataset.mood); r.moodtick=true; renderReps(); saveMe(); });
+
+  // tip + quote
+  function situation(){
+    const h=hourNow(); const e=(me.days[todayStr]||{}).energy; const m=state.meta||{};
+    const gap = m.updated ? daysBetween(m.updated,todayStr) : 0;
+    const s=[]; if(e&&e<=2) s.push('low energy'); if(gap>=2) s.push('returning after a gap'); if(h<11) s.push('morning'); else if(h>=20) s.push('end of day'); if(h>=14&&!e) s.push('low energy');
+    return s;
+  }
+  let tipSeed=0;
+  function renderTip(){
+    const on = lib && optOn('tips'); $('#p-tip').hidden=!on; if(!on) return;
+    const mods=new Set(enabledModules().map(m=>m.id)); const sit=situation();
+    let pool=lib.tips.filter(t=>mods.has(t.module)); const bySit=pool.filter(t=>sit.some(s=>(t.trigger||'').toLowerCase().includes(s)));
+    const t = pick(bySit.length?bySit:pool); if(!t){ $('#tip').innerHTML='<div class="muted">No modules on. Switch some on in Settings.</div>'; return; }
+    $('#tip').innerHTML=`<div class="tip"><span class="k">${esc(t.trigger||'tip')}</span><div>${esc(t.text)}<small>${esc(t.source)}</small></div></div>`;
+  }
+  function renderQuote(){
+    const on = lib && optOn('quotes'); $('#p-quote').hidden=!on; if(!on) return;
+    const mods=new Set(enabledModules().map(m=>m.id));
+    let pool=lib.quotes.filter(q=>mods.has(q.module)).map(q=>({text:q.text,source:q.source}));
+    if(optOn('affirmations')) pool=pool.concat((lib.affirmations||[]).map(a=>({text:a.text,source:a.source})));
+    const q=pick(pool); $('#quote').innerHTML = q ? `<blockquote>${esc(q.text)}</blockquote><cite>${esc(q.source)}</cite>` : '<div class="muted">No modules on.</div>';
+  }
+  $('#tip-next').addEventListener('click',renderTip); $('#quote-next').addEventListener('click',renderQuote);
+
+  function renderSeq(){
+    const live=state.sequence.find(s=>s.start<=todayStr && (!s.end||s.end>=todayStr) && s.start!=='conditional');
+    $('#primary').textContent = live?live.label:'—';
+    const left = live&&live.end ? Math.max(0,daysBetween(todayStr,live.end)) : null;
+    $('#daysleft').textContent = left===null ? '—' : left;
+    const note = (left!==null && left<=3) ? `<div class="empty" style="margin-bottom:8px"><b>Slot ends in ${left} day${left===1?'':'s'}</b>The slot is the focus window; the exit criteria are the finish line. If they are not met, extend the slot on purpose in the Sunday review rather than drifting.</div>` : '';
+    $('#seq').innerHTML = note + state.sequence.map(s=>{
+      const isLive=live&&live.slot===s.slot; let pct=0, fill='';
+      if(s.start!=='conditional'&&s.end){ const tot=daysBetween(s.start,s.end)||1; pct=Math.min(100,Math.max(0,daysBetween(s.start,todayStr)/tot*100)); fill=`<i style="width:${pct.toFixed(0)}%"></i>${isLive?`<u style="left:${pct.toFixed(0)}%"></u>`:''}`; }
+      const win = s.start==='conditional' ? 'gated: '+(s.gate||'condition') : `${s.start} → ${s.end||'open'}`;
+      return `<div class="slot ${isLive?'live':''}" style="--dc:${DOMAIN_COLOR[s.domain]||'var(--ink-3)'}"><div class="n">${s.slot}</div><div><div class="t"><b>${esc(s.label)}</b><span>${esc(win)}</span><span>${esc(s.owner)}</span></div><div class="bar">${fill}</div><div class="x">${esc(s.exit_criteria)}</div></div></div>`;
+    }).join('') || '<div class="empty"><b>No sequence yet</b>The focus sequence lives in the shared store (meta/registry).</div>';
+  }
+
+  // ---------- REGISTRY ----------
+  function renderDomainsSelects(){
+    const sel=$('#filter-domain'), ls=$('#l-domain'); sel.innerHTML='<option value="">All domains</option>'; ls.innerHTML='';
+    state.domains.forEach(d=>{ const o=document.createElement('option'); o.value=d.id; o.textContent=d.name; sel.append(o); ls.append(o.cloneNode(true)); });
+  }
+  function renderBoard(){
+    const fd=$('#filter-domain').value, fs=$('#filter-status').value, board=$('#board');
+    if(!state.projects.length){ board.innerHTML='<div class="empty"><b>Registry is empty</b>Add the first project with "Park an idea".</div>'; return; }
+    board.innerHTML = state.domains.map(d=>{
+      if(fd&&d.id!==fd) return ''; if(d.id==='household'&&!optOn('household')) return '';
+      const rows=state.projects.filter(p=>p.domain===d.id&&(!fs||p.status===fs)).sort((a,b)=>STATUSES.indexOf(b.status)-STATUSES.indexOf(a.status)||(a.due||'9').localeCompare(b.due||'9'));
+      if(!rows.length) return '';
+      return `<div class="domain" style="--dc:${DOMAIN_COLOR[d.id]||'var(--line)'}"><h3>${esc(d.name)} <span class="pri">${esc(d.priority)}</span><span class="path" title="${esc(d.path_mac)}">${esc(d.path_mac)}</span></h3><div class="cards">${rows.map(card).join('')}</div></div>`;
+    }).join('') || '<div class="empty"><b>No projects match</b>Clear a filter.</div>';
+  }
+  function card(p){
+    const ro=canWrite===false; const opts=STATUSES.map(s=>`<option value="${s}" ${s===p.status?'selected':''}>${s}</option>`).join('');
+    return `<div class="card" data-id="${esc(p.id)}" style="--dc:${DOMAIN_COLOR[p.domain]||'var(--line)'}"><div class="top"><div class="name">${esc(p.name)}</div><select class="pill ${esc(p.status)}" data-f="status" ${ro?'disabled':''}>${opts}</select></div>
+      <div class="kv"><span>Owner</span><div>${esc(p.owner)} ${fmtDue(p.due)}</div><span>Milestone</span><div>${esc(p.milestone)||'<i style="color:var(--ink-3)">none</i>'}</div>
+      <span>Next</span><input data-f="next_action" value="${esc(p.next_action)}" placeholder="one physical action" ${ro?'readonly':''}><span>Due</span><input data-f="due" value="${esc(p.due)}" placeholder="YYYY-MM-DD" ${ro?'readonly':''}><span>Evidence</span><input data-f="evidence" value="${esc(p.evidence)}" placeholder="link or note when done" ${ro?'readonly':''}></div>
+      <div class="act"><button class="btn ghost sm" data-promote="${esc(p.id)}" ${ro?'disabled':''}>Make this NOW</button><button class="btn ghost sm" data-slice="${esc(p.id)}">Slice it</button></div></div>`;
+  }
+  $('#board').addEventListener('change',e=>{
+    const el=e.target, c=el.closest('.card'); if(!c||!db||!el.dataset.f) return;
+    const p=state.projects.find(x=>x.id===c.dataset.id); if(!p) return; const val=el.value.trim(); if(p[el.dataset.f]===val) return;
+    if(el.dataset.f==='due'&&val&&!/^\d{4}-\d{2}-\d{2}$/.test(val)){ el.value=p.due||''; return; }
+    if(el.dataset.f==='status') el.className='pill '+val;
+    write(db.doc('projects/'+p.id), {[el.dataset.f]:val, updated:todayStr}, 'update');
+  });
+  $('#board').addEventListener('click',e=>{
+    const pr=e.target.closest('[data-promote]'), sl=e.target.closest('[data-slice]');
+    if(pr&&db){ const p=state.projects.find(x=>x.id===pr.dataset.promote); if(!p) return; const m=Object.assign({}, state.meta||{}, {next_action:(p.next_action||p.name), updated:todayStr}); if(!m.start_date) m.start_date=todayStr; write(db.doc('meta/now'), m); showView('now'); }
+    if(sl){ const p=state.projects.find(x=>x.id===sl.dataset.slice); showView('toolkit'); const i=$('#us-task'); if(i){ i.value=p.next_action||p.name; i.dispatchEvent(new Event('input')); i.scrollIntoView({block:'center'}); } }
+  });
+  $('#add-project').addEventListener('click',()=>{
+    if(!db||$('#np-name')) return;
+    const box=document.createElement('div'); box.className='empty'; box.style.marginBottom='10px';
+    box.innerHTML=`<b>Park an idea</b><div class="addlog"><select id="np-domain">${state.domains.map(d=>`<option value="${d.id}">${esc(d.name)}</option>`).join('')}</select><input id="np-name" placeholder="Idea name"><button class="btn primary full" id="np-go">Park it (status: idea)</button></div>`;
+    $('#board').prepend(box);
+    $('#np-go').addEventListener('click',async()=>{ const nm=$('#np-name').value.trim(), dom=$('#np-domain').value; if(!nm) return; const id=(dom.split('-')[0]+'-'+nm.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')).slice(0,48); await write(db.doc('projects/'+id), {id,domain:dom,name:nm,status:'idea',owner:'carl',milestone:'',next_action:'',due:'',evidence:'',updated:todayStr}); box.remove(); });
+  });
+  $('#filter-domain').addEventListener('change',renderBoard); $('#filter-status').addEventListener('change',renderBoard);
+
+  // ---------- LOG ----------
+  function weekKey(d){ const x=new Date(d+'T00:00:00'); const day=(x.getDay()+6)%7; x.setDate(x.getDate()-day); return localDate(x); }
+  function renderLog(){
+    const items=[...state.log].sort((a,b)=>(b.date+b.ts).localeCompare(a.date+a.ts));
+    $('#log').innerHTML = items.length ? items.map(l=>`<li><time>${esc(l.date)}</time><div><span class="tag">[${esc(l.domain)}] ${esc(l.type)}</span> · ${esc(l.text)}${l.evidence?` · <a href="${esc(l.evidence)}" target="_blank" rel="noopener">evidence</a>`:''}</div></li>`).join('') : '<li><time>—</time><div class="muted">Nothing logged yet. The first entry is usually "listed 3 items".</div></li>';
+    const cutoff=localDate(new Date(Date.now()-7*86400000)); const recent=items.filter(l=>l.date>=cutoff); const count=t=>recent.filter(l=>l.type===t).length;
+    const shipped=count('shipped')+count('listed')+count('sold');
+    $('#c-shipped').textContent=shipped; $('#h-shipped').textContent=shipped; $('#c-listed').textContent=count('listed'); $('#c-sold').textContent=count('sold');
+    const money=recent.filter(l=>l.type==='sold'||l.type==='money-in').reduce((s,l)=>{ const m=/\$\s?([\d,]+(?:\.\d+)?)/.exec(l.text||''); return s+(m?parseFloat(m[1].replace(/,/g,'')):0); },0);
+    $('#c-money').textContent='$'+money.toLocaleString(undefined,{maximumFractionDigits:0});
+    // chart: last 8 weeks
+    const weeks=[]; for(let i=7;i>=0;i--){ const d=new Date(); d.setDate(d.getDate()-7*i); weeks.push(weekKey(localDate(d))); }
+    const counts=weeks.map(w=>items.filter(l=>['shipped','listed','sold'].includes(l.type)&&weekKey(l.date)===w).length);
+    const max=Math.max(3,...counts); const W=520,H=170,pl=28,pb=26,pt=12; const cw=(W-pl-8)/weeks.length;
+    const grid=[0,Math.ceil(max/2),max].map(v=>{ const y=pt+(H-pt-pb)*(1-v/max); return `<line class="grid" x1="${pl}" x2="${W-4}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}"/><text x="${pl-6}" y="${(y+3).toFixed(1)}" text-anchor="end">${v}</text>`; }).join('');
+    const bars=counts.map((c,i)=>{ const bh=(H-pt-pb)*(c/max); const x=pl+i*cw+3, w=cw-6, y=H-pb-bh; const cur=i===counts.length-1; return `<rect class="bar-fill ${cur?'':'dim'}" x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${w.toFixed(1)}" height="${bh.toFixed(1)}" rx="${c?3:0}"><title>week of ${weeks[i]}: ${c}</title></rect>${c?`<text class="lbl" x="${(x+w/2).toFixed(1)}" y="${(y-4).toFixed(1)}" text-anchor="middle">${c}</text>`:''}<text x="${(x+w/2).toFixed(1)}" y="${H-8}" text-anchor="middle">${weeks[i].slice(5)}</text>`; }).join('');
+    $('#chart').innerHTML=`<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Shipped units per week, last 8 weeks">${grid}${bars}</svg>`;
+    $('#chart-table').innerHTML='<tr><th>Week of</th><th>Shipped units</th></tr>'+weeks.map((w,i)=>`<tr><td>${w}</td><td>${counts[i]}</td></tr>`).join('');
+  }
+  $('#addlog').addEventListener('submit',async e=>{ e.preventDefault(); if(!db) return; const entry={date:todayStr,ts:String(Date.now()),domain:$('#l-domain').value,type:$('#l-type').value,text:$('#l-text').value.trim(),evidence:$('#l-evidence').value.trim()}; if(!entry.text) return; await write(db.doc('meta/log'),{entries:[entry,...state.log].slice(0,400)}); $('#l-text').value=''; $('#l-evidence').value=''; });
+
+  // ---------- TOOLKIT ----------
+  let timerId=null, timerEnd=0;
+  function renderMods(){
+    if(!lib){ $('#mods').innerHTML='<div class="empty"><b>Library loading</b></div>'; return; }
+    const on=enabledModules(); const out=[];
+    // unstick (always, if any "I cannot start" module on)
+    const unstickMods=['unstick','first-move','activation'].filter(modOn);
+    if(unstickMods.length){
+      out.push(`<div class="mod" style="grid-column:1/-1"><h4>Cannot start <small>${unstickMods.length} module${unstickMods.length>1?'s':''}</small></h4>
+        <input id="us-task" placeholder="Name the task you are avoiding (or press Slice it on a registry card)">
+        <div id="us-out" class="muted">Type the task. You get one physical first step and a 2-minute timer. Not a plan.</div>
+        <div class="controls"><span class="timer" id="timer">2:00</span><button class="btn primary" id="timer-go">Start 2 min</button><button class="btn ghost" id="timer-stop">Stop</button></div></div>`);
+    }
+    if(modOn('emergency-card')&&lib.emergency_card){ out.push(`<div class="mod"><h4>Emergency card <small>${esc(lib.emergency_card.source||'')}</small></h4><ol>${(lib.emergency_card.steps||[]).map(s=>`<li>${esc(s)}</li>`).join('')}</ol></div>`); }
+    if(modOn('guardrails')){ const ps=lib.protocols.filter(p=>p.module==='guardrails'); out.push(`<div class="mod"><h4>Guardrails <small>before money or a message</small></h4><div class="muted">24-hour hold when dysregulated: draft only.</div>${ps.slice(0,3).map(p=>`<div class="item"><div class="h"><b>${esc(p.name)}</b></div><div class="muted">${esc(p.situation)}</div></div>`).join('')}</div>`); }
+    if(modOn('external-brain')){ out.push(`<div class="mod"><h4>Parking lot <small>shared · never acted on today</small></h4><form id="pl-form" class="controls"><input id="pl-text" placeholder="New tool / idea / rabbit hole" style="flex:1"><button class="btn sm" type="submit">Park</button></form><ul id="pl-list">${(state.parking||[]).slice(0,12).map(p=>`<li>${esc(p.date)} · ${esc(p.text)}</li>`).join('')||'<li class="muted">Empty. Good.</li>'}</ul></div>`); }
+    if(modOn('anchor-method')){
+      const v=me.values||{}; const tgt=v.target||'';
+      out.push(`<div class="mod" style="grid-column:1/-1"><h4>Values alignment tracker <small>ANCHOR · recompute weekly</small></h4><div class="tbl"><table id="vals"><tr><th>#</th><th>Value</th><th>Current action</th><th>Loved ones share</th><th>Target this week</th></tr>${VALUES8.map((name,i)=>{ const r=v[name]||{}; return `<tr><td>${i+1}</td><td>${name}</td><td><select data-v="${name}" data-k="act"><option ${r.act==='rarely'?'selected':''}>rarely</option><option ${r.act==='sometimes'?'selected':''}>sometimes</option><option ${r.act==='often'?'selected':''}>often</option></select></td><td><select data-v="${name}" data-k="share"><option ${r.share==='low'?'selected':''}>low</option><option ${r.share==='moderate'?'selected':''}>moderate</option><option ${r.share==='high'?'selected':''}>high</option></select></td><td><input type="radio" name="vtarget" data-target="${name}" ${tgt===name?'checked':''}></td></tr>`; }).join('')}</table></div><div class="muted">Engine values (often) are leverage; the target is the top-ranked value with the lowest action. Bridge the target to an engine value.</div></div>`);
+      const L=me.ladder||{rungs:['','','','',''],done:[false,false,false,false,false],value:''};
+      out.push(`<div class="mod"><h4>Mastery ladder <small>one neglected value · 5 rungs</small></h4><input id="lad-val" placeholder="Value (e.g. Fitness)" value="${esc(L.value||'')}">${[0,1,2,3,4].map(i=>`<div class="rep"><input type="checkbox" data-lad="${i}" ${L.done&&L.done[i]?'checked':''}><input type="text" data-ladt="${i}" placeholder="Rung ${i+1}: ~80% doable" value="${esc((L.rungs||[])[i]||'')}"><span class="m">${i+1}</span></div>`).join('')}<div class="muted">Climb only when the current rung is boring-easy. Fails twice: split it.</div></div>`);
+      const ev=me.evidence||[];
+      out.push(`<div class="mod"><h4>Evidence log <small>a court case, not affirmations</small></h4><form id="ev-form" style="display:grid;gap:6px"><input id="ev-belief" placeholder="Belief on trial, e.g. I never follow through"><input id="ev-str" inputmode="numeric" placeholder="Strength 0–100"><textarea id="ev-against" rows="2" placeholder="Evidence against (facts only; completed reps count)"></textarea><input id="ev-rev" placeholder="Revised, more accurate belief"><button class="btn sm" type="submit">File it</button></form>${ev.slice(-3).reverse().map(x=>`<div class="item"><div class="h"><b>${esc(x.belief)}</b><span class="src">${esc(x.str)} → ${esc(x.rev?'revised':'')}</span></div><div class="muted">${esc(x.rev)}</div></div>`).join('')}</div>`);
+    }
+    if(modOn('energy-map')){ const days=Object.entries(me.days).filter(([k,v])=>v.energy).slice(-14); out.push(`<div class="mod"><h4>Energy map <small>last 14 recorded days</small></h4><div class="streak">${days.map(([k,v])=>`<i class="${v.energy>=4?'d':''}" title="${k}: ${v.energy}"></i>`).join('')||'<span>Tap an energy level on Now to start the map.</span>'}</div><div class="muted">Green = 4–5. Magic hours are where green clusters; put the 90-minute block there.</div></div>`); }
+    if(modOn('daily-artifacts')){ const m=state.meta||{}; out.push(`<div class="mod"><h4>Morning brief <small>auto-filled</small></h4><div class="big">Day ${$('#dayno').textContent} · ${esc($('#primary').textContent)}</div><ul><li>ONE action: ${esc(m.next_action||'—')}</li><li>Where you stopped: ${esc(m.blocker?('blocker: '+m.blocker):'no blocker recorded')}</li><li>Start cue: open the file, write one line.</li></ul></div>`); }
+    if(modOn('flight-plan')){ const e=(me.days[todayStr]||{}).energy||3; out.push(`<div class="mod"><h4>Flight plan <small>energy-slotted</small></h4><ol><li>${e>=4?'90-min block on the primary build':'25-min floor block'} · WHY: it is the only slot that moves the metric</li><li>Admin pile (15 min) · WHY: low-dopamine tasks fit the post-block dip</li><li>${e>=4?'Second 90-min block, or stop':'Stop. Floor day is a success.'}</li></ol><div class="muted">Add 50% to every estimate. Two blocks max, never a quota.</div></div>`); }
+    if(modOn('focus-block')){ const fx=lib.exercises.filter(x=>x.module==='focus-block'); const x=fx.find(y=>/ritual|60/i.test(y.name))||fx[0]; if(x) out.push(`<div class="mod"><h4>Focus block <small>${esc(x.duration_min?x.duration_min+' min':'')}</small></h4><b>${esc(x.name)}</b><ol>${(x.steps||[]).map(s=>`<li>${esc(s)}</li>`).join('')}</ol></div>`); }
+    if(modOn('weekly-review')){ const items=[...state.log]; const cutoff=localDate(new Date(Date.now()-7*86400000)); const r=items.filter(l=>l.date>=cutoff); const sh=r.filter(l=>['shipped','listed','sold'].includes(l.type)).length; const open=state.projects.filter(p=>['active','ready'].includes(p.status)).length; out.push(`<div class="mod"><h4>Sunday review <small>20 min · ratio before advice</small></h4><div class="big">${sh} shipped · ${open} open loops</div><ol><li>Shipped units this week: ${sh}. Say the number out loud.</li><li>Keep/Kill each of the ${open} active or ready items. Kill means paused, not deleted.</li><li>One line for the Bio-File (what the week proved about you).</li><li>Did I expand the system? If yes, cut it back.</li><li>Write tomorrow's single action into the capsule.</li></ol></div>`); }
+    $('#mods').innerHTML = out.join('') || '<div class="empty"><b>No modules on</b>Switch some on in Settings.</div>';
+    wireToolkit();
+    renderBrowse();
+  }
+  function wireToolkit(){
+    const ut=$('#us-task'); if(ut){ ut.addEventListener('input',()=>{ const t=ut.value.trim(); const o=$('#us-out'); if(!t){ o.textContent='Type the task.'; return; } const ex=lib.exercises.filter(x=>modOn(x.module)&&/start|initiat|first|stuck|unstick|paralys/i.test((x.trigger||'')+' '+(x.name||''))); const x=pick(ex); const tp=pick(lib.tips.filter(y=>modOn(y.module)&&/cannot start|frozen|blank page/i.test(y.trigger||''))); const step=t.length>60?t.slice(0,60)+'…':t; o.innerHTML=`<div class="big">First physical step: open the thing "${esc(step)}" lives in. Do nothing else.</div>${tp?`<div class="tip" style="margin-top:8px"><span class="k">${esc(tp.trigger)}</span><div>${esc(tp.text)}<small>${esc(tp.source)}</small></div></div>`:''}${x?`<div class="item" style="margin-top:8px"><div class="h"><b>${esc(x.name)}</b><span class="src">${esc(x.source)}</span></div><ol>${(x.steps||[]).slice(0,5).map(s=>`<li>${esc(s)}</li>`).join('')}</ol></div>`:''}`; }); }
+    const go=$('#timer-go'); if(go){ go.addEventListener('click',()=>{ clearInterval(timerId); timerEnd=Date.now()+120000; timerId=setInterval(()=>{ const s=Math.max(0,Math.round((timerEnd-Date.now())/1000)); $('#timer').textContent=Math.floor(s/60)+':'+pad(s%60); if(s<=0){ clearInterval(timerId); $('#timer').textContent='done'; } },250); }); $('#timer-stop').addEventListener('click',()=>{ clearInterval(timerId); $('#timer').textContent='2:00'; }); }
+    const pf=$('#pl-form'); if(pf){ pf.addEventListener('submit',async e=>{ e.preventDefault(); if(!db) return; const t=$('#pl-text').value.trim(); if(!t) return; await write(db.doc('meta/parking'),{items:[{date:todayStr,text:t},...(state.parking||[])].slice(0,100)}); $('#pl-text').value=''; }); }
+    const vt=$('#vals'); if(vt){ vt.addEventListener('change',e=>{ const el=e.target; me.values=me.values||{}; if(el.dataset.target){ me.values.target=el.dataset.target; } else if(el.dataset.v){ me.values[el.dataset.v]=me.values[el.dataset.v]||{}; me.values[el.dataset.v][el.dataset.k]=el.value; } saveMe(); }); }
+    const lv=$('#lad-val'); if(lv){ const lad=()=>{ me.ladder=me.ladder||{rungs:['','','','',''],done:[false,false,false,false,false]}; return me.ladder; }; lv.addEventListener('change',()=>{ lad().value=lv.value.trim(); saveMe(); }); $$('[data-lad]').forEach(c=>c.addEventListener('change',()=>{ lad().done[Number(c.dataset.lad)]=c.checked; if(c.checked){ const r=todayRec(); r.mastery=true; r.mastery_text=r.mastery_text||('Climbed rung '+(Number(c.dataset.lad)+1)+' of the '+(me.ladder.value||'')+' ladder'); } saveMe(); renderReps(); })); $$('[data-ladt]').forEach(i=>i.addEventListener('change',()=>{ lad().rungs[Number(i.dataset.ladt)]=i.value.trim(); saveMe(); })); }
+    const ef=$('#ev-form'); if(ef){ ef.addEventListener('submit',e=>{ e.preventDefault(); const b=$('#ev-belief').value.trim(); if(!b) return; me.evidence=(me.evidence||[]).concat([{date:todayStr,belief:b,str:$('#ev-str').value.trim(),against:$('#ev-against').value.trim(),rev:$('#ev-rev').value.trim()}]).slice(-50); saveMe(); renderMods(); }); }
+  }
+  function renderBrowse(){
+    if(!lib) return; const bt=$('#br-trigger'), bm=$('#br-module');
+    if(!bt.dataset.filled){ const trig=[...new Set(lib.exercises.map(x=>x.trigger).concat(lib.tips.map(t=>t.trigger)).filter(Boolean))].sort(); bt.innerHTML='<option value="">Any situation</option>'+trig.map(t=>`<option>${esc(t)}</option>`).join(''); bm.innerHTML='<option value="">Any module</option>'+lib.modules.map(m=>`<option value="${esc(m.id)}">${esc(m.name)}</option>`).join(''); bt.dataset.filled='1'; }
+    const ft=bt.value, fm=bm.value; const on=new Set(enabledModules().map(m=>m.id));
+    const ex=lib.exercises.filter(x=>on.has(x.module)&&(!ft||x.trigger===ft)&&(!fm||x.module===fm)).slice(0,24);
+    const pr=lib.protocols.filter(p=>on.has(p.module)&&(!fm||p.module===fm)).slice(0,12);
+    $('#browse').innerHTML = ex.map(x=>`<div class="item"><div class="h"><b>${esc(x.name)}</b><span class="src">${esc(x.duration_min?x.duration_min+' min · ':'')}${esc(x.trigger||'')} · ${esc(x.source)}</span></div><ol>${(x.steps||[]).map(s=>`<li>${esc(s)}</li>`).join('')}</ol>${x.output?`<div class="muted">Output: ${esc(x.output)}</div>`:''}</div>`).join('')
+      + pr.map(p=>`<div class="item"><div class="h"><b>Protocol · ${esc(p.name)}</b><span class="src">${esc(p.source)}</span></div><div class="muted">${esc(p.situation)}</div><div class="dnd"><div><b>Do</b><ul>${(p.do||[]).map(s=>`<li>${esc(s)}</li>`).join('')}</ul></div><div><b>Do not</b><ul>${(p.do_not||[]).map(s=>`<li>${esc(s)}</li>`).join('')}</ul></div></div></div>`).join('')
+      || '<div class="empty"><b>Nothing here</b>Widen the filter or switch modules on.</div>';
+  }
+  $('#br-trigger').addEventListener('change',renderBrowse); $('#br-module').addEventListener('change',renderBrowse);
+
+  // ---------- SETTINGS ----------
+  function renderSettings(){
+    if(!lib){ $('#mod-toggles').innerHTML='<div class="muted">Library loading…</div>'; return; }
+    $('#mod-toggles').innerHTML = lib.modules.map(m=>`<label class="toggle"><input type="checkbox" data-mod="${esc(m.id)}" ${modOn(m.id)?'checked':''}><span><b>${esc(m.name)}</b><small>${esc(m.description)}</small><div class="src">${esc(m.book_or_source)}</div></span></label>`).join('');
+    $('#opt-toggles').innerHTML = OPTS.map(([id,n,d])=>`<label class="toggle"><input type="checkbox" data-opt="${id}" ${optOn(id)?'checked':''}><span><b>${esc(n)}</b><small>${esc(d)}</small></span></label>`).join('');
+  }
+  $('#view-settings').addEventListener('change',e=>{ const el=e.target; me.settings=me.settings||{modules:{},opts:{}}; if(el.dataset.mod){ me.settings.modules=me.settings.modules||{}; me.settings.modules[el.dataset.mod]=el.checked; } else if(el.dataset.opt){ me.settings.opts=me.settings.opts||{}; me.settings.opts[el.dataset.opt]=el.checked; } else return; saveMe(); renderAll(); });
+
+  // ---------- persistence ----------
+  async function write(ref,data,how='set'){
+    try{ await ref[how](data); setConn('ok','Saved · shared store'); }
+    catch(e){ console.error(e); if(e&&e.code==='invalid_argument'){ canWrite=false; renderBoard(); setConn('err','Read-only for you. Ask Carl to share this page as Contributor.'); } else setConn('err','Save failed: '+(e&&e.code||'unknown')); }
+  }
+  function saveMe(){
+    me.updated=todayStr;
+    // prune days older than 90
+    const keys=Object.keys(me.days).sort(); while(keys.length>90){ delete me.days[keys.shift()]; }
+    try{ localStorage.setItem('lifeos.me', JSON.stringify(me)); }catch(e){}
+    if(!meRef) return;
+    clearTimeout(saveTimer); saveTimer=setTimeout(async()=>{ try{ await meRef.set(JSON.parse(JSON.stringify(me))); }catch(e){ console.error(e); } },700);
+  }
+  function loadLocalMe(){ try{ const s=localStorage.getItem('lifeos.me'); if(s){ const o=JSON.parse(s); if(o&&typeof o==='object') me=Object.assign(me,o); } }catch(e){} }
+
+  function renderAll(){ renderMeta(); renderReps(); renderTip(); renderQuote(); renderSeq(); renderBoard(); renderLog(); renderMods(); renderSettings(); }
+
+  async function boot(){
+    loadLocalMe();
+    fetch('adhd_library.json').then(r=>r.json()).then(j=>{ lib=j; (lib.modules||[]).forEach(m=>DEFAULT_MODS[m.id]=!!m.default_on); $('#lib-status').textContent=`Library: ${lib.modules.length} modules · ${lib.quotes.length} quotes · ${lib.tips.length} tips · ${lib.exercises.length} exercises · ${lib.protocols.length} protocols`; renderAll(); }).catch(e=>{ console.error(e); $('#lib-status').textContent='Library failed to load; toolkit hidden.'; });
+    renderAll();
+    try{ db=await claude.use('db'); user=await claude.use('user'); }catch(e){ db=null; }
+    if(!db){ setConn('err','Shared store unavailable (sign in, or open from claude.ai). Private modules still work on this device.'); return; }
+    if(user){ try{ canWrite=await user.can('data.write'); uid=await user.id(); const m=await user.me(); $('#who').textContent='viewing as '+(m&&m.name||'you'); }catch(e){} }
+    if(canWrite===false) setConn('err','Read-only for you. Ask Carl to share this page as Contributor.'); else { setConn('ok','Live · shared store'); $('#save-now').disabled=false; $('#l-submit').disabled=false; }
+    const onErr=e=>{ console.error(e); setConn('err','Store error: '+(e&&e.code||'unknown')); };
+    db.doc('meta/now').onSnapshot(s=>{ state.meta=s.exists?s.data():{}; renderMeta(); renderTip(); renderMods(); },onErr);
+    db.doc('meta/registry').onSnapshot(s=>{ const d=s.exists?s.data():{}; state.domains=d.domains||[]; state.sequence=d.sequence||[]; renderDomainsSelects(); renderSeq(); renderBoard(); },onErr);
+    db.collection('projects').onSnapshot(s=>{ state.projects=s.docs.map(d=>d.data()); renderBoard(); },onErr);
+    db.doc('meta/log').onSnapshot(s=>{ state.log=(s.exists&&s.data().entries)||[]; renderLog(); },onErr);
+    db.doc('meta/parking').onSnapshot(s=>{ state.parking=(s.exists&&s.data().items)||[]; renderMods(); },onErr);
+    if(uid){ try{ meRef=db.doc('data/users/'+uid+'/adhd'); meRef.onSnapshot(s=>{ if(s.exists&&!meVersionLoaded){ const d=s.data(); if(d&&typeof d==='object'){ me=Object.assign(me, JSON.parse(JSON.stringify(d))); } } meVersionLoaded=true; renderAll(); },e=>console.error(e)); }catch(e){ console.error(e); } }
+  }
+  boot();
+})();
+</script>

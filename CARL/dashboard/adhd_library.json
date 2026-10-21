@@ -1,0 +1,5378 @@
+{
+ "modules": [
+  {
+   "id": "emergency-card",
+   "name": "Emergency Card",
+   "book_or_source": "ADHD Emergency Card PDF",
+   "description": "Shows the one-row-one-move stuck card: match how you feel, do only that one thing.",
+   "default_on": true
+  },
+  {
+   "id": "reset-pack",
+   "name": "Reset Pack",
+   "book_or_source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "description": "Serves one 2-minute starting strategy from the 40-strategy library, matched to the stuck state.",
+   "default_on": true
+  },
+  {
+   "id": "affirmations",
+   "name": "Affirmations",
+   "book_or_source": "ADHD Affirmations PDF (futureadhd.com)",
+   "description": "Rotates one ADHD-brain affirmation card per day, off by default because evidence logs beat affirmations.",
+   "default_on": false
+  },
+  {
+   "id": "anchor-method",
+   "name": "ANCHOR Method",
+   "book_or_source": "ANCHOR Method & Workbook",
+   "description": "Runs the 7-week values-to-action workbook: daily rep, savor, mastery log, mood tick, never-miss-twice.",
+   "default_on": true
+  },
+  {
+   "id": "energy-map",
+   "name": "Energy Map",
+   "book_or_source": "ADHD ALIGNED (G. Rysen)",
+   "description": "Tracks Magic Hours, tiers tasks Red/Amber/Green, and enforces a hard shutdown time.",
+   "default_on": true
+  },
+  {
+   "id": "first-move",
+   "name": "First Move",
+   "book_or_source": "ADHD ALIGNED (G. Rysen)",
+   "description": "Turns a brain dump or giant project into one verb-led sentence doable in ten minutes.",
+   "default_on": true
+  },
+  {
+   "id": "focus-block",
+   "name": "Focus Block",
+   "book_or_source": "ADHD ALIGNED (G. Rysen)",
+   "description": "Launches an invariant 60-second start ritual, 10-3 rounds, workstation checks and body doubling.",
+   "default_on": true
+  },
+  {
+   "id": "external-brain",
+   "name": "External Brain",
+   "book_or_source": "ADHD ALIGNED (G. Rysen) + The Unscattered Mind (Heel Wisenthiel)",
+   "description": "Single-inbox capture, activity log, object finder, save states and subscription watch; write once, read with timestamp.",
+   "default_on": true
+  },
+  {
+   "id": "activation",
+   "name": "Activation Wedge",
+   "book_or_source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "description": "Breaks a frozen task with a Zero-Draft or atomic steps, holds a gatekept block, lands with a Breadcrumb Note.",
+   "default_on": true
+  },
+  {
+   "id": "flight-plan",
+   "name": "Flight Plan",
+   "book_or_source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "description": "Ranks today's tasks by velocity, impact and cognitive tax; re-plans a collapsed day; stages tomorrow's first move.",
+   "default_on": true
+  },
+  {
+   "id": "inbox-triage",
+   "name": "Inbox Triage",
+   "book_or_source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "description": "Sorts incoming material into Noise / Information / Action with drafted replies and a Next 5.",
+   "default_on": false
+  },
+  {
+   "id": "weekly-review",
+   "name": "Weekly Review",
+   "book_or_source": "AI Productivity for ADHD Professionals (Alex R. Sterling) + The Personal AI Assistant Manual (Daniel Payne)",
+   "description": "Sunday look-back: ratio before advice, rollover counts, one Bio-File amendment, a fresh carry-over prompt.",
+   "default_on": true
+  },
+  {
+   "id": "unstick",
+   "name": "Unstick Loop",
+   "book_or_source": "The Personal AI Assistant Manual (Daniel Payne) + The Unscattered Mind (Heel Wisenthiel)",
+   "description": "Live one-step-at-a-time foreman: micro-slice, sensory hunt, momentum chain, doom box sprint, decision coin flip.",
+   "default_on": true
+  },
+  {
+   "id": "guardrails",
+   "name": "Guardrails",
+   "book_or_source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "description": "Brake-pedal protocols for money, messages, commitments, venting, shame spirals and CODE RED.",
+   "default_on": true
+  },
+  {
+   "id": "daily-artifacts",
+   "name": "Daily Artifacts",
+   "book_or_source": "The Unscattered Mind (Heel Wisenthiel)",
+   "description": "Morning brief, dopamine menu, T-minus countdowns, evening receipt, relationship radar and life rails.",
+   "default_on": true
+  },
+  {
+   "id": "agent-governance",
+   "name": "Agent Governance",
+   "book_or_source": "The Unscattered Mind (Heel Wisenthiel) + Idea: Carl's ADHD Agent (MIND design doc)",
+   "description": "Rolls features out one per week, caps items at three, runs compassionate pushback on every new commitment.",
+   "default_on": false
+  }
+ ],
+ "quotes": [
+  {
+   "id": "q001",
+   "text": "You don't have to feel motivated to start — you just have to start.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "q002",
+   "text": "A wasted morning is not a wasted day, and a wasted day is not a wasted week.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "tags": [
+    "shame",
+    "re-entry"
+   ]
+  },
+  {
+   "id": "q003",
+   "text": "You have not failed. You've had a hard start. Those are different things.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "tags": [
+    "shame"
+   ]
+  },
+  {
+   "id": "q004",
+   "text": "Starting is the hardest part. Not the work itself. The starting.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "q005",
+   "text": "ADHD brains run on interest, urgency, novelty, and challenge — not importance.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "tags": [
+    "energy",
+    "initiation"
+   ]
+  },
+  {
+   "id": "q006",
+   "text": "Perfectionism kills more ADHD productivity than distraction ever has. Lower the bar. Get it done.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "tags": [
+    "perfectionism",
+    "shipping"
+   ]
+  },
+  {
+   "id": "q007",
+   "text": "A finished stopping point is a cold start. An unfinished one pulls you back in.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "tags": [
+    "re-entry",
+    "evening"
+   ]
+  },
+  {
+   "id": "q008",
+   "text": "The day starts now. What happened before doesn't count.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "tags": [
+    "shame",
+    "re-entry"
+   ]
+  },
+  {
+   "id": "q009",
+   "text": "Future-me is a stranger I'm bad at helping. But an open document I can't argue with.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "tags": [
+    "evening",
+    "initiation"
+   ]
+  },
+  {
+   "id": "q010",
+   "text": "What works today might not work tomorrow. That's not you being inconsistent. That's having ADHD.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "tags": [
+    "shame"
+   ]
+  },
+  {
+   "id": "q011",
+   "text": "Give yourself permission to stop after the tiny step. You probably won't. But the permission matters more than you'd think.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "q012",
+   "text": "Grinding on an empty tank teaches your brain that work means suffering — which makes tomorrow's start even harder.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "tags": [
+    "evening",
+    "energy"
+   ]
+  },
+  {
+   "id": "q013",
+   "text": "Pick one. Try it for two minutes. Ignore everything else until it works. That's the whole method.",
+   "source": "ADHD Emergency Card PDF",
+   "module": "emergency-card",
+   "tags": [
+    "initiation",
+    "overwhelm"
+   ]
+  },
+  {
+   "id": "q014",
+   "text": "Time management is a neurotypical game, and you will always lose it.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "energy-map",
+   "tags": [
+    "time-blindness",
+    "energy"
+   ]
+  },
+  {
+   "id": "q015",
+   "text": "That guilt is not a character flaw. It is a design flaw. You are running premium software on incompatible hardware settings.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "energy-map",
+   "tags": [
+    "shame"
+   ]
+  },
+  {
+   "id": "q016",
+   "text": "You are not broken, and you do not need to be repaired. You need architecture.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "energy-map",
+   "tags": [
+    "shame"
+   ]
+  },
+  {
+   "id": "q017",
+   "text": "Stop scheduling your day by the clock. Start scheduling it by your chemistry.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "energy-map",
+   "tags": [
+    "energy",
+    "planning"
+   ]
+  },
+  {
+   "id": "q018",
+   "text": "For the ADHD brain, time feels more like a lava lamp.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "energy-map",
+   "tags": [
+    "time-blindness"
+   ]
+  },
+  {
+   "id": "q019",
+   "text": "An extra hour of sleep generates more usable output than an extra hour of work. This is not motivational fluff. It is mathematics.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "energy-map",
+   "tags": [
+    "evening",
+    "energy"
+   ]
+  },
+  {
+   "id": "q020",
+   "text": "Both modes look like productivity from the outside. Both modes are borrowing from tomorrow.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "energy-map",
+   "tags": [
+    "hyperfocus",
+    "evening"
+   ]
+  },
+  {
+   "id": "q021",
+   "text": "The entrepreneurs who last are not the ones who burn brightest. They are the ones who burn steadily.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "energy-map",
+   "tags": [
+    "energy"
+   ]
+  },
+  {
+   "id": "q022",
+   "text": "Magic Hours are non-negotiable prime real estate.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "energy-map",
+   "tags": [
+    "planning",
+    "focus-block"
+   ]
+  },
+  {
+   "id": "q023",
+   "text": "Ten minutes feels so low-stakes that your brain barely resists starting. And for the ADHD brain, starting is eighty percent of the battle.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "focus-block",
+   "tags": [
+    "initiation",
+    "focus-block"
+   ]
+  },
+  {
+   "id": "q024",
+   "text": "The breaks are not lost time. They are performance infrastructure.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "focus-block",
+   "tags": [
+    "focus-block",
+    "energy"
+   ]
+  },
+  {
+   "id": "q025",
+   "text": "Your desk is not furniture. It is a cognitive tool. Treat it like one.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "focus-block",
+   "tags": [
+    "focus-block"
+   ]
+  },
+  {
+   "id": "q026",
+   "text": "Your environment is either working for your brain or against it — there is no neutral.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "focus-block",
+   "tags": [
+    "focus-block"
+   ]
+  },
+  {
+   "id": "q027",
+   "text": "Do not shuffle. Consistency is the entire point.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "focus-block",
+   "tags": [
+    "focus-block"
+   ]
+  },
+  {
+   "id": "q028",
+   "text": "One object. One decision. One cleaner workspace. That is momentum.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "focus-block",
+   "tags": [
+    "momentum"
+   ]
+  },
+  {
+   "id": "q029",
+   "text": "You never look at the whole elephant. You only ever look at the next bite.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "first-move",
+   "tags": [
+    "overwhelm",
+    "initiation"
+   ]
+  },
+  {
+   "id": "q030",
+   "text": "Your ADHD brain works best when the horizon is close.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "first-move",
+   "tags": [
+    "planning"
+   ]
+  },
+  {
+   "id": "q031",
+   "text": "Done is better than perfect. Not as a vague mantra. As a literal decision rule.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "first-move",
+   "tags": [
+    "shipping",
+    "perfectionism"
+   ]
+  },
+  {
+   "id": "q032",
+   "text": "The proposal that arrives on time beats the perfect one that arrives three days late.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "first-move",
+   "tags": [
+    "shipping"
+   ]
+  },
+  {
+   "id": "q033",
+   "text": "The perfect drafts sitting in your drafts folder compound into nothing.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "first-move",
+   "tags": [
+    "shipping",
+    "perfectionism"
+   ]
+  },
+  {
+   "id": "q034",
+   "text": "The ADHD brain does not typically lack the ability to prioritise. It lacks the executive function bandwidth to prioritise in the moment.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "first-move",
+   "tags": [
+    "decision",
+    "overwhelm"
+   ]
+  },
+  {
+   "id": "q035",
+   "text": "One prompt. One answer. One action.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "first-move",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "q036",
+   "text": "Scattered capture is the same as no capture.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "external-brain",
+   "tags": [
+    "capture"
+   ]
+  },
+  {
+   "id": "q037",
+   "text": "Capture must be faster than forgetting.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "external-brain",
+   "tags": [
+    "capture"
+   ]
+  },
+  {
+   "id": "q038",
+   "text": "ADHD working memory is like a desk on a moving train: you can set things down, but the moment the scenery changes, half of them slide off the edge.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "external-brain",
+   "tags": [
+    "capture"
+   ]
+  },
+  {
+   "id": "q039",
+   "text": "Priority is communicated through colour and position, not text.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "external-brain",
+   "tags": [
+    "planning"
+   ]
+  },
+  {
+   "id": "q040",
+   "text": "Batching still requires you to do the executive-function-heavy work yourself. It just concentrates the drain.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "external-brain",
+   "tags": [
+    "audit",
+    "energy"
+   ]
+  },
+  {
+   "id": "q041",
+   "text": "Using AI to compensate for those specific impacts is not a crutch. It is a calibrated accommodation.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "external-brain",
+   "tags": [
+    "shame"
+   ]
+  },
+  {
+   "id": "q042",
+   "text": "The most difficult distance in the world is the two inches between 'thinking about a task' and 'starting a task'.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "q043",
+   "text": "The primary goal of using AI for initiation is not to finish the work, but to eliminate the blank page.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "q044",
+   "text": "A Zero-Draft isn't meant to be good, or even readable. Its only purpose is to exist.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "tags": [
+    "initiation",
+    "perfectionism"
+   ]
+  },
+  {
+   "id": "q045",
+   "text": "You aren't 'writing a report'; you are 'opening a tab.'",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "q046",
+   "text": "'Done' is always better than 'Perfect,' because 'Done' allows you to maintain the momentum required for the next task.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "tags": [
+    "perfectionism",
+    "momentum"
+   ]
+  },
+  {
+   "id": "q047",
+   "text": "The AI is there to serve as a bridge when you hit a mental block, not as a destination.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "tags": [
+    "focus-block"
+   ]
+  },
+  {
+   "id": "q048",
+   "text": "Your inability to start is a technical problem to be solved, not a moral failing to be punished.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "tags": [
+    "shame"
+   ]
+  },
+  {
+   "id": "q049",
+   "text": "For the Augmented Professional, this is simply a 'System Interruption.'",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "tags": [
+    "shame",
+    "re-entry"
+   ]
+  },
+  {
+   "id": "q050",
+   "text": "Talking is the most effective gateway to doing.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "q051",
+   "text": "One hour of 'Hyperfocus' is worth ten hours of 'Brain Fog.'",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "weekly-review",
+   "tags": [
+    "energy",
+    "hyperfocus"
+   ]
+  },
+  {
+   "id": "q052",
+   "text": "A 'to-do list' is a flat, lying document because it treats 'Write a 2,000-word chapter' and 'File my monthly tax receipts' as equal items.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "weekly-review",
+   "tags": [
+    "audit",
+    "planning"
+   ]
+  },
+  {
+   "id": "q053",
+   "text": "If a task drains your dopamine, it shouldn't be on your plate. It should be on the machine's plate.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "weekly-review",
+   "tags": [
+    "audit",
+    "energy"
+   ]
+  },
+  {
+   "id": "q054",
+   "text": "We prioritize the task that is screaming the loudest right now.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "flight-plan",
+   "tags": [
+    "planning",
+    "decision"
+   ]
+  },
+  {
+   "id": "q055",
+   "text": "Strategic alignment isn't real until it's on the calendar.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "weekly-review",
+   "tags": [
+    "planning",
+    "weekly"
+   ]
+  },
+  {
+   "id": "q056",
+   "text": "Procrastivity: doing low-value work because we are too tired for deep work but too anxious to actually relax.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "weekly-review",
+   "tags": [
+    "energy"
+   ]
+  },
+  {
+   "id": "q057",
+   "text": "Everything in the 'Important/Not Urgent' category eventually disappears due to our lack of object permanence.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "flight-plan",
+   "tags": [
+    "planning"
+   ]
+  },
+  {
+   "id": "q058",
+   "text": "You are still following a plan; it's just a different plan.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "flight-plan",
+   "tags": [
+    "planning",
+    "shame"
+   ]
+  },
+  {
+   "id": "q059",
+   "text": "You aren't leaving work unfinished; you are leaving it 'staged' for a frictionless start the next morning.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "flight-plan",
+   "tags": [
+    "evening",
+    "re-entry"
+   ]
+  },
+  {
+   "id": "q060",
+   "text": "To defeat initiation paralysis, you must cheat.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "flight-plan",
+   "tags": [
+    "morning",
+    "initiation"
+   ]
+  },
+  {
+   "id": "q061",
+   "text": "Every 'ping' is a dopamine-seeking missile aimed directly at your prefrontal cortex.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "inbox-triage",
+   "tags": [
+    "focus-block"
+   ]
+  },
+  {
+   "id": "q062",
+   "text": "Your job is no longer 'Writer'; your job is 'Editor.'",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "inbox-triage",
+   "tags": [
+    "message"
+   ]
+  },
+  {
+   "id": "q063",
+   "text": "Information is only power if it leads to a move.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "inbox-triage",
+   "tags": [
+    "planning"
+   ]
+  },
+  {
+   "id": "q064",
+   "text": "For the ADHD brain, a folder is a graveyard.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "external-brain",
+   "tags": [
+    "capture"
+   ]
+  },
+  {
+   "id": "q065",
+   "text": "Your dashboard must be designed for your 'worst self'—the version of you that is tired, overwhelmed, and looking for any excuse to get distracted.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "daily-artifacts",
+   "tags": [
+    "planning",
+    "energy"
+   ]
+  },
+  {
+   "id": "q066",
+   "text": "'Clean the garage' is not a task; it is a project consisting of three hundred individual tasks.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "tags": [
+    "overwhelm"
+   ]
+  },
+  {
+   "id": "q067",
+   "text": "Fifty small tasks wearing a trench coat.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "tags": [
+    "overwhelm"
+   ]
+  },
+  {
+   "id": "q068",
+   "text": "The wall of awful for 'three wrappers' is an inch high. You step over it.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "q069",
+   "text": "You are the laborer. The AI is the foreman. This reduces decision fatigue to zero.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "tags": [
+    "decision"
+   ]
+  },
+  {
+   "id": "q070",
+   "text": "It sounds silly. It is silly. But it works.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "q071",
+   "text": "A static to-do list cannot narrate your victory.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "tags": [
+    "savoring",
+    "momentum"
+   ]
+  },
+  {
+   "id": "q072",
+   "text": "A clock cannot tap you on the shoulder and tell you that you are lying to yourself.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "tags": [
+    "time-blindness"
+   ]
+  },
+  {
+   "id": "q073",
+   "text": "We are not planning for our actual selves; we are planning for our avatar selves.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "tags": [
+    "time-blindness",
+    "planning"
+   ]
+  },
+  {
+   "id": "q074",
+   "text": "You are renting the AI's temporal lobe.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "tags": [
+    "time-blindness"
+   ]
+  },
+  {
+   "id": "q075",
+   "text": "Do you really want to sabotage Friday You?",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "tags": [
+    "time-blindness",
+    "decision"
+   ]
+  },
+  {
+   "id": "q076",
+   "text": "This is asking a drowning person to neatly fold their clothes before grabbing the life preserver.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "external-brain",
+   "tags": [
+    "capture",
+    "overwhelm"
+   ]
+  },
+  {
+   "id": "q077",
+   "text": "You just dump. The AI sorts.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "external-brain",
+   "tags": [
+    "capture"
+   ]
+  },
+  {
+   "id": "q078",
+   "text": "This ruthlessness is a form of kindness. It clears the working memory.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "weekly-review",
+   "tags": [
+    "parking-lot",
+    "weekly"
+   ]
+  },
+  {
+   "id": "q079",
+   "text": "It is not achieved by having a better memory. It is achieved by having a better system for forgetting.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "external-brain",
+   "tags": [
+    "parking-lot",
+    "capture"
+   ]
+  },
+  {
+   "id": "q080",
+   "text": "We do not need a scorecard; we need a bouncer.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "tags": [
+    "money"
+   ]
+  },
+  {
+   "id": "q081",
+   "text": "The act of explaining the impulse often destroys the impulse.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "tags": [
+    "money",
+    "decision"
+   ]
+  },
+  {
+   "id": "q082",
+   "text": "The annoyance is the proof of life. If the AI never annoys you, it is merely enabling you.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "tags": [
+    "money"
+   ]
+  },
+  {
+   "id": "q083",
+   "text": "When we are in an emotional spiral, we don't need reassurance; we need ground truth.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "tags": [
+    "message",
+    "shame"
+   ]
+  },
+  {
+   "id": "q084",
+   "text": "The malice you perceived wasn't in the text; it was in your fear.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "tags": [
+    "message"
+   ]
+  },
+  {
+   "id": "q085",
+   "text": "Shame is the kryptonite of executive function.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "tags": [
+    "shame"
+   ]
+  },
+  {
+   "id": "q086",
+   "text": "Explaining why you didn't do it yesterday doesn't get it done today.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "tags": [
+    "shame",
+    "re-entry"
+   ]
+  },
+  {
+   "id": "q087",
+   "text": "The AI should be a rehearsal space, not the stage.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "tags": [
+    "relatedness",
+    "message"
+   ]
+  },
+  {
+   "id": "q088",
+   "text": "You stop saying, 'I am a chronically late person,' and start saying, 'I have a time-blindness variable that requires a 20% buffer.'",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "weekly-review",
+   "tags": [
+    "time-blindness",
+    "shame"
+   ]
+  },
+  {
+   "id": "q089",
+   "text": "This is not an exercise in shame; it is an exercise in data collection.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "weekly-review",
+   "tags": [
+    "audit",
+    "shame"
+   ]
+  },
+  {
+   "id": "q090",
+   "text": "The AI Coach is not doing the push-ups for you; it is the spotter making sure the bar doesn't crush your windpipe.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "agent-governance",
+   "tags": [
+    "mastery"
+   ]
+  },
+  {
+   "id": "q091",
+   "text": "Sometimes the inefficient choice is the human choice.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "agent-governance",
+   "tags": [
+    "values"
+   ]
+  },
+  {
+   "id": "q092",
+   "text": "The Sunday Review is your tuning fork.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "weekly-review",
+   "tags": [
+    "weekly"
+   ]
+  },
+  {
+   "id": "q093",
+   "text": "The drift is inevitable, but the correction is intentional.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "weekly-review",
+   "tags": [
+    "weekly"
+   ]
+  },
+  {
+   "id": "q094",
+   "text": "Welcome back. The past is deleted. What is the one easiest thing we can do right now?",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "tags": [
+    "re-entry",
+    "shame"
+   ]
+  },
+  {
+   "id": "q095",
+   "text": "This is the ultimate victory: when the software updates your wetware.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "agent-governance",
+   "tags": [
+    "mastery"
+   ]
+  },
+  {
+   "id": "q096",
+   "text": "It's not laziness. It's not a character flaw. It's neurobiology.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "tags": [
+    "shame"
+   ]
+  },
+  {
+   "id": "q097",
+   "text": "ADHD is not a problem of knowing what to do. It's a problem of doing what you know.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "agent-governance",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "q098",
+   "text": "Every one of these tools is passive. They wait for you to engage. They require the exact thing you don't have.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "agent-governance",
+   "tags": [
+    "planning"
+   ]
+  },
+  {
+   "id": "q099",
+   "text": "'Just start.' This is like telling someone with a broken leg to 'just walk.'",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "tags": [
+    "initiation",
+    "shame"
+   ]
+  },
+  {
+   "id": "q100",
+   "text": "One alarm is a data point. A countdown sequence is a narrative. Your brain needs the narrative.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "tags": [
+    "time-blindness"
+   ]
+  },
+  {
+   "id": "q101",
+   "text": "When everything is a priority, nothing is.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "tags": [
+    "planning",
+    "overwhelm"
+   ]
+  },
+  {
+   "id": "q102",
+   "text": "Ordering from a menu is satisfying. Completing a list is not.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "tags": [
+    "morning",
+    "decision"
+   ]
+  },
+  {
+   "id": "q103",
+   "text": "Don't redirect me. Momentum is precious.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "tags": [
+    "momentum"
+   ]
+  },
+  {
+   "id": "q104",
+   "text": "Supportive workout buddy, not disappointed teacher.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "tags": [
+    "body-double"
+   ]
+  },
+  {
+   "id": "q105",
+   "text": "Permission granted. No guilt. Everything can wait.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "tags": [
+    "energy",
+    "shame"
+   ]
+  },
+  {
+   "id": "q106",
+   "text": "Do not aggressively interrupt hyperfocus. It's one of the few ADHD superpowers. Just make sure it's pointed in the right direction.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "tags": [
+    "hyperfocus"
+   ]
+  },
+  {
+   "id": "q107",
+   "text": "Slow and steady beats shame and avoidance.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "tags": [
+    "momentum"
+   ]
+  },
+  {
+   "id": "q108",
+   "text": "You just beat entropy by one item. That counts.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "tags": [
+    "momentum",
+    "savoring"
+   ]
+  },
+  {
+   "id": "q109",
+   "text": "A 3-sentence response sent today beats a perfect paragraph never sent.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "tags": [
+    "message",
+    "perfectionism"
+   ]
+  },
+  {
+   "id": "q110",
+   "text": "Nobody has ever said 'I wish they'd kept ignoring me.'",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "tags": [
+    "message",
+    "relatedness"
+   ]
+  },
+  {
+   "id": "q111",
+   "text": "Curious scientist examining data, not disappointed parent reviewing a report card.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "tags": [
+    "weekly",
+    "audit"
+   ]
+  },
+  {
+   "id": "q112",
+   "text": "Recovery/rest (intentional downtime - this is VALID).",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "tags": [
+    "energy",
+    "weekly"
+   ]
+  },
+  {
+   "id": "q113",
+   "text": "If you fall off, just start again. This is not failure. This is ADHD.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "agent-governance",
+   "tags": [
+    "re-entry",
+    "shame"
+   ]
+  },
+  {
+   "id": "q114",
+   "text": "You don't have to restart the whole setup. You just have to read the next message it sends you.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "agent-governance",
+   "tags": [
+    "re-entry"
+   ]
+  },
+  {
+   "id": "q115",
+   "text": "One rail is infinitely better than zero rails.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "tags": [
+    "planning"
+   ]
+  },
+  {
+   "id": "q116",
+   "text": "Your brain can't distinguish between the memory of doing something and the memory of intending to do something.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "external-brain",
+   "tags": [
+    "capture"
+   ]
+  },
+  {
+   "id": "q117",
+   "text": "'I put it somewhere safe.' Those might be the five most terrifying words in the ADHD vocabulary.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "external-brain",
+   "tags": [
+    "capture"
+   ]
+  },
+  {
+   "id": "q118",
+   "text": "A simpler system you actually use beats a complex one you don't.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "agent-governance",
+   "tags": [
+    "planning"
+   ]
+  },
+  {
+   "id": "q119",
+   "text": "Action comes before motivation, not after.",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "tags": [
+    "values",
+    "initiation"
+   ]
+  },
+  {
+   "id": "q120",
+   "text": "Your problem is not a knowledge or systems deficit — it is a values–action gap.",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "tags": [
+    "values"
+   ]
+  },
+  {
+   "id": "q121",
+   "text": "Building the system is the avoidance behavior — it feels like progress while producing none.",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "tags": [
+    "values",
+    "planning"
+   ]
+  },
+  {
+   "id": "q122",
+   "text": "Confidence comes from completing rungs, not from thinking positively.",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "tags": [
+    "mastery"
+   ]
+  },
+  {
+   "id": "q123",
+   "text": "Never miss twice — one missed day is noise; two in a row triggers the Recover protocol, not guilt.",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "tags": [
+    "re-entry",
+    "shame"
+   ]
+  },
+  {
+   "id": "q124",
+   "text": "That staleness is the mechanism, not a verdict.",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "tags": [
+    "momentum",
+    "values"
+   ]
+  },
+  {
+   "id": "q125",
+   "text": "That single rep is worth more than reading this twice.",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "tags": [
+    "initiation",
+    "values"
+   ]
+  },
+  {
+   "id": "q126",
+   "text": "Accuracy survives the ADHD 'yeah, right' reflex that kills affirmations.",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "tags": [
+    "mastery",
+    "shame"
+   ]
+  },
+  {
+   "id": "q127",
+   "text": "Don't build another task manager that requires manual maintenance.",
+   "source": "Idea: Carl's ADHD Agent (MIND design doc)",
+   "module": "agent-governance",
+   "tags": [
+    "planning"
+   ]
+  },
+  {
+   "id": "q128",
+   "text": "No shame. No 'you said you'd do this 3 days ago.' State facts, offer the next step.",
+   "source": "Idea: Carl's ADHD Agent (MIND design doc)",
+   "module": "agent-governance",
+   "tags": [
+    "shame"
+   ]
+  },
+  {
+   "id": "q129",
+   "text": "Always offer ONE concrete next micro-action, not a plan.",
+   "source": "Idea: Carl's ADHD Agent (MIND design doc)",
+   "module": "agent-governance",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "q130",
+   "text": "Don't let perfect be the enemy of shipped — Phase 1 is enough to start.",
+   "source": "Idea: Carl's ADHD Agent (MIND design doc)",
+   "module": "agent-governance",
+   "tags": [
+    "shipping"
+   ]
+  }
+ ],
+ "tips": [
+  {
+   "id": "t001",
+   "text": "Don't 'write the report' — just open the document.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "cannot start",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "t002",
+   "text": "Call someone and tell them you're working for 15 minutes.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "cannot start",
+   "tags": [
+    "body-double",
+    "initiation"
+   ]
+  },
+  {
+   "id": "t003",
+   "text": "Put on a 'study with me' video or join a Focusmate room so someone else is working nearby.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "cannot start",
+   "tags": [
+    "body-double"
+   ]
+  },
+  {
+   "id": "t004",
+   "text": "Count 5-4-3-2-1 out loud and physically move toward the task on 1.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "cannot start",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "t005",
+   "text": "Do 10 jumping jacks or push-ups, then sit straight down and begin.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "restless",
+   "tags": [
+    "initiation",
+    "energy"
+   ]
+  },
+  {
+   "id": "t006",
+   "text": "Splash cold water on your face and wrists before starting.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "cannot start",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "t007",
+   "text": "Tell yourself 'I only have to work on this for one hour' and set a timer; permission to stop is what gets you started.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "overwhelm",
+   "tags": [
+    "overwhelm",
+    "initiation"
+   ]
+  },
+  {
+   "id": "t008",
+   "text": "Do 10 minutes of the thing you're dreading most; everything else gets easier afterward.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "overwhelm",
+   "tags": [
+    "overwhelm",
+    "initiation"
+   ]
+  },
+  {
+   "id": "t009",
+   "text": "Write 'This task only needs to be good enough. B+ work is fine.' on paper and put it next to your workspace.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "perfectionism",
+   "tags": [
+    "perfectionism"
+   ]
+  },
+  {
+   "id": "t010",
+   "text": "Move to a different room; your brain associates this place with 'stuck' right now.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "cannot start",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "t011",
+   "text": "Put your phone in another room — not face down on the desk, another room.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "focus block start",
+   "tags": [
+    "focus-block"
+   ]
+  },
+  {
+   "id": "t012",
+   "text": "Close every browser tab except the one you need and shove the desk clutter in a drawer.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "focus block start",
+   "tags": [
+    "focus-block"
+   ]
+  },
+  {
+   "id": "t013",
+   "text": "Pair the boring task with something you want — a show, fancy coffee, a saved podcast.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "bored of the task",
+   "tags": [
+    "energy",
+    "initiation"
+   ]
+  },
+  {
+   "id": "t014",
+   "text": "Change one thing about how you do the task: new pen, standing up, a completely different playlist.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "bored of the task",
+   "tags": [
+    "energy"
+   ]
+  },
+  {
+   "id": "t015",
+   "text": "Race a timer: how much can you do in 15 minutes? Try to beat yesterday.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "bored of the task",
+   "tags": [
+    "momentum"
+   ]
+  },
+  {
+   "id": "t016",
+   "text": "Reframe the task as something you care about: 'clearing the path so I can do what I actually want.'",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "bored of the task",
+   "tags": [
+    "values"
+   ]
+  },
+  {
+   "id": "t017",
+   "text": "Tell someone you'll send them the work by 3pm today, then make backing out impossible.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "nothing is working",
+   "tags": [
+    "initiation",
+    "shipping"
+   ]
+  },
+  {
+   "id": "t018",
+   "text": "Open a voice memo and talk through the task; transcribe later, getting it out is the hard part.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "blank page",
+   "tags": [
+    "initiation",
+    "capture"
+   ]
+  },
+  {
+   "id": "t019",
+   "text": "Ask 'What's the absolute minimum for this to count as done?' then only do that and stop.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "perfectionism",
+   "tags": [
+    "perfectionism",
+    "shipping"
+   ]
+  },
+  {
+   "id": "t020",
+   "text": "Imagine yourself tomorrow morning: how will they feel if you do this now, and if you don't?",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "cannot start",
+   "tags": [
+    "time-blindness"
+   ]
+  },
+  {
+   "id": "t021",
+   "text": "When you drift, type the next half-sentence and leave it unfinished on purpose before you go.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "drifting mid-task",
+   "tags": [
+    "re-entry",
+    "momentum"
+   ]
+  },
+  {
+   "id": "t022",
+   "text": "Keep one sticky note open; every stray thought goes there in three words, then straight back.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "drifting mid-task",
+   "tags": [
+    "parking-lot"
+   ]
+  },
+  {
+   "id": "t023",
+   "text": "Say out loud 'The day starts now,' then pick the smallest useful thing for the time that's left.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "wasted the day",
+   "tags": [
+    "shame",
+    "re-entry"
+   ]
+  },
+  {
+   "id": "t024",
+   "text": "Ask 'Would I say that to a friend having this exact day?' and say the friend version instead.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "wasted the day",
+   "tags": [
+    "shame"
+   ]
+  },
+  {
+   "id": "t025",
+   "text": "Before logging off, open the one file you'll need first tomorrow and leave it on screen at the exact spot.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "end of day",
+   "tags": [
+    "evening",
+    "re-entry"
+   ]
+  },
+  {
+   "id": "t026",
+   "text": "Pick one sentence that ends the workday, write tomorrow's first task on a note, then physically close the laptop.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "end of day",
+   "tags": [
+    "evening"
+   ]
+  },
+  {
+   "id": "t027",
+   "text": "Eat protein with every meal, and before ADHD medication if you take it.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "morning",
+   "tags": [
+    "morning",
+    "energy"
+   ]
+  },
+  {
+   "id": "t028",
+   "text": "Protect a consistent wake time; it matters more than a consistent bedtime.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "morning",
+   "tags": [
+    "morning",
+    "energy"
+   ]
+  },
+  {
+   "id": "t029",
+   "text": "Track energy for a week, find your 2-3 sharp hours, and put the hard thing there.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "planning the week",
+   "tags": [
+    "energy",
+    "planning"
+   ]
+  },
+  {
+   "id": "t030",
+   "text": "Ask 'what's the version of this that takes 5 minutes?' and do that version.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "cannot start",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "t031",
+   "text": "Narrate what you're doing out loud like a sports commentator.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "cannot start",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "t032",
+   "text": "Write 'I'm stuck on X' in a message and send it to yourself or a witness.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "cannot start",
+   "tags": [
+    "capture",
+    "initiation"
+   ]
+  },
+  {
+   "id": "t033",
+   "text": "Look at something you've finished before; you've done hard things.",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "trigger": "cannot start",
+   "tags": [
+    "mastery"
+   ]
+  },
+  {
+   "id": "t034",
+   "text": "Ask 'How much cognitive energy does this task require?' then 'How much do I have right now?' instead of 'What needs to get done today?'",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "energy-map",
+   "trigger": "choosing what to do",
+   "tags": [
+    "decision",
+    "energy"
+   ]
+  },
+  {
+   "id": "t035",
+   "text": "Put Red (high-drain) work only in Magic Hours and decline 'one quick call' inside them.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "energy-map",
+   "trigger": "planning the day",
+   "tags": [
+    "planning",
+    "energy"
+   ]
+  },
+  {
+   "id": "t036",
+   "text": "Treat every Green (low-drain) task as a delete, automate or delegate candidate before it becomes a calendar candidate.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "energy-map",
+   "trigger": "planning the day",
+   "tags": [
+    "planning",
+    "audit"
+   ]
+  },
+  {
+   "id": "t037",
+   "text": "Colour-code your existing calendar Red/Amber/Green; colour is scanned faster than text.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "energy-map",
+   "trigger": "planning the week",
+   "tags": [
+    "planning"
+   ]
+  },
+  {
+   "id": "t038",
+   "text": "Rate focus 1-5 when the alarm fires, never at the end of the day; retrospective ratings flatten into no clusters.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "energy-map",
+   "trigger": "tracking energy",
+   "tags": [
+    "energy",
+    "audit"
+   ]
+  },
+  {
+   "id": "t039",
+   "text": "Mark each rating 'natural or forced'; a 4 that needed effort is deadline chemistry, not a Magic Hour.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "energy-map",
+   "trigger": "tracking energy",
+   "tags": [
+    "energy",
+    "audit"
+   ]
+  },
+  {
+   "id": "t040",
+   "text": "Fix the stop point before the evening arrives; inside a hyperfocus wave your judgment is compromised.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "energy-map",
+   "trigger": "hyperfocus check",
+   "tags": [
+    "hyperfocus",
+    "evening"
+   ]
+  },
+  {
+   "id": "t041",
+   "text": "Write tomorrow's top three — three, not everything — so your mind can let go, then walk away.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "energy-map",
+   "trigger": "end of day",
+   "tags": [
+    "evening",
+    "planning"
+   ]
+  },
+  {
+   "id": "t042",
+   "text": "Ten minutes on one task, three minutes off, no screens in the break; four rounds beat a straight 52 minutes.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "focus-block",
+   "trigger": "focus block",
+   "tags": [
+    "focus-block"
+   ]
+  },
+  {
+   "id": "t043",
+   "text": "Same headphones, same playlist from the top, same timer, every session; boredom with the ritual is the conditioning working.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "focus-block",
+   "trigger": "focus block start",
+   "tags": [
+    "focus-block"
+   ]
+  },
+  {
+   "id": "t044",
+   "text": "Drag one card to 'In Progress' or write the block's task on one sticky as the visual micro-commitment.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "focus-block",
+   "trigger": "focus block start",
+   "tags": [
+    "focus-block",
+    "initiation"
+   ]
+  },
+  {
+   "id": "t045",
+   "text": "Never work in full silence; lo-fi or nature sound at coffee-shop level fills the attentional vacuum.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "focus-block",
+   "trigger": "focus block",
+   "tags": [
+    "focus-block"
+   ]
+  },
+  {
+   "id": "t046",
+   "text": "In a loud room, use noise-cancelling headphones plus a beta-range (14-30 Hz) binaural track, then lock the track.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "focus-block",
+   "trigger": "focus block",
+   "tags": [
+    "focus-block"
+   ]
+  },
+  {
+   "id": "t047",
+   "text": "Keep a fidget object within arm's reach so there is zero friction between the urge and the object.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "focus-block",
+   "trigger": "focus block",
+   "tags": [
+    "focus-block"
+   ]
+  },
+  {
+   "id": "t048",
+   "text": "Swap harsh overhead light for a warm 2700-3000K desk lamp plus soft light behind the monitor.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "focus-block",
+   "trigger": "workspace setup",
+   "tags": [
+    "focus-block"
+   ]
+  },
+  {
+   "id": "t049",
+   "text": "Remove one friction object from the desk right now, not later; tomorrow, another one.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "focus-block",
+   "trigger": "workspace setup",
+   "tags": [
+    "momentum",
+    "focus-block"
+   ]
+  },
+  {
+   "id": "t050",
+   "text": "Body-double once a day inside a Magic Hour: state one intention sentence, camera on, mic muted, report back.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "focus-block",
+   "trigger": "body double",
+   "tags": [
+    "body-double"
+   ]
+  },
+  {
+   "id": "t051",
+   "text": "Commit to ten minutes only at the start; enlarging the commitment removes the reason resistance collapses.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "focus-block",
+   "trigger": "cannot start",
+   "tags": [
+    "initiation",
+    "focus-block"
+   ]
+  },
+  {
+   "id": "t052",
+   "text": "Sort the pile by cost of delay, not by what is screaming loudest.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "first-move",
+   "trigger": "overwhelm",
+   "tags": [
+    "decision",
+    "overwhelm"
+   ]
+  },
+  {
+   "id": "t053",
+   "text": "Read the AI's sort, ignore everything but the final verb-led sentence, close the chat, set a ten-minute timer.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "first-move",
+   "trigger": "overwhelm",
+   "tags": [
+    "initiation",
+    "decision"
+   ]
+  },
+  {
+   "id": "t054",
+   "text": "Write the done state as one sentence describing the end condition, not the process.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "first-move",
+   "trigger": "project too big",
+   "tags": [
+    "planning"
+   ]
+  },
+  {
+   "id": "t055",
+   "text": "Split a project into 3-5 chunks, never fifteen, and plan no more than one or two bites ahead.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "first-move",
+   "trigger": "project too big",
+   "tags": [
+    "planning",
+    "overwhelm"
+   ]
+  },
+  {
+   "id": "t056",
+   "text": "If the step has a verb like decide, think or research, it's not physical; rewrite it as open, write, send, call.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "first-move",
+   "trigger": "cannot start",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "t057",
+   "text": "Your SOP has a typo? Ship it. Your proposal is 85% polished? Send it.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "first-move",
+   "trigger": "before sending",
+   "tags": [
+    "shipping",
+    "perfectionism"
+   ]
+  },
+  {
+   "id": "t058",
+   "text": "'Not yet' is only legitimate when something is missing, never when something is unpolished.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "first-move",
+   "trigger": "before sending",
+   "tags": [
+    "shipping"
+   ]
+  },
+  {
+   "id": "t059",
+   "text": "Every thought goes to one and only one capture point. Not one per device. One. Total.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "external-brain",
+   "trigger": "capture",
+   "tags": [
+    "capture"
+   ]
+  },
+  {
+   "id": "t060",
+   "text": "Put the capture app in the phone dock, bottom row, thumb's reach, plus a lock-screen widget.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "external-brain",
+   "trigger": "capture setup",
+   "tags": [
+    "capture"
+   ]
+  },
+  {
+   "id": "t061",
+   "text": "If a thought takes more than five seconds to capture the system fails; speak it, don't type it.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "external-brain",
+   "trigger": "capture",
+   "tags": [
+    "capture"
+   ]
+  },
+  {
+   "id": "t062",
+   "text": "Process the inbox once a day in a low-energy window, 10-15 minutes, hard stop; work only from the board.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "external-brain",
+   "trigger": "end of day",
+   "tags": [
+    "capture",
+    "planning"
+   ]
+  },
+  {
+   "id": "t063",
+   "text": "Keep the board to 3-5 columns and flag any card unmoved for three days.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "external-brain",
+   "trigger": "planning the week",
+   "tags": [
+    "planning",
+    "audit"
+   ]
+  },
+  {
+   "id": "t064",
+   "text": "Record a two-minute screen video narrating a recurring task, then ask AI to 'turn this transcript into a clean, numbered SOP.'",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "external-brain",
+   "trigger": "repeated task",
+   "tags": [
+    "capture",
+    "shipping"
+   ]
+  },
+  {
+   "id": "t065",
+   "text": "Batch approvals into one Green-window slot; approvals scattered through the day are the old drain with extra steps.",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "external-brain",
+   "trigger": "planning the day",
+   "tags": [
+    "planning",
+    "energy"
+   ]
+  },
+  {
+   "id": "t066",
+   "text": "Name the task as a finished artifact; 'prepare for the board meeting' is a threat, not an instruction.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "trigger": "cannot start",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "t067",
+   "text": "Ask for 200 words of deliberately messy raw material and start crossing out what's wrong.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "trigger": "blank page",
+   "tags": [
+    "initiation",
+    "perfectionism"
+   ]
+  },
+  {
+   "id": "t068",
+   "text": "Ask for the three literal physical steps for the next ten minutes, not a project plan.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "trigger": "cannot start",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "t069",
+   "text": "When three steps is too many, ask for one task that takes exactly 60 seconds.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "trigger": "cannot start",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "t070",
+   "text": "Flag which micro-step is the most dopamine-heavy so you have something to move toward.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "trigger": "cannot start",
+   "tags": [
+    "initiation",
+    "energy"
+   ]
+  },
+  {
+   "id": "t071",
+   "text": "Explain the problem out loud as if teaching a student; you finish holding an outline.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "trigger": "conceptual fog",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "t072",
+   "text": "Spend 90% of the block in your workspace and 10% in chat; answer, paste, leave.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "trigger": "focus block",
+   "tags": [
+    "focus-block"
+   ]
+  },
+  {
+   "id": "t073",
+   "text": "Say 'park this idea' then re-read the exact sentence you were writing; parking without re-entry still costs flow.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "trigger": "drifting mid-task",
+   "tags": [
+    "parking-lot",
+    "re-entry"
+   ]
+  },
+  {
+   "id": "t074",
+   "text": "Expect the Dopamine Dip 40-60 minutes in; change the interaction (persona, sprint), not the task.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "trigger": "focus block",
+   "tags": [
+    "focus-block",
+    "energy"
+   ]
+  },
+  {
+   "id": "t075",
+   "text": "Re-reading one paragraph for ten minutes? Get three different ways to finish the thought and pick one.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "trigger": "perfectionism",
+   "tags": [
+    "perfectionism",
+    "momentum"
+   ]
+  },
+  {
+   "id": "t076",
+   "text": "Five minutes before stopping, write where you left off, the sticky point, and where the cursor goes next.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "trigger": "end of session",
+   "tags": [
+    "re-entry",
+    "evening"
+   ]
+  },
+  {
+   "id": "t077",
+   "text": "Never let a block just stop; the hyperfocus crash costs 20 minutes of 'remembering how to work' next time.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "trigger": "end of session",
+   "tags": [
+    "hyperfocus",
+    "re-entry"
+   ]
+  },
+  {
+   "id": "t078",
+   "text": "After a block do one decompression: 60 seconds of jumping jacks, 5-4-3 senses, or wash three dishes.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "trigger": "end of session",
+   "tags": [
+    "energy"
+   ]
+  },
+  {
+   "id": "t079",
+   "text": "Reclassify a lost morning as a System Interruption; the metric is Recovery Time, not what was lost.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "trigger": "wasted the day",
+   "tags": [
+    "shame",
+    "re-entry"
+   ]
+  },
+  {
+   "id": "t080",
+   "text": "Do not apologize and do not accept your own apology; absorb it and issue the next move.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "trigger": "wasted the day",
+   "tags": [
+    "shame"
+   ]
+  },
+  {
+   "id": "t081",
+   "text": "Log two numbers per session, Energy 1-10 and Focus 1-10, for 14 days before analysing anything.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "weekly-review",
+   "trigger": "tracking energy",
+   "tags": [
+    "audit",
+    "energy"
+   ]
+  },
+  {
+   "id": "t082",
+   "text": "Score each task (+) energizing, (=) neutral, (−) draining; every (−) gets Automate, Delegate, then Batch.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "weekly-review",
+   "trigger": "weekly review",
+   "tags": [
+    "audit",
+    "energy"
+   ]
+  },
+  {
+   "id": "t083",
+   "text": "Ask for a Best Case and Worst Case estimate plus three Time-Anchors where you check the clock.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "flight-plan",
+   "trigger": "estimating a task",
+   "tags": [
+    "time-blindness"
+   ]
+  },
+  {
+   "id": "t084",
+   "text": "Before saying yes, state the request, your top 3 and your energy X/10; if it costs over 30 minutes, name what it displaces.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "flight-plan",
+   "trigger": "before saying yes",
+   "tags": [
+    "decision"
+   ]
+  },
+  {
+   "id": "t085",
+   "text": "Audit what you actually completed, never the plan; intentions don't move the ratio.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "weekly-review",
+   "trigger": "weekly review",
+   "tags": [
+    "audit",
+    "weekly"
+   ]
+  },
+  {
+   "id": "t086",
+   "text": "Surface the ratio (growth vs busywork) before a single recommendation.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "weekly-review",
+   "trigger": "weekly review",
+   "tags": [
+    "audit"
+   ]
+  },
+  {
+   "id": "t087",
+   "text": "Pick exactly three high-leverage tasks for next week and tag everything else Automate / Delegate / Delete.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "weekly-review",
+   "trigger": "weekly review",
+   "tags": [
+    "planning",
+    "weekly"
+   ]
+  },
+  {
+   "id": "t088",
+   "text": "Purge the week's screenshots and tabs into Immediate Action / Reference / Future / Noise without analysing deeply.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "weekly-review",
+   "trigger": "weekly review",
+   "tags": [
+    "weekly",
+    "capture"
+   ]
+  },
+  {
+   "id": "t089",
+   "text": "Set a 5-minute timer and speak every open loop into voice-to-text; don't judge the thoughts.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "weekly-review",
+   "trigger": "weekly review",
+   "tags": [
+    "capture",
+    "parking-lot"
+   ]
+  },
+  {
+   "id": "t090",
+   "text": "Permission to Rest must cite the day's actual completed work, not generic reassurance.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "flight-plan",
+   "trigger": "end of day",
+   "tags": [
+    "evening",
+    "savoring"
+   ]
+  },
+  {
+   "id": "t091",
+   "text": "Front-load High Impact / Low Cognitive Tax wins; three small completions in thirty minutes signals 'we are winning today.'",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "flight-plan",
+   "trigger": "morning",
+   "tags": [
+    "morning",
+    "momentum"
+   ]
+  },
+  {
+   "id": "t092",
+   "text": "Hard deadlines due today go first; High Impact / High Tax work goes in your peak window.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "flight-plan",
+   "trigger": "planning the day",
+   "tags": [
+    "planning"
+   ]
+  },
+  {
+   "id": "t093",
+   "text": "Any task waiting on someone else is deprioritized; put 'send the unblocking message' in as its own item.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "flight-plan",
+   "trigger": "planning the day",
+   "tags": [
+    "planning"
+   ]
+  },
+  {
+   "id": "t094",
+   "text": "At energy 3 or below, drop every high-tax item unless it has a hard deadline today.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "flight-plan",
+   "trigger": "low energy",
+   "tags": [
+    "energy",
+    "planning"
+   ]
+  },
+  {
+   "id": "t095",
+   "text": "Re-plan a collapsed day as one deferral, one batch, one timed 10-minute micro-task.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "flight-plan",
+   "trigger": "day fell apart",
+   "tags": [
+    "planning",
+    "re-entry"
+   ]
+  },
+  {
+   "id": "t096",
+   "text": "Before shutting down Sunday, open the exact document for Monday's #1 task with the cursor in place.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "flight-plan",
+   "trigger": "end of week",
+   "tags": [
+    "evening",
+    "initiation"
+   ]
+  },
+  {
+   "id": "t097",
+   "text": "Attach a Dopamine Anchor to initiation: a playlist or coffee reserved for the first deep-work session only.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "flight-plan",
+   "trigger": "morning",
+   "tags": [
+    "morning",
+    "initiation"
+   ]
+  },
+  {
+   "id": "t098",
+   "text": "Name three specific inboxes you are forbidden to check until 11 AM.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "flight-plan",
+   "trigger": "morning",
+   "tags": [
+    "morning",
+    "focus-block"
+   ]
+  },
+  {
+   "id": "t099",
+   "text": "Sort incoming mail into Noise / Information / Action; hide the noise but report its count.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "inbox-triage",
+   "trigger": "inbox",
+   "tags": [
+    "planning"
+   ]
+  },
+  {
+   "id": "t100",
+   "text": "Never write an email from scratch; give three raw bullets and edit the 90% draft.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "inbox-triage",
+   "trigger": "before sending",
+   "tags": [
+    "message"
+   ]
+  },
+  {
+   "id": "t101",
+   "text": "Disable real-time email notifications and batch delivery to 9:00, 1:00 and 4:00.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "inbox-triage",
+   "trigger": "inbox",
+   "tags": [
+    "focus-block"
+   ]
+  },
+  {
+   "id": "t102",
+   "text": "Snooze only with a return trigger — a date or a place; a snooze without one is deletion with extra steps.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "inbox-triage",
+   "trigger": "inbox",
+   "tags": [
+    "parking-lot"
+   ]
+  },
+  {
+   "id": "t103",
+   "text": "Five thousand unread? Move everything older than 14 days to 'Archive - Pre-AI Era' and let people follow up.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "inbox-triage",
+   "trigger": "inbox backlog",
+   "tags": [
+    "overwhelm",
+    "parking-lot"
+   ]
+  },
+  {
+   "id": "t104",
+   "text": "End every synthesis with the Next 5: five specific steps for the next 48 hours, ordered by impact.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "inbox-triage",
+   "trigger": "after reading",
+   "tags": [
+    "planning"
+   ]
+  },
+  {
+   "id": "t105",
+   "text": "Ask AI to map a long document first and name the three densest sections; summarize only those.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "inbox-triage",
+   "trigger": "long document",
+   "tags": [
+    "overwhelm"
+   ]
+  },
+  {
+   "id": "t106",
+   "text": "Demand a direct quote and location for every claim; if it isn't in the text, it doesn't go in the brief.",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "inbox-triage",
+   "trigger": "after reading",
+   "tags": [
+    "audit"
+   ]
+  },
+  {
+   "id": "t107",
+   "text": "Confess first: 'I am stuck. I am overwhelmed. I can't start.' The wall of awful thrives in the dark.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "trigger": "cannot start",
+   "tags": [
+    "initiation",
+    "shame"
+   ]
+  },
+  {
+   "id": "t108",
+   "text": "Ask for one instruction at a time, wait for 'done', and make the first step laughably easy.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "trigger": "cannot start",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "t109",
+   "text": "Scanning the whole room is the overload? Ask for a hunt: 'only the blue trash, ignore everything else.'",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "trigger": "overwhelm",
+   "tags": [
+    "overwhelm",
+    "initiation"
+   ]
+  },
+  {
+   "id": "t110",
+   "text": "Say 'I am going in. Do not let me quit.' before a wall-of-awful task.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "trigger": "cannot start",
+   "tags": [
+    "body-double",
+    "initiation"
+   ]
+  },
+  {
+   "id": "t111",
+   "text": "Never wrap taxes or anything serious in a game; switch to body double plus a next tiny step every five minutes.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "trigger": "serious task",
+   "tags": [
+    "body-double"
+   ]
+  },
+  {
+   "id": "t112",
+   "text": "Ask 'Is this realistic? Critique my plan.' then accept the reduced schedule without arguing.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "trigger": "planning the day",
+   "tags": [
+    "time-blindness",
+    "planning"
+   ]
+  },
+  {
+   "id": "t113",
+   "text": "Add ~20% to travel estimates and ~50% to task estimates until you have your own measured rate.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "trigger": "estimating a task",
+   "tags": [
+    "time-blindness"
+   ]
+  },
+  {
+   "id": "t114",
+   "text": "Before a weekend project, ask the invisible-middle questions: copy written? images? tested? how long did the last one take?",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "trigger": "estimating a task",
+   "tags": [
+    "time-blindness",
+    "planning"
+   ]
+  },
+  {
+   "id": "t115",
+   "text": "Quarter-time check: 'Are you writing yet, or still researching? If researching, stop.'",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "trigger": "hyperfocus check",
+   "tags": [
+    "hyperfocus",
+    "momentum"
+   ]
+  },
+  {
+   "id": "t116",
+   "text": "After 180 minutes with slowing output you are in garbage time; stop or switch to low-load work.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "trigger": "hyperfocus check",
+   "tags": [
+    "hyperfocus",
+    "energy"
+   ]
+  },
+  {
+   "id": "t117",
+   "text": "After a meeting, dump three takeaways, then a glass of water and no screen for five minutes.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "trigger": "transition between tasks",
+   "tags": [
+    "re-entry",
+    "energy"
+   ]
+  },
+  {
+   "id": "t118",
+   "text": "Stuck in waiting mode before a 2 PM call? Set a hard 1:30 alarm, name the time budget, assign one task.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "trigger": "waiting mode",
+   "tags": [
+    "time-blindness",
+    "initiation"
+   ]
+  },
+  {
+   "id": "t119",
+   "text": "Back-chain departures: out the door at 5:00 means shoes on by 4:50 and shutdown at 4:40; alarm at 4:40.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "trigger": "before leaving",
+   "tags": [
+    "time-blindness"
+   ]
+  },
+  {
+   "id": "t120",
+   "text": "Deferring to Friday? Load Friday's real calendar and ask 'Do you really want to sabotage Friday You?'",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "trigger": "deferring a task",
+   "tags": [
+    "time-blindness",
+    "decision"
+   ]
+  },
+  {
+   "id": "t121",
+   "text": "Dump everything without organizing, say 'That's it.' to end, and let the sort happen after.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "external-brain",
+   "trigger": "brain dump",
+   "tags": [
+    "capture"
+   ]
+  },
+  {
+   "id": "t122",
+   "text": "Tag feelings in the dump — 'call the bank and I'm terrified' — the emotion is the sequencing data.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "external-brain",
+   "trigger": "brain dump",
+   "tags": [
+    "capture"
+   ]
+  },
+  {
+   "id": "t123",
+   "text": "Log loops at handoff, not completion: 'I emailed Steve. Add this to Open Loops.'",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "external-brain",
+   "trigger": "after sending",
+   "tags": [
+    "parking-lot",
+    "capture"
+   ]
+  },
+  {
+   "id": "t124",
+   "text": "Every Friday, each stale loop gets one binary: Keep (and schedule today) or Kill (and accept the consequence).",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "weekly-review",
+   "trigger": "weekly review",
+   "tags": [
+    "parking-lot",
+    "weekly",
+    "decision"
+   ]
+  },
+  {
+   "id": "t125",
+   "text": "Paste the link before you press buy: 'I do not press the button until the Oracle speaks.'",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "trigger": "before spending money",
+   "tags": [
+    "money"
+   ]
+  },
+  {
+   "id": "t126",
+   "text": "Compute interest-adjusted cost, hours of labor it costs, and where it will physically live, then state your case.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "trigger": "before spending money",
+   "tags": [
+    "money",
+    "decision"
+   ]
+  },
+  {
+   "id": "t127",
+   "text": "Bad-day purchase? Validate the want, put it on a 72-hour Wait List, close the tab, drink water instead.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "trigger": "before spending money",
+   "tags": [
+    "money"
+   ]
+  },
+  {
+   "id": "t128",
+   "text": "Never send a sensitive message directly; write the venom, then route it through the filter.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "trigger": "before sending a message",
+   "tags": [
+    "message"
+   ]
+  },
+  {
+   "id": "t129",
+   "text": "Grey rock rewrite: state the fact, state the boundary, request the next action, zero adjectives about them.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "trigger": "before sending a message",
+   "tags": [
+    "message"
+   ]
+  },
+  {
+   "id": "t130",
+   "text": "A message wrecked you? Extract only sender's goal, required action and timeline; do not guess their mood.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "trigger": "after receiving a message",
+   "tags": [
+    "message",
+    "shame"
+   ]
+  },
+  {
+   "id": "t131",
+   "text": "Vent with no advice and no fixing until you type the safe word 'Cooling Down'; then mine the rant for one sentence.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "trigger": "need to rant",
+   "tags": [
+    "message",
+    "shame"
+   ]
+  },
+  {
+   "id": "t132",
+   "text": "Type 'Check': anxiety 1-10, focus 1-10; high anxiety plus low focus means drop the task and go to a window.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "trigger": "drifting afternoon",
+   "tags": [
+    "energy",
+    "shame"
+   ]
+  },
+  {
+   "id": "t133",
+   "text": "CODE RED: Breathe. Stop. Do not email anyone yet. Do not quit. Get the facts first.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "trigger": "I messed up badly",
+   "tags": [
+    "message",
+    "shame"
+   ]
+  },
+  {
+   "id": "t134",
+   "text": "Quantify the distortion: not 'I'm bad with time' but 'I underestimate travel time by 20%.'",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "weekly-review",
+   "trigger": "writing your user manual",
+   "tags": [
+    "time-blindness",
+    "audit"
+   ]
+  },
+  {
+   "id": "t135",
+   "text": "Write the Do Not list first; negative constraints beat positive instructions for an EF coach.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "weekly-review",
+   "trigger": "writing your user manual",
+   "tags": [
+    "planning"
+   ]
+  },
+  {
+   "id": "t136",
+   "text": "Write If/Then trigger lines: 'If I am quiet for two days, I am likely isolating. Check in on me.'",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "weekly-review",
+   "trigger": "writing your user manual",
+   "tags": [
+    "relatedness",
+    "planning"
+   ]
+  },
+  {
+   "id": "t137",
+   "text": "Phase up the scaffold: full list → three guiding questions → 'What is the very first, tiny step?'",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "agent-governance",
+   "trigger": "steady for weeks",
+   "tags": [
+    "mastery"
+   ]
+  },
+  {
+   "id": "t138",
+   "text": "Occasionally disobey the AI's suggestion on purpose; the inefficient choice is the human choice.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "agent-governance",
+   "trigger": "weekly review",
+   "tags": [
+    "values"
+   ]
+  },
+  {
+   "id": "t139",
+   "text": "Ask 'Does this need to be in the main thread?' and open a throwaway chat if not.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "agent-governance",
+   "trigger": "before asking AI",
+   "tags": [
+    "focus-block"
+   ]
+  },
+  {
+   "id": "t140",
+   "text": "Gate a physical reward behind capture: 'no first sip of coffee until the brain dump is pasted.'",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "external-brain",
+   "trigger": "morning",
+   "tags": [
+    "morning",
+    "capture"
+   ]
+  },
+  {
+   "id": "t141",
+   "text": "After a major life shift, reboot: name the new priority, swap the register, and redefine success.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "weekly-review",
+   "trigger": "life changed",
+   "tags": [
+    "values",
+    "re-entry"
+   ]
+  },
+  {
+   "id": "t142",
+   "text": "Strip names before pasting: the AI needs the shape of the situation, not the entities.",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "agent-governance",
+   "trigger": "before pasting data",
+   "tags": [
+    "message"
+   ]
+  },
+  {
+   "id": "t143",
+   "text": "Never say 'just start' to yourself; acknowledge that starting is genuinely hard, then pick the three dishes.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "trigger": "cannot start",
+   "tags": [
+    "initiation",
+    "shame"
+   ]
+  },
+  {
+   "id": "t144",
+   "text": "Target the atom, not the project: 'pick up the three dishes by the sink,' not 'clean the kitchen.'",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "trigger": "cannot start",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "t145",
+   "text": "Put a time estimate in parentheses on every micro-step; the number is the affordability promise.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "trigger": "cannot start",
+   "tags": [
+    "initiation",
+    "time-blindness"
+   ]
+  },
+  {
+   "id": "t146",
+   "text": "After every three steps ask 'Keep going or take a 5-minute break?' and honor the answer.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "trigger": "momentum chain",
+   "tags": [
+    "momentum"
+   ]
+  },
+  {
+   "id": "t147",
+   "text": "Keep check-ins to one or two sentences; a long check-in is the interruption it was meant to prevent.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "trigger": "body double",
+   "tags": [
+    "body-double"
+   ]
+  },
+  {
+   "id": "t148",
+   "text": "Losing focus mid-session? Stand, stretch, three breaths, water, then set a smaller mini-goal than before.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "trigger": "drifting mid-task",
+   "tags": [
+    "momentum",
+    "re-entry"
+   ]
+  },
+  {
+   "id": "t149",
+   "text": "Sprint: 15 minutes with check-ins at 5 and 10; 'only 15 minutes' is much less scary than an open session.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "trigger": "cannot start",
+   "tags": [
+    "initiation",
+    "focus-block"
+   ]
+  },
+  {
+   "id": "t150",
+   "text": "In flow at the 25-minute mark? Don't force the break; just note it and ask.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "trigger": "focus block",
+   "tags": [
+    "hyperfocus",
+    "focus-block"
+   ]
+  },
+  {
+   "id": "t151",
+   "text": "Three abandoned sessions in a row means stop offering sessions and ask: rest, distraction, or gentle movement?",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "trigger": "low energy",
+   "tags": [
+    "energy"
+   ]
+  },
+  {
+   "id": "t152",
+   "text": "Doom box: 15-minute timer, one item at a time, 30-second cap per item, then stop or explicitly re-up.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "trigger": "sorting a pile",
+   "tags": [
+    "overwhelm",
+    "momentum"
+   ]
+  },
+  {
+   "id": "t153",
+   "text": "Caught deep-diving on one object? 'Keep, toss, or donate — trust your first instinct.'",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "trigger": "sorting a pile",
+   "tags": [
+    "decision"
+   ]
+  },
+  {
+   "id": "t154",
+   "text": "Fifteen minutes too much today? One item from the pile; a 60-item box is gone in two months.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "trigger": "low energy",
+   "tags": [
+    "momentum"
+   ]
+  },
+  {
+   "id": "t155",
+   "text": "About to put something 'somewhere for now'? Take ten seconds and put it where it actually goes.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "trigger": "tidying",
+   "tags": [
+    "capture"
+   ]
+  },
+  {
+   "id": "t156",
+   "text": "Low-stakes decision? Flip a coin; if the result disappoints you, that was your answer.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "trigger": "cannot decide",
+   "tags": [
+    "decision"
+   ]
+  },
+  {
+   "id": "t157",
+   "text": "Morning brief under 10 lines, shape of the day first: 'a sandwich — busy bread, open middle.'",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "trigger": "morning",
+   "tags": [
+    "morning",
+    "planning"
+   ]
+  },
+  {
+   "id": "t158",
+   "text": "Every calendar item carries context, not a title: what it's about, what to bring, travel, what it connects to.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "trigger": "morning",
+   "tags": [
+    "morning",
+    "planning"
+   ]
+  },
+  {
+   "id": "t159",
+   "text": "Name and defend the golden block, and schedule lunch inside it because you'll forget otherwise.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "trigger": "morning",
+   "tags": [
+    "morning",
+    "energy"
+   ]
+  },
+  {
+   "id": "t160",
+   "text": "Build today's menu: 2-3 entrees, 4-5 sides with one doable from the couch, 2-3 real desserts.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "trigger": "morning",
+   "tags": [
+    "morning",
+    "decision"
+   ]
+  },
+  {
+   "id": "t161",
+   "text": "An item on the menu three days running gets asked: order it today or take it off the menu?",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "trigger": "morning",
+   "tags": [
+    "parking-lot",
+    "decision"
+   ]
+  },
+  {
+   "id": "t162",
+   "text": "Dessert must be something you genuinely enjoy; one fake dessert kills trust in the whole menu.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "trigger": "morning",
+   "tags": [
+    "savoring"
+   ]
+  },
+  {
+   "id": "t163",
+   "text": "Finished a task? Roll a die: 1-3 acknowledgment, 4 victory lap, 5 ten guilt-free minutes, 6 jackpot.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "trigger": "after finishing a task",
+   "tags": [
+    "savoring",
+    "momentum"
+   ]
+  },
+  {
+   "id": "t164",
+   "text": "Anchor the departure countdown to leave-by time, not event time: a 7:30 dinner 20 minutes away means T-0 is 7:10.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "trigger": "before leaving",
+   "tags": [
+    "time-blindness"
+   ]
+  },
+  {
+   "id": "t165",
+   "text": "Each countdown rung says what to do right now: wrap up, find keys, shoes on, door check, go.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "trigger": "before leaving",
+   "tags": [
+    "time-blindness"
+   ]
+  },
+  {
+   "id": "t166",
+   "text": "Early morning tomorrow? Start wind-down at T-90, screens off at T-30, alarm and charger check at T-15.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "trigger": "evening",
+   "tags": [
+    "evening"
+   ]
+  },
+  {
+   "id": "t167",
+   "text": "Meds nudge escalates every 15 minutes and the last one offers 'if you took them and forgot to tell me, just say so.'",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "trigger": "morning",
+   "tags": [
+    "morning"
+   ]
+  },
+  {
+   "id": "t168",
+   "text": "Evening receipt: 'what got done today?' answered in three sentences max; a bookmark, not a performance review.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "trigger": "evening",
+   "tags": [
+    "evening",
+    "savoring"
+   ]
+  },
+  {
+   "id": "t169",
+   "text": "Log rest as a valid category; a receipt that treats downtime as waste stops getting read.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "trigger": "weekly review",
+   "tags": [
+    "energy",
+    "weekly"
+   ]
+  },
+  {
+   "id": "t170",
+   "text": "Suggest exactly one adjustment for next week. Not five. Not ten. One.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "trigger": "weekly review",
+   "tags": [
+    "weekly",
+    "planning"
+   ]
+  },
+  {
+   "id": "t171",
+   "text": "One relationship nudge per day, and it must take under 30 seconds to execute.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "trigger": "morning",
+   "tags": [
+    "relatedness"
+   ]
+  },
+  {
+   "id": "t172",
+   "text": "Late reply: acknowledge the delay in one clause, answer what they said, ask one question, stop at three sentences.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "trigger": "before sending a message",
+   "tags": [
+    "message",
+    "relatedness"
+   ]
+  },
+  {
+   "id": "t173",
+   "text": "Reply to the oldest unanswered message right now with 'Hey! Sorry for the late reply. How are you?'",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "trigger": "avoiding a message",
+   "tags": [
+    "message",
+    "relatedness",
+    "initiation"
+   ]
+  },
+  {
+   "id": "t174",
+   "text": "Breakfast by 10, lunch check at 1:30, dinner at 7; 'not hungry' still gets an apple or nuts.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "trigger": "energy",
+   "tags": [
+    "energy"
+   ]
+  },
+  {
+   "id": "t175",
+   "text": "Switch on one life rail, not all of them; even a morning brief plus a breakfast reminder counts.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "trigger": "setting up",
+   "tags": [
+    "planning"
+   ]
+  },
+  {
+   "id": "t176",
+   "text": "Log 'meds', not 'I have taken my morning medication'; reduce friction to increase consistency.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "external-brain",
+   "trigger": "capture",
+   "tags": [
+    "capture"
+   ]
+  },
+  {
+   "id": "t177",
+   "text": "Saying 'taking meds'? Check today's log first; already logged means stop and double-check.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "external-brain",
+   "trigger": "morning",
+   "tags": [
+    "morning"
+   ]
+  },
+  {
+   "id": "t178",
+   "text": "Log the items that cause the most doubt — meds, locks, stove — not every glass of water.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "external-brain",
+   "trigger": "capture",
+   "tags": [
+    "capture"
+   ]
+  },
+  {
+   "id": "t179",
+   "text": "Text item plus location in any format, with sub-location detail: 'safe, top shelf, behind the album.'",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "external-brain",
+   "trigger": "putting something away",
+   "tags": [
+    "capture"
+   ]
+  },
+  {
+   "id": "t180",
+   "text": "Before stopping, save state: working on, next step, key insight, and your mental state (flow or stuck).",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "external-brain",
+   "trigger": "end of session",
+   "tags": [
+    "re-entry",
+    "capture"
+   ]
+  },
+  {
+   "id": "t181",
+   "text": "Returning? Ask 'where was I?' and get the insight back before the position.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "external-brain",
+   "trigger": "returning after a gap",
+   "tags": [
+    "re-entry"
+   ]
+  },
+  {
+   "id": "t182",
+   "text": "A project paused more than two weeks gets asked: still on the list, or move it to Someday?",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "external-brain",
+   "trigger": "weekly review",
+   "tags": [
+    "parking-lot"
+   ]
+  },
+  {
+   "id": "t183",
+   "text": "Signed up for a free trial? Log the conversion date and set a reminder three days before it.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "external-brain",
+   "trigger": "before spending money",
+   "tags": [
+    "money"
+   ]
+  },
+  {
+   "id": "t184",
+   "text": "'I want to sign up for X' goes on a dated Considering list; check back in 48 hours.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "external-brain",
+   "trigger": "before spending money",
+   "tags": [
+    "money"
+   ]
+  },
+  {
+   "id": "t185",
+   "text": "A subscription audit ends with cancellation links, not a list; cancel the easiest one while the feeling is fresh.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "external-brain",
+   "trigger": "money review",
+   "tags": [
+    "money",
+    "audit"
+   ]
+  },
+  {
+   "id": "t186",
+   "text": "Shower thoughts: dump without filtering; three duplicates beat zero captures.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "external-brain",
+   "trigger": "brain dump",
+   "tags": [
+    "capture"
+   ]
+  },
+  {
+   "id": "t187",
+   "text": "Between 11 PM and 6 AM capture only: 'Got it. We'll sort this in the morning.' No conversation.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "external-brain",
+   "trigger": "late night",
+   "tags": [
+    "capture",
+    "evening"
+   ]
+  },
+  {
+   "id": "t188",
+   "text": "Install five core systems at setup. Not six. Then close the laptop for the day.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "agent-governance",
+   "trigger": "setting up",
+   "tags": [
+    "planning"
+   ]
+  },
+  {
+   "id": "t189",
+   "text": "Week 4 must subtract something; a rollout where nothing gets removed was not audited honestly.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "agent-governance",
+   "trigger": "weekly review",
+   "tags": [
+    "audit",
+    "planning"
+   ]
+  },
+  {
+   "id": "t190",
+   "text": "Every heartbeat gets quiet hours (11 PM-7 AM); the 3 AM ping is how the agent gets muted by Day 5.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "agent-governance",
+   "trigger": "setting up",
+   "tags": [
+    "evening"
+   ]
+  },
+  {
+   "id": "t191",
+   "text": "Name your top three EF frictions and the exact moment you abandoned your last tool before configuring anything.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "agent-governance",
+   "trigger": "setting up",
+   "tags": [
+    "audit"
+   ]
+  },
+  {
+   "id": "t192",
+   "text": "New commitment: acknowledge the enthusiasm, show the plate, offer four options, ask 'What feels right?'",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "agent-governance",
+   "trigger": "before saying yes",
+   "tags": [
+    "decision"
+   ]
+  },
+  {
+   "id": "t193",
+   "text": "More than five tasks for today? Pick the top three; the rest move to tomorrow and will still be there.",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "agent-governance",
+   "trigger": "overwhelm",
+   "tags": [
+    "overwhelm",
+    "planning"
+   ]
+  },
+  {
+   "id": "t194",
+   "text": "Do the rep first; motivation is an output, not a prerequisite.",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "trigger": "cannot start",
+   "tags": [
+    "initiation",
+    "values"
+   ]
+  },
+  {
+   "id": "t195",
+   "text": "Shrink the rep to its next-smallest-step: 'put the mat on the floor,' not 'stretch.'",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "trigger": "cannot start",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "t196",
+   "text": "Take 30 seconds after a completed rep to consciously register the mastery feeling.",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "trigger": "after finishing a task",
+   "tags": [
+    "savoring",
+    "mastery"
+   ]
+  },
+  {
+   "id": "t197",
+   "text": "Write one sentence of evidence in the mastery log after each rep.",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "trigger": "after finishing a task",
+   "tags": [
+    "mastery"
+   ]
+  },
+  {
+   "id": "t198",
+   "text": "Tick mood and energy 1-5 before bed; it reveals which actions move mood.",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "trigger": "evening",
+   "tags": [
+    "evening",
+    "audit"
+   ]
+  },
+  {
+   "id": "t199",
+   "text": "Do not expand the workbook; adding features is your avoidance tell.",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "trigger": "urge to build a new system",
+   "tags": [
+    "values",
+    "planning"
+   ]
+  },
+  {
+   "id": "t200",
+   "text": "Rewrite 'I'm lazy' as 'I'm having the thought that I'm lazy' to loosen its grip.",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "trigger": "shame",
+   "tags": [
+    "shame"
+   ]
+  },
+  {
+   "id": "t201",
+   "text": "Bridge a neglected value to an engine value: Self-care + Creativity = design a three-item wind-down as a project.",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "trigger": "planning the week",
+   "tags": [
+    "values",
+    "energy"
+   ]
+  },
+  {
+   "id": "t202",
+   "text": "Climb the mastery ladder only when the current rung is boring-easy; a rung that fails twice gets split.",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "trigger": "weekly review",
+   "tags": [
+    "mastery"
+   ]
+  },
+  {
+   "id": "t203",
+   "text": "Put the loud belief on trial with facts only; the revised belief must be accurate, not positive.",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "trigger": "shame",
+   "tags": [
+    "shame",
+    "mastery"
+   ]
+  },
+  {
+   "id": "t204",
+   "text": "Join one community that shares the value; relatedness cannot be substituted with more autonomy or competence.",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "trigger": "planning the week",
+   "tags": [
+    "relatedness"
+   ]
+  },
+  {
+   "id": "t205",
+   "text": "Write one if-then: 'If [internal obstacle], then I will [next-smallest-step].'",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "trigger": "planning the week",
+   "tags": [
+    "planning",
+    "values"
+   ]
+  },
+  {
+   "id": "t206",
+   "text": "Redesigned the system three times? Freeze it, delete the new version, do reps only for a week.",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "trigger": "urge to build a new system",
+   "tags": [
+    "values"
+   ]
+  },
+  {
+   "id": "t207",
+   "text": "Treat gratitude journaling as a low-dose add-on, not a centerpiece.",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "trigger": "evening",
+   "tags": [
+    "savoring"
+   ]
+  },
+  {
+   "id": "t208",
+   "text": "Rate energy 1-5 at session start: low means admin and low-friction work, high means deep work.",
+   "source": "Idea: Carl's ADHD Agent (MIND design doc)",
+   "module": "agent-governance",
+   "trigger": "morning",
+   "tags": [
+    "morning",
+    "energy"
+   ]
+  },
+  {
+   "id": "t209",
+   "text": "Never accept 'I'll do it later' without a specific time; ask 'What time today?'",
+   "source": "Idea: Carl's ADHD Agent (MIND design doc)",
+   "module": "agent-governance",
+   "trigger": "deferring a task",
+   "tags": [
+    "time-blindness",
+    "decision"
+   ]
+  },
+  {
+   "id": "t210",
+   "text": "Show at most three items per message; lists overwhelm.",
+   "source": "Idea: Carl's ADHD Agent (MIND design doc)",
+   "module": "agent-governance",
+   "trigger": "planning the day",
+   "tags": [
+    "overwhelm"
+   ]
+  },
+  {
+   "id": "t211",
+   "text": "After 90 minutes on the same thing ask 'Is this the most important thing right now?'",
+   "source": "Idea: Carl's ADHD Agent (MIND design doc)",
+   "module": "agent-governance",
+   "trigger": "hyperfocus check",
+   "tags": [
+    "hyperfocus"
+   ]
+  },
+  {
+   "id": "t212",
+   "text": "Warn 30 minutes before a meeting or deadline, not only at the time.",
+   "source": "Idea: Carl's ADHD Agent (MIND design doc)",
+   "module": "agent-governance",
+   "trigger": "before a meeting",
+   "tags": [
+    "time-blindness"
+   ]
+  },
+  {
+   "id": "t213",
+   "text": "Celebrate briefly and factually: 'Done. That's been open for 12 days.'",
+   "source": "Idea: Carl's ADHD Agent (MIND design doc)",
+   "module": "agent-governance",
+   "trigger": "after finishing a task",
+   "tags": [
+    "savoring"
+   ]
+  },
+  {
+   "id": "t214",
+   "text": "Re-nudge at increasing intervals (30 min, 2 h, 4 h, next day) rather than giving up after one try.",
+   "source": "Idea: Carl's ADHD Agent (MIND design doc)",
+   "module": "agent-governance",
+   "trigger": "unfinished item",
+   "tags": [
+    "planning"
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "x001",
+   "name": "5-4-3-2-1 Launch",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "duration_min": 1,
+   "trigger": "frozen, cannot start",
+   "steps": [
+    "Count backwards from 5 to 1 out loud.",
+    "When you hit 1, physically move toward the task.",
+    "No thinking, no negotiating — count and go."
+   ],
+   "output": "Your body is at the task with the first move begun.",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "x002",
+   "name": "The Brain Dump",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "duration_min": 5,
+   "trigger": "scattered, everything feels urgent",
+   "steps": [
+    "Set a timer for 5 minutes.",
+    "Write down everything in your head; don't organize.",
+    "Circle the one thing that actually has to get done today.",
+    "Put the rest somewhere you can't see it."
+   ],
+   "output": "One circled item and a hidden list.",
+   "tags": [
+    "overwhelm",
+    "capture",
+    "decision"
+   ]
+  },
+  {
+   "id": "x003",
+   "name": "Worst First",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "duration_min": 10,
+   "trigger": "a dreaded task is draining you in the background",
+   "steps": [
+    "Identify the thing you're dreading most right now.",
+    "Set a 10-minute timer and do only that.",
+    "Stop when it rings; notice everything else feels easier."
+   ],
+   "output": "Ten minutes of the hardest thing done.",
+   "tags": [
+    "initiation",
+    "overwhelm"
+   ]
+  },
+  {
+   "id": "x004",
+   "name": "The Power Hour",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "duration_min": 60,
+   "trigger": "the whole day feels paralyzing",
+   "steps": [
+    "Say: 'I only have to work on this for one hour.'",
+    "Set a one-hour timer.",
+    "When it rings you are free to stop; usually you won't."
+   ],
+   "output": "One bounded hour of work and the permission to stop.",
+   "tags": [
+    "initiation",
+    "focus-block"
+   ]
+  },
+  {
+   "id": "x005",
+   "name": "Re-Entry Note",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "duration_min": 1,
+   "trigger": "about to be pulled away mid-task",
+   "steps": [
+    "Type the next sentence, even half of it.",
+    "Leave it unfinished on purpose: 'Then I need to add the part about—'",
+    "When you return, finish that line first."
+   ],
+   "output": "An open hook you can re-enter without a cold start.",
+   "tags": [
+    "re-entry",
+    "momentum"
+   ]
+  },
+  {
+   "id": "x006",
+   "name": "The Amnesty Rule",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "duration_min": 2,
+   "trigger": "4pm, nothing done, guilt heavier than the task",
+   "steps": [
+    "Say out loud: 'The day starts now. What happened before doesn't count.'",
+    "Pick the smallest useful thing for the time that's left.",
+    "Do that one thing."
+   ],
+   "output": "A restarted day with one thing done.",
+   "tags": [
+    "shame",
+    "re-entry"
+   ]
+  },
+  {
+   "id": "x007",
+   "name": "The One Tab Rule",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "duration_min": 2,
+   "trigger": "end of day, fried",
+   "steps": [
+    "Open the one file or tab you'll need first tomorrow.",
+    "Leave it open on screen at the exact spot you'll pick up.",
+    "Stop. Tomorrow you continue instead of deciding."
+   ],
+   "output": "Tomorrow's start is half-made.",
+   "tags": [
+    "evening",
+    "re-entry",
+    "initiation"
+   ]
+  },
+  {
+   "id": "x008",
+   "name": "The Shutdown Line",
+   "source": "The ADHD Reset Pack (Sam, @sam.wont.start)",
+   "module": "reset-pack",
+   "duration_min": 3,
+   "trigger": "end of day, work guilt bleeding into the evening",
+   "steps": [
+    "Say your one sentence that ends the workday ('That's it for today').",
+    "Write tomorrow's first task on a note.",
+    "Physically close the laptop; the unfinished stuff is captured and allowed to wait."
+   ],
+   "output": "A closed workday and a captured first task.",
+   "tags": [
+    "evening"
+   ]
+  },
+  {
+   "id": "x009",
+   "name": "Magic Hours Discovery Protocol",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "energy-map",
+   "duration_min": 10080,
+   "trigger": "you don't know when your brain works best",
+   "steps": [
+    "For 5-7 consecutive days, set an alarm every two hours while awake.",
+    "When it fires, rate focus and energy 1-5 (1 brain fog, 5 locked in).",
+    "Note what you were doing and whether focus was natural or forced.",
+    "At week's end, find 2-3 contiguous blocks where natural 4s and 5s recur."
+   ],
+   "output": "An Energy Map naming your Magic Hours and low-energy windows.",
+   "tags": [
+    "energy",
+    "audit",
+    "time-blindness"
+   ]
+  },
+  {
+   "id": "x010",
+   "name": "In-the-Zone Memory (Dopamine Win)",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "energy-map",
+   "duration_min": 5,
+   "trigger": "no energy data yet, want a first signal",
+   "steps": [
+    "Think back over the past seven days.",
+    "Answer: when was the last time you felt 'in the zone' without forcing it?",
+    "Write the day, approximate time, the task, and the environment (quiet? music? alone? coffee shop?)."
+   ],
+   "output": "One data point for your Magic Hours — not a map yet.",
+   "tags": [
+    "energy",
+    "audit"
+   ]
+  },
+  {
+   "id": "x011",
+   "name": "One 10-3 Round",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "focus-block",
+   "duration_min": 13,
+   "trigger": "starting a focus block",
+   "steps": [
+    "Set a timer for ten minutes.",
+    "Work on one clearly defined task with no second tabs or phone.",
+    "Stop completely for three minutes: stand, stretch, water, no screens.",
+    "Repeat; four rounds is roughly 52 minutes."
+   ],
+   "output": "One round of real output and a reset brain.",
+   "tags": [
+    "focus-block",
+    "initiation"
+   ]
+  },
+  {
+   "id": "x012",
+   "name": "Momentum Trigger Stack",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "focus-block",
+   "duration_min": 1,
+   "trigger": "sitting at the desk, brain refusing to engage",
+   "steps": [
+    "Physical cue: put on the headphones.",
+    "Auditory cue: press play on the same playlist, from the top, no shuffle.",
+    "Visual cue: drag one card to In Progress or write the block's task on one sticky.",
+    "Temporal cue: set a ten-minute timer."
+   ],
+   "output": "A conditioned start under 60 seconds; a reflex after 2-3 weeks.",
+   "tags": [
+    "focus-block",
+    "initiation"
+   ]
+  },
+  {
+   "id": "x013",
+   "name": "Friction Point Sweep",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "focus-block",
+   "duration_min": 2,
+   "trigger": "desk is a mess of distractions",
+   "steps": [
+    "Find one object, mess or annoyance that pulls your attention every time you sit down.",
+    "Remove it right now — put it away, bin it, or move it out of sight.",
+    "Look at the cleared space; that is your anchor point.",
+    "Tomorrow, clear another one."
+   ],
+   "output": "One cleaner anchor point on the desk.",
+   "tags": [
+    "momentum",
+    "focus-block"
+   ]
+  },
+  {
+   "id": "x014",
+   "name": "Virtual Body Doubling Session",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "focus-block",
+   "duration_min": 50,
+   "trigger": "working alone and drifting",
+   "steps": [
+    "Join Focusmate, Flown, or a video call with a friend.",
+    "State your intention in one sentence: 'I'm going to draft the proposal.'",
+    "Camera on, mic muted; work 25 or 50 minutes running 10-3 inside it.",
+    "Report back at the end."
+   ],
+   "output": "A completed block under gentle social accountability.",
+   "tags": [
+    "body-double",
+    "focus-block"
+   ]
+  },
+  {
+   "id": "x015",
+   "name": "Priority Sparring",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "first-move",
+   "duration_min": 5,
+   "trigger": "seventeen things on the plate, frozen",
+   "steps": [
+    "Paste or dictate the full brain dump; don't organize or filter it.",
+    "Ask for a sort by cost of delay, not by what feels loudest.",
+    "For the top item only, ask for the smallest physical first action under ten minutes.",
+    "Take the one verb-led sentence, close the chat, set a ten-minute timer, do it."
+   ],
+   "output": "One marching order and the rest of the pile out of sight.",
+   "tags": [
+    "overwhelm",
+    "decision",
+    "initiation"
+   ]
+  },
+  {
+   "id": "x016",
+   "name": "Eat the Elephant",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "first-move",
+   "duration_min": 10,
+   "trigger": "a project too big to see the start of",
+   "steps": [
+    "Write the done state in one sentence describing the end condition.",
+    "Name the 3-5 major chunks, no more.",
+    "For the first chunk only: what is the smallest physical action in the next ten minutes?",
+    "Do it, then extract the next bite; never plan more than two ahead."
+   ],
+   "output": "A done state, a short chunk list, and one bite in motion.",
+   "tags": [
+    "overwhelm",
+    "planning",
+    "initiation"
+   ]
+  },
+  {
+   "id": "x017",
+   "name": "Hard Shutdown Ritual",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "energy-map",
+   "duration_min": 5,
+   "trigger": "working late, riding a wave or sitting idle at the desk",
+   "steps": [
+    "Reach the fixed, pre-set stop point regardless of what is finished.",
+    "Close the laptop.",
+    "Write tomorrow's top three tasks in your External Brain.",
+    "Walk away."
+   ],
+   "output": "Tomorrow's Magic Hours protected.",
+   "tags": [
+    "evening",
+    "hyperfocus"
+   ]
+  },
+  {
+   "id": "x018",
+   "name": "Tier the List Red/Amber/Green",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "energy-map",
+   "duration_min": 10,
+   "trigger": "planning the day or week",
+   "steps": [
+    "For each task ask: how much cognitive energy does this require?",
+    "Red = deep focus, creative, high stakes; Amber = emails, calls, check-ins; Green = filing, admin, scheduling.",
+    "Place Red only in Magic Hours, Amber mid-energy, Green lowest-energy or delete/automate.",
+    "If Red exceeds available Magic Hours, name what doesn't fit — don't invent a window."
+   ],
+   "output": "A placed task list with capacity conflicts visible.",
+   "tags": [
+    "planning",
+    "energy",
+    "decision"
+   ]
+  },
+  {
+   "id": "x019",
+   "name": "Zero-Draft",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "duration_min": 5,
+   "trigger": "blank page, cannot write",
+   "steps": [
+    "Ask: 'write a Zero-Draft of the first section — messy, basic, 200 words of raw material.'",
+    "Say out loud it is meant to be bad.",
+    "Paste it in and start crossing out what's wrong; let the corrective impulse fire."
+   ],
+   "output": "A page that exists and a task converted from creating to editing.",
+   "tags": [
+    "initiation",
+    "perfectionism"
+   ]
+  },
+  {
+   "id": "x020",
+   "name": "First Physical Move",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "duration_min": 10,
+   "trigger": "paralyzed on a named task",
+   "steps": [
+    "Ask for the three literal physical steps for the next ten minutes.",
+    "Reject any step with decide, research, think or plan in it.",
+    "Do step one; report back before taking step two."
+   ],
+   "output": "Three mechanical moves and the project's emotional weight bypassed.",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "x021",
+   "name": "Atomization (Act as my Prefrontal Cortex)",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "duration_min": 5,
+   "trigger": "executive function at 10%",
+   "steps": [
+    "Ask for the task broken into 5-minute micro-steps.",
+    "Each step gets a low-friction instruction ('open the browser tab,' not 'research competitors').",
+    "Ask which step is the most dopamine-heavy and look forward to it."
+   ],
+   "output": "A short chain of micro-steps with a reward step flagged.",
+   "tags": [
+    "initiation",
+    "energy"
+   ]
+  },
+  {
+   "id": "x022",
+   "name": "Rubber Ducking",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "duration_min": 10,
+   "trigger": "can't explain what the thing even is",
+   "steps": [
+    "Stop trying to write it down.",
+    "Explain the problem out loud as if teaching a student: 'here is the mess of ideas I have…'",
+    "Let the listener synthesize as you talk."
+   ],
+   "output": "An outline you produced by talking.",
+   "tags": [
+    "initiation"
+   ]
+  },
+  {
+   "id": "x023",
+   "name": "Gatekeeper Mandate Setup",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "duration_min": 5,
+   "trigger": "want to be held on track for 60-90 minutes",
+   "steps": [
+    "State the Primary Objective as a finished artifact.",
+    "State the Permitted Scope; everything else is a tangent to be saved, not answered.",
+    "State the duration and wall-clock end time.",
+    "Agree: one-sentence status every 20 minutes; no apologies, just redirects."
+   ],
+   "output": "A digital container for one block of focus.",
+   "tags": [
+    "focus-block",
+    "hyperfocus"
+   ]
+  },
+  {
+   "id": "x024",
+   "name": "Breadcrumb Note (Context Save)",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "duration_min": 5,
+   "trigger": "five minutes before stopping",
+   "steps": [
+    "Brain-dump what you just finished and what you were about to do.",
+    "Write three lines: Where we left off / The 'Sticky' Point / The Next Move.",
+    "Make The Next Move a literal cursor position or physical action.",
+    "Put the note where you'll see it next session."
+   ],
+   "output": "A three-line re-entry point that starts the next session in editing mode.",
+   "tags": [
+    "re-entry",
+    "evening"
+   ]
+  },
+  {
+   "id": "x025",
+   "name": "Emergency Reset (1% More in Control)",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "duration_min": 5,
+   "trigger": "lost three hours, shame and low energy",
+   "steps": [
+    "Report it flatly; no apology.",
+    "Say 'Forget the previous plan. We are starting at zero.'",
+    "Do one physical reset: close all 50 tabs, stretch 30 seconds, or drink a glass of water.",
+    "Then one single low-stakes task to re-engage."
+   ],
+   "output": "Recovery begun; the day reclassified as a System Interruption.",
+   "tags": [
+    "shame",
+    "re-entry",
+    "initiation"
+   ]
+  },
+  {
+   "id": "x026",
+   "name": "Time-Audit",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "flight-plan",
+   "duration_min": 5,
+   "trigger": "about to commit to a task estimate",
+   "steps": [
+    "State the task and your known distraction pattern.",
+    "Get a realistic Best Case and Worst Case duration.",
+    "Set three Time-Anchors — points in the task where you check the clock."
+   ],
+   "output": "A calibrated estimate with rabbit-hole checkpoints.",
+   "tags": [
+    "time-blindness",
+    "planning"
+   ]
+  },
+  {
+   "id": "x027",
+   "name": "Commitment Filter",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "flight-plan",
+   "duration_min": 5,
+   "trigger": "someone just asked you to take something on",
+   "steps": [
+    "Write the request, your current top 3 priorities, and energy X/10.",
+    "Ask: if this takes more than 30 minutes, what does it do to the top 3?",
+    "Verdict: accept, decline, or defer.",
+    "If declining, draft the polite reply citing the conflicting priority, not your capacity."
+   ],
+   "output": "A verdict and a sendable decline if needed.",
+   "tags": [
+    "decision",
+    "message"
+   ]
+  },
+  {
+   "id": "x028",
+   "name": "Roadmap vs. Reality Audit",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "weekly-review",
+   "duration_min": 20,
+   "trigger": "end of week, want the brutal truth",
+   "steps": [
+    "List every task actually completed this week plus your goal document.",
+    "Classify each as Empire Building (moves the goal) or Maintenance.",
+    "Calculate the ratio as a percentage.",
+    "Name the #1 distraction to cut next week; then pick the Vital Three."
+   ],
+   "output": "A ratio, a verdict, and one cut.",
+   "tags": [
+    "audit",
+    "weekly",
+    "planning"
+   ]
+  },
+  {
+   "id": "x029",
+   "name": "Mind Sweep",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "weekly-review",
+   "duration_min": 5,
+   "trigger": "background hum of open loops",
+   "steps": [
+    "Set a 5-minute timer.",
+    "Speak everything into voice-to-text: worries, ideas, errands; don't judge.",
+    "Ask for hidden tasks to be extracted to a Pending list."
+   ],
+   "output": "Open loops out of your head and into a list.",
+   "tags": [
+    "capture",
+    "parking-lot",
+    "weekly"
+   ]
+  },
+  {
+   "id": "x030",
+   "name": "Monday Launchpad + Open Loop Pre-Load",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "flight-plan",
+   "duration_min": 10,
+   "trigger": "Sunday evening, before the week",
+   "steps": [
+    "Write the Prime Directive: the one outcome for Monday.",
+    "Write the First Move: a physical action on a named file, under two minutes.",
+    "Name three 'urgent' inboxes forbidden until 11 AM.",
+    "Open the exact document for the #1 task, cursor in place, and name your Dopamine Anchor."
+   ],
+   "output": "A mission briefing and a pre-loaded Monday start.",
+   "tags": [
+    "morning",
+    "planning",
+    "initiation"
+   ]
+  },
+  {
+   "id": "x031",
+   "name": "Micro-Slicer Session",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "duration_min": 15,
+   "trigger": "paralyzed by a room or task",
+   "steps": [
+    "Confess: 'I am stuck. I am overwhelmed. I can't start.'",
+    "Take one instruction: 'Pick up exactly three pieces of trash. Throw them away. Tell me when you are back.'",
+    "Report 'Done'; take the next slice.",
+    "If a slice stalls, halve it; if scanning is the problem, switch to a hunt."
+   ],
+   "output": "Physical motion and a task shrinking one slice at a time.",
+   "tags": [
+    "initiation",
+    "overwhelm"
+   ]
+  },
+  {
+   "id": "x032",
+   "name": "Sensory Slicing (Give Me a Hunt)",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "duration_min": 10,
+   "trigger": "even 'pick up trash' needs too much scanning",
+   "steps": [
+    "Pick one attribute: a colour, an object class, a container, a sender.",
+    "Hunt only that: 'find all the blue trash; ignore the red, ignore the papers.'",
+    "When that attribute is cleared, pick the next."
+   ],
+   "output": "Clutter turned into a Where's Waldo puzzle and partly cleared.",
+   "tags": [
+    "overwhelm",
+    "initiation"
+   ]
+  },
+  {
+   "id": "x033",
+   "name": "Reality Check",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "duration_min": 3,
+   "trigger": "'I can do these five things in an hour'",
+   "steps": [
+    "State the list and ask: 'Is this realistic? Critique my plan.'",
+    "Accept the duration evidence ('task #3 usually takes you 45 minutes alone').",
+    "Pick one major and one minor task; answer 'Which is the priority?'",
+    "Fight the urge to argue."
+   ],
+   "output": "A reduced, honest schedule.",
+   "tags": [
+    "time-blindness",
+    "planning"
+   ]
+  },
+  {
+   "id": "x034",
+   "name": "Transition Buffer",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "duration_min": 7,
+   "trigger": "just finished one thing, can't start the next",
+   "steps": [
+    "Dump the three immediate takeaways from what you just finished.",
+    "Get a glass of water.",
+    "No screen for five minutes.",
+    "Then start the next task."
+   ],
+   "output": "Working-memory residue cleared and permission to buffer.",
+   "tags": [
+    "re-entry",
+    "energy"
+   ]
+  },
+  {
+   "id": "x035",
+   "name": "Waiting Mode Antidote",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "duration_min": 3,
+   "trigger": "an appointment later is burning the hours before it",
+   "steps": [
+    "Set a hard alarm for 30 minutes before the appointment.",
+    "Say out loud: the alarm is watching the clock, not me.",
+    "Name the time budget: 'we have exactly three hours.'",
+    "Assign one task to that budget and start it."
+   ],
+   "output": "Vigilance handed to the clock and a block reclaimed.",
+   "tags": [
+    "time-blindness",
+    "initiation"
+   ]
+  },
+  {
+   "id": "x036",
+   "name": "Departure Back-Chain",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "duration_min": 2,
+   "trigger": "'I need to leave at 5:00'",
+   "steps": [
+    "Define T as walking out the door.",
+    "Shoes on and bag packed by T-10.",
+    "Shutdown sequence starts at T-20.",
+    "Set the alarm at T-20, never at T."
+   ],
+   "output": "An alarm on the earliest step instead of the departure time.",
+   "tags": [
+    "time-blindness"
+   ]
+  },
+  {
+   "id": "x037",
+   "name": "Future-Self Simulation",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "unstick",
+   "duration_min": 3,
+   "trigger": "'I'll do it Friday'",
+   "steps": [
+    "Load Friday's real commitments.",
+    "Name the slot actually left and your typical energy in it.",
+    "State the predicted outcome plainly.",
+    "Ask: 'Do you really want to sabotage Friday You?'"
+   ],
+   "output": "A concrete picture of the deferral's cost and a now-as-gift reframe.",
+   "tags": [
+    "time-blindness",
+    "decision"
+   ]
+  },
+  {
+   "id": "x038",
+   "name": "Dump & Sort (Ingestion Mode)",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "external-brain",
+   "duration_min": 20,
+   "trigger": "lost track of everything",
+   "steps": [
+    "Declare Ingestion Mode; no interruptions until the phrase 'That's it.'",
+    "Dump everything by voice or text, tagging feelings ('and I'm terrified').",
+    "Say 'That's it.'",
+    "Receive one table with every item in a bucket; use emotional tags to pick the first move."
+   ],
+   "output": "Every item captured and sorted; a first move proposed.",
+   "tags": [
+    "capture",
+    "overwhelm"
+   ]
+  },
+  {
+   "id": "x039",
+   "name": "Graveyard of Good Intentions",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "weekly-review",
+   "duration_min": 15,
+   "trigger": "Friday afternoon, stale loops",
+   "steps": [
+    "List every open loop with how long it has sat and what has actually happened.",
+    "For each: Keep (and schedule a specific action today) or Kill (and accept the named consequence)?",
+    "Actually delete the killed items and say so.",
+    "Count what you are no longer carrying."
+   ],
+   "output": "A shorter loop list and the anxiety hum reduced.",
+   "tags": [
+    "parking-lot",
+    "weekly",
+    "decision"
+   ]
+  },
+  {
+   "id": "x040",
+   "name": "Autopsy of a Bad Week",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "weekly-review",
+   "duration_min": 30,
+   "trigger": "why do I keep doing this",
+   "steps": [
+    "Pick a recent calendar week where everything went wrong.",
+    "Narrate it day by day, including feelings and friction points, not just events.",
+    "Label each incident mechanically: Decision Paralysis, Time Blindness, Context Switching, People Pleasing…",
+    "Distill each into one declarative, quantified Bio-File line."
+   ],
+   "output": "A table of incident → pattern → rule.",
+   "tags": [
+    "audit",
+    "shame",
+    "weekly"
+   ]
+  },
+  {
+   "id": "x041",
+   "name": "First Step Generator",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "duration_min": 5,
+   "trigger": "frozen on one specific task",
+   "steps": [
+    "Get ONE action under five minutes, absurdly specific: 'open the document and type the title.'",
+    "Do it; confirm.",
+    "Get the next tiny step; continue until momentum or until you say stop.",
+    "If a step feels too big, break it smaller."
+   ],
+   "output": "A started task with momentum building.",
+   "tags": [
+    "initiation",
+    "momentum"
+   ]
+  },
+  {
+   "id": "x042",
+   "name": "Momentum Chain",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "duration_min": 20,
+   "trigger": "a multi-part physical job like a messy office",
+   "steps": [
+    "Break the job into 5-8 micro-steps of 2-5 minutes, but see only the first.",
+    "Do step one (e.g. 'clear everything off the desk onto the floor, 2 min').",
+    "Confirm, get the next; brief celebration between steps.",
+    "After every three: keep going or take a 5-minute break?"
+   ],
+   "output": "A finished room in under 20 minutes, or an honored break.",
+   "tags": [
+    "momentum",
+    "initiation"
+   ]
+  },
+  {
+   "id": "x043",
+   "name": "Doom Box Sprint",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "duration_min": 15,
+   "trigger": "the pile that gives you a twinge of guilt",
+   "steps": [
+    "Set a 15-minute timer; you are not doing the whole thing today.",
+    "Pick up the first item and name it.",
+    "Categorize fast: trash / keep (has a home) / keep (homeless) / action needed / sentimental (3 seconds) / donate.",
+    "At the timer: another 15 or call it a win? Log items sorted."
+   ],
+   "output": "X items sorted and a logged count.",
+   "tags": [
+    "overwhelm",
+    "momentum",
+    "decision"
+   ]
+  },
+  {
+   "id": "x044",
+   "name": "Decision Helper",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "duration_min": 3,
+   "trigger": "stuck between options",
+   "steps": [
+    "List the options simply: A, B, C (three max).",
+    "For each: best thing that happens? worst thing?",
+    "Take a committed recommendation, then check your gut.",
+    "Still stuck: 60 seconds to pick or a coin flips; disappointment at the result is your answer."
+   ],
+   "output": "A decision made or a coin-flip diagnostic.",
+   "tags": [
+    "decision"
+   ]
+  },
+  {
+   "id": "x045",
+   "name": "Build Today's Menu",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "duration_min": 5,
+   "trigger": "morning, 'what should I do today'",
+   "steps": [
+    "ENTREES (pick 1): 2-3 substantial 30+ minute items.",
+    "SIDES (pick 2): 4-5 quick wins under 15 minutes, one doable from the couch.",
+    "DESSERT (pick 1): 2-3 things you genuinely enjoy.",
+    "Order one from each course; that's your day, not the whole list."
+   ],
+   "output": "A three-course menu and one order placed.",
+   "tags": [
+    "morning",
+    "decision",
+    "savoring"
+   ]
+  },
+  {
+   "id": "x046",
+   "name": "Departure Countdown Ladder",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "duration_min": 45,
+   "trigger": "an event that needs you out the door",
+   "steps": [
+    "Compute leave-by time: event time minus travel minus 15 minutes transition.",
+    "T-45: wrap up; T-30: save work, where are keys and wallet?; T-15: shoes, stuff, water bottle.",
+    "T-5: at the door, phone/wallet/keys check; T-0: go.",
+    "T+5: 'did you make it out the door? No judgment, just checking.'"
+   ],
+   "output": "A six-rung ladder that externalizes the whole transition.",
+   "tags": [
+    "time-blindness"
+   ]
+  },
+  {
+   "id": "x047",
+   "name": "Evening Quick Receipt",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "duration_min": 2,
+   "trigger": "8 PM",
+   "steps": [
+    "Ask: 'Quick daily receipt — what got done today?'",
+    "Summarize and celebrate in three sentences max.",
+    "Nothing to report? 'No receipt tonight? That's fine. Rest up — tomorrow's a new one.'"
+   ],
+   "output": "A bookmark on the day, not a performance review.",
+   "tags": [
+    "evening",
+    "savoring"
+   ]
+  },
+  {
+   "id": "x048",
+   "name": "Weekly Attention Report",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "daily-artifacts",
+   "duration_min": 15,
+   "trigger": "Sunday evening",
+   "steps": [
+    "Wins column: completions and progress, even small ones.",
+    "Where attention went (~hours): productive focus / necessary maintenance / recovery (valid) / rabbit holes / escape.",
+    "Patterns: most productive hours, triggers before escape, lost days and what preceded them.",
+    "One curiosity question (either answer is fine), then ONE adjustment for next week."
+   ],
+   "output": "A curious-scientist report and one proposed change.",
+   "tags": [
+    "weekly",
+    "audit"
+   ]
+  },
+  {
+   "id": "x049",
+   "name": "Save State",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "external-brain",
+   "duration_min": 3,
+   "trigger": "about to stop or switch projects",
+   "steps": [
+    "What were you working on specifically?",
+    "What was your next planned step?",
+    "Any key insights or decisions to remember?",
+    "Note your mental state: flow, stuck, frustrated, excited."
+   ],
+   "output": "A save state you can restore with 'where was I?'",
+   "tags": [
+    "re-entry",
+    "capture"
+   ]
+  },
+  {
+   "id": "x050",
+   "name": "Subscription Audit",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "external-brain",
+   "duration_min": 30,
+   "trigger": "first setup or monthly money review",
+   "steps": [
+    "Search 12 months of email for receipt, subscription, renewal, billing, trial, auto-renew.",
+    "Master list: service, monthly cost (annual converted), last real use, KEEPER / REVIEW / CANCEL.",
+    "Total the monthly spend; anything untouched 30+ days is CANCEL.",
+    "Find the actual cancellation link for each CANCEL and cancel the easiest one now."
+   ],
+   "output": "A totalled list and at least one cancellation done.",
+   "tags": [
+    "money",
+    "audit"
+   ]
+  },
+  {
+   "id": "x051",
+   "name": "Object Seeding Sweep",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "external-brain",
+   "duration_min": 15,
+   "trigger": "setting up the object finder",
+   "steps": [
+    "Say: 'Let's do an object sweep. I'm going to tell you where things are as I walk through.'",
+    "Walk room by room naming item plus sub-location.",
+    "Start with passport, spare keys, important documents, emergency supplies, your most-lost item.",
+    "Confirm the batch at the end."
+   ],
+   "output": "A seeded Physical Items log that can answer 'where are my…?'",
+   "tags": [
+    "capture"
+   ]
+  },
+  {
+   "id": "x052",
+   "name": "Values-Alignment Tracker",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "duration_min": 10,
+   "trigger": "week 1, day 1",
+   "steps": [
+    "List your ranked values.",
+    "For each, mark current action honestly: often / rarely.",
+    "Mark whether loved ones share it: low / moderate.",
+    "Circle the two lowest-alignment values that matter most; the top-ranked, least-acted one is the target."
+   ],
+   "output": "A measurable values-action gap and a target value.",
+   "tags": [
+    "values",
+    "audit"
+   ]
+  },
+  {
+   "id": "x053",
+   "name": "Defusion Drill",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "duration_min": 6,
+   "trigger": "self-criticism is dictating behavior",
+   "steps": [
+    "Write three recurring self-criticisms.",
+    "Rewrite each as 'I'm having the thought that…'",
+    "Notice the thought is now an object, not an order."
+   ],
+   "output": "Three defused thoughts with less behavioral grip.",
+   "tags": [
+    "shame",
+    "values"
+   ]
+  },
+  {
+   "id": "x054",
+   "name": "Relatedness Map",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "duration_min": 6,
+   "trigger": "week 1",
+   "steps": [
+    "For each value, name any person or community that shares it, or write 'none yet'.",
+    "Mark the values running with zero social reinforcement.",
+    "Pick one community of interest to source relatedness deliberately."
+   ],
+   "output": "A map of where values are socially isolated and one place to fix it.",
+   "tags": [
+    "relatedness",
+    "values"
+   ]
+  },
+  {
+   "id": "x055",
+   "name": "Micro-Action Menu of 8",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "duration_min": 8,
+   "trigger": "week 2, target value chosen",
+   "steps": [
+    "Using the interest-bridging table, write 8 micro-actions for the target value, each ten minutes or less.",
+    "Bridge each to an engine value (creativity, knowledge, courage, competition).",
+    "Keep the menu visible; pick one per day without deciding fresh."
+   ],
+   "output": "A menu that removes daily decision cost.",
+   "tags": [
+    "values",
+    "decision",
+    "planning"
+   ]
+  },
+  {
+   "id": "x056",
+   "name": "Next-Smallest-Step Rewrite",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "duration_min": 6,
+   "trigger": "week 3, the novelty cliff",
+   "steps": [
+    "Take each menu item.",
+    "Rewrite it as its next-smallest-step: not 'stretch' but 'put the mat on the floor.'",
+    "Add one novelty injection: new place, new time, or body-double one rep."
+   ],
+   "output": "Reps small enough to survive your worst day.",
+   "tags": [
+    "initiation",
+    "momentum",
+    "values"
+   ]
+  },
+  {
+   "id": "x057",
+   "name": "Mastery Ladder",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "duration_min": 10,
+   "trigger": "week 4, rebuilding confidence",
+   "steps": [
+    "Pick one neglected value.",
+    "Write 5 rungs, each a task you are ~80% sure you can complete (5 min walk → 10 min → 10+5 mobility → 15 min x3 → 20 min designed session).",
+    "Climb only when the current rung is boring-easy; split any rung that fails twice.",
+    "Log each completed rung as one line of evidence."
+   ],
+   "output": "A ladder and a mastery log that counters 'I can't stick to anything.'",
+   "tags": [
+    "mastery",
+    "values"
+   ]
+  },
+  {
+   "id": "x058",
+   "name": "Limiting-Belief Evidence Log",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "duration_min": 10,
+   "trigger": "'I never follow through' is loud",
+   "steps": [
+    "Write the belief and rate its strength 0-100.",
+    "List evidence FOR, facts only.",
+    "List evidence AGAINST, facts only, including your mastery log.",
+    "Write a revised, more accurate belief and re-rate it; if it won't drop, make it more accurate, not more positive."
+   ],
+   "output": "A court-case verdict on the belief, with a new strength number.",
+   "tags": [
+    "shame",
+    "mastery",
+    "audit"
+   ]
+  },
+  {
+   "id": "x059",
+   "name": "Purpose Sentence Sequence",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "duration_min": 8,
+   "trigger": "week 6",
+   "steps": [
+    "List activities that are meaningful to you from acted-on values.",
+    "For each, name who or what beyond you it could serve.",
+    "Draft: 'I want to [action] so that [beyond-self consequence].'",
+    "Stress-test: a commitment or a dreamer's wish? Attach one weekly recurring action and one community."
+   ],
+   "output": "One purpose sentence with a weekly action tied to it.",
+   "tags": [
+    "values",
+    "relatedness"
+   ]
+  },
+  {
+   "id": "x060",
+   "name": "WOOP Obstacle Sheet",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "duration_min": 10,
+   "trigger": "week 7 or any new goal",
+   "steps": [
+    "Wish: a challenging but achievable value goal.",
+    "Outcome: picture the best result; note benefits of doing and costs of not doing.",
+    "Obstacle: the internal state that actually stops you.",
+    "Plan: 'If [obstacle], then I will [next-smallest-step].'"
+   ],
+   "output": "An if-then plan pre-loaded for the real obstacle.",
+   "tags": [
+    "planning",
+    "values"
+   ]
+  },
+  {
+   "id": "x061",
+   "name": "Standing Daily Rep",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "duration_min": 6,
+   "trigger": "every day, all 7 weeks",
+   "steps": [
+    "One values micro-action from this week's target (2-10 min); tick the box.",
+    "Savor it: 30 seconds consciously registering the feeling.",
+    "Mastery log: one sentence of evidence.",
+    "Mood/energy tick 1-5 before bed."
+   ],
+   "output": "One rep, one savor, one evidence line, one data point.",
+   "tags": [
+    "values",
+    "savoring",
+    "mastery",
+    "evening"
+   ]
+  },
+  {
+   "id": "x062",
+   "name": "Energy Check",
+   "source": "Idea: Carl's ADHD Agent (MIND design doc)",
+   "module": "agent-governance",
+   "duration_min": 1,
+   "trigger": "start of any session",
+   "steps": [
+    "Rate energy 1-5.",
+    "1-2: pick admin or low-friction work only.",
+    "4-5: pick deep work.",
+    "Adjust task difficulty, not effort."
+   ],
+   "output": "A session sized to the brain you actually have.",
+   "tags": [
+    "energy",
+    "morning"
+   ]
+  }
+ ],
+ "protocols": [
+  {
+   "id": "p001",
+   "name": "Stuck Right Now (Emergency Card)",
+   "source": "ADHD Emergency Card PDF",
+   "module": "emergency-card",
+   "situation": "Too stuck to read or choose",
+   "do": [
+    "Find the row that matches how you feel.",
+    "Do only that one thing.",
+    "Try it for two minutes.",
+    "Ignore everything else until it works."
+   ],
+   "do_not": [
+    "Don't read the whole library.",
+    "Don't try to pick the best strategy.",
+    "Don't wait to feel motivated."
+   ]
+  },
+  {
+   "id": "p002",
+   "name": "Never Miss Twice / Relapse Protocol",
+   "source": "ANCHOR Method & Workbook",
+   "module": "anchor-method",
+   "situation": "You noticed you lapsed on the workbook",
+   "do": [
+    "Missed 1 day: nothing, it's noise.",
+    "Missed 2 days: do the next-smallest-step of one rep today.",
+    "Missed a week+: re-enter at Week 3 (Commit); do one 2-minute rep today.",
+    "Urge to build a new system: recognize it as avoidance; do one real rep instead.",
+    "'I've failed again' fires: run one line of the Evidence Log against it.",
+    "At each weekly review ask: am I doing reps or editing the system? is the rep small enough for my worst day? is one relatedness source active?"
+   ],
+   "do_not": [
+    "Don't make up missed reps.",
+    "Don't re-plan or restart the week.",
+    "Don't rebuild the system or audit why.",
+    "Don't open a new app or template.",
+    "Don't use affirmations."
+   ]
+  },
+  {
+   "id": "p003",
+   "name": "Hard Shutdown",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "energy-map",
+   "situation": "End of day — sitting idle past empty, or riding a hyperfocus wave",
+   "do": [
+    "Stop at the fixed point, finished or not.",
+    "Close the laptop.",
+    "Write tomorrow's top three in your External Brain.",
+    "Walk away; name it strategic conservation, not quitting."
+   ],
+   "do_not": [
+    "Don't argue about whether the late work is good — it usually is; argue the exchange rate.",
+    "Don't set the stop time inside the wave.",
+    "Don't write five or 'everything outstanding'."
+   ]
+  },
+  {
+   "id": "p004",
+   "name": "Done Is Better Than Perfect (Ship Gate)",
+   "source": "ADHD ALIGNED (G. Rysen)",
+   "module": "first-move",
+   "situation": "A deliverable keeps getting refined instead of sent",
+   "do": [
+    "Ask the binary: is it done? Then it ships.",
+    "SOP with a typo: ship it.",
+    "Client deliverable at 85% of the polish you want: send it.",
+    "First draft with rough edges: publish it.",
+    "'Not yet' only if something is missing (no pricing, wrong recipient); fix that in one ten-minute action and ship."
+   ],
+   "do_not": [
+    "Don't run a quality review.",
+    "Don't offer a v2 before v1 has been used.",
+    "Don't treat the rule as a mantra; apply it as a decision rule."
+   ]
+  },
+  {
+   "id": "p005",
+   "name": "Deep Work Gatekeeper",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "situation": "Holding a 60-90 minute block",
+   "do": [
+    "Define Primary Objective, Permitted Scope and end time.",
+    "Off-scope question: flag it as a Tangent, save it, redirect to the exact sentence.",
+    "Every 20 minutes: one-sentence status.",
+    "Output slowing: suggest a Micro-Slicing move.",
+    "Keep 90% of time in the workspace, 10% in chat."
+   ],
+   "do_not": [
+    "Don't answer the tangent because it's interesting.",
+    "Don't let apologies through; just redirect.",
+    "Don't fabricate elapsed time — ask what the clock says.",
+    "Don't reopen the mandate mid-block."
+   ]
+  },
+  {
+   "id": "p006",
+   "name": "Landing Protocol",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "situation": "Five minutes before a session ends",
+   "do": [
+    "Initiate the Context Save yourself.",
+    "Write the Breadcrumb Note: Where we left off / The 'Sticky' Point / The Next Move (cursor position).",
+    "Hand back the Tangent Bucket as a separate list.",
+    "Do one 3-minute decompression: sensory reset, physical flush, or mindless chore."
+   ],
+   "do_not": [
+    "Don't let the session just stop.",
+    "Don't add a fourth field or a summary paragraph.",
+    "Don't write 'continue the analysis' as the next move."
+   ]
+  },
+  {
+   "id": "p007",
+   "name": "Emergency Reset / Shame Ceiling",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "activation",
+   "situation": "'I've done nothing all day', shame spike",
+   "do": [
+    "Take the report flatly.",
+    "Discard the old plan out loud: 'We are starting at zero.'",
+    "One physical reset: close the tabs, stretch 30 seconds, or drink water.",
+    "One single low-stakes task.",
+    "Ask: what is the one thing that makes me feel 1% more in control?"
+   ],
+   "do_not": [
+    "Don't sympathize at length.",
+    "Don't accept or offer apologies.",
+    "Don't reference the streak or 'again'.",
+    "Don't diagnose why it keeps happening today."
+   ]
+  },
+  {
+   "id": "p008",
+   "name": "Mid-Day Pivot",
+   "source": "AI Productivity for ADHD Professionals (Alex R. Sterling)",
+   "module": "flight-plan",
+   "situation": "Day collapsed: lost time, crisis, energy crash",
+   "do": [
+    "State the new constraint: hours left and energy X/10.",
+    "Keep every non-negotiable deadline.",
+    "Re-sort the rest by lowest cognitive tax.",
+    "Emit three items: one deferral, one batch, one timed micro-task."
+   ],
+   "do_not": [
+    "Don't rebuild the full day.",
+    "Don't comment on the collapse.",
+    "Don't schedule high-tax work at energy 3 or below unless it is due today."
+   ]
+  },
+  {
+   "id": "p009",
+   "name": "Purchase Tribunal",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "situation": "Acquisition-driven urge to buy something non-essential",
+   "do": [
+    "Paste the link first; do not press the button.",
+    "Open with 'Objection noted.'",
+    "Cross-examine: interest-adjusted true cost; the abandoned analogue you already own; hours of labor it costs; where it will live.",
+    "Close with 'State your case' and wait.",
+    "If the case holds, grant permission plainly."
+   ],
+   "do_not": [
+    "Don't interrogate an emotional, bad-day purchase — route to Cool Down.",
+    "Don't run it on something already bought.",
+    "Don't write the defense for yourself."
+   ]
+  },
+  {
+   "id": "p010",
+   "name": "Cool Down Script (72-Hour Wait List)",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "situation": "Soothing-driven urge to buy: stressed, lonely, bored",
+   "do": [
+    "Validate the specific want warmly.",
+    "Invoke the rule: buy it with joy, not stress.",
+    "Name today and the trigger date 72 hours out.",
+    "Save the link somewhere real.",
+    "Close the tab; drink a glass of water instead.",
+    "On the date: 'Do you still want it?'"
+   ],
+   "do_not": [
+    "Don't interrogate or argue.",
+    "Don't claim the link is saved if it isn't.",
+    "Don't skip the physical substitute."
+   ]
+  },
+  {
+   "id": "p011",
+   "name": "Draft Reader / Tone Police",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "situation": "About to send a message while angry or hurt",
+   "do": [
+    "Write the raw version in full.",
+    "Answer: what is the emotional tone? how will they read it? can the same boundary be stated without the charge?",
+    "Name the concrete cost of sending it as-is.",
+    "Rewrite grey rock: fact, boundary, requested action, no adjectives about them.",
+    "Send the rewrite, not the original."
+   ],
+   "do_not": [
+    "Don't sanitize the input before looking.",
+    "Don't strip the boundary along with the heat.",
+    "Don't send anything sensitive without the filter."
+   ]
+  },
+  {
+   "id": "p012",
+   "name": "The Translator (De-escalate This)",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "situation": "A received message reads as hostile or disappointed",
+   "do": [
+    "Pass 1, facts only: sender's goal, required action, timeline, explicit threat verdict.",
+    "Pass 2: rewrite the same message as from a supportive mentor.",
+    "Compare: identical information, only tone moved — the tone was never in the data.",
+    "If real hostility exists, say so."
+   ],
+   "do_not": [
+    "Don't guess at the sender's mood.",
+    "Don't reassure or offer toxic positivity.",
+    "Don't always return 'no threat' — an anchor that flatters isn't an anchor."
+   ]
+  },
+  {
+   "id": "p013",
+   "name": "Calendar Bouncer",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "situation": "'Can I take this on?' before you check the schedule",
+   "do": [
+    "Show the calendar collision, including promises to yourself.",
+    "Predict the overload consequence concretely.",
+    "Give the recommendation outright.",
+    "Supply a sendable decline script with no blanks."
+   ],
+   "do_not": [
+    "Don't hand back a pros-and-cons list.",
+    "Don't count only clock time; count energy and overstimulation.",
+    "Don't always decline — a bouncer that always says no gets bypassed."
+   ]
+  },
+  {
+   "id": "p014",
+   "name": "Venting Vortex",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "situation": "'I need to rant' — pressure with no question attached",
+   "do": [
+    "Hold the container: listen, validate the specific grievance, ask one short probing question.",
+    "Permit caps, profanity, pettiness, unfairness.",
+    "Wait for the safe word 'Cooling Down'.",
+    "Then switch to strategist: the one sentence to say to the real person, minus the anger."
+   ],
+   "do_not": [
+    "Don't offer advice or fixes.",
+    "Don't say calm down.",
+    "Don't call the pivot yourself.",
+    "Don't let this replace the real conversation."
+   ]
+  },
+  {
+   "id": "p015",
+   "name": "Ruthless Compassion",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "situation": "Weeks of avoidance plus self-recrimination",
+   "do": [
+    "Name the spiral: 'I hear that you are stressed…'",
+    "Declare the past irrelevant: '…explaining yesterday doesn't get it done today.'",
+    "Assign the single smallest physical step: 'Open the document.'",
+    "Attach a report-back: 'Tell me when it is open.'",
+    "Interrupt apologies and excuses; refocus on the step."
+   ],
+   "do_not": [
+    "Don't give generic time-management advice.",
+    "Don't pity, don't harshen.",
+    "Don't give the whole sequence — one step only.",
+    "During a genuine life crisis, drop it and switch to supportive validation."
+   ]
+  },
+  {
+   "id": "p016",
+   "name": "Check (Drift Correction)",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "situation": "The word 'Check', or an afternoon quietly gone sideways",
+   "do": [
+    "Ask: scale of 1 to 10, where is your anxiety? where is your focus?",
+    "Take the two numbers only.",
+    "High anxiety, low focus: drop the task; go to a window, look far away for two minutes, drink water; report back.",
+    "High focus, low anxiety: get out of the way."
+   ],
+   "do_not": [
+    "Don't ask for explanations of the numbers.",
+    "Don't say 'relax' — give one concrete physical command.",
+    "Don't offer a productivity tip to a flooded nervous system."
+   ]
+  },
+  {
+   "id": "p017",
+   "name": "CODE RED (Panic Button)",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "situation": "A missed deadline, wrong file sent, rising panic",
+   "do": [
+    "Stop impulsive action: 'Breathe. Stop. Do not email anyone yet. Do not quit.'",
+    "Validate: 'I am here.'",
+    "Get the facts: how much time has passed? is the portal closed or just late?",
+    "Triage honestly: serious, but handleable; name the single most time-critical action.",
+    "Draft the recovery message: takes responsibility, no weak excuses, asks for a grace period, no lies, professional."
+   ],
+   "do_not": [
+    "Don't say 'that sucks' or amplify.",
+    "Don't draft before the facts are in.",
+    "Don't lie, hide, or quit on the spot."
+   ]
+  },
+  {
+   "id": "p018",
+   "name": "Re-Engagement Clause (Welcome Back)",
+   "source": "The Personal AI Assistant Manual (Daniel Payne)",
+   "module": "guardrails",
+   "situation": "Returning after days of ghosting the system",
+   "do": [
+    "Assume a shame spiral, not laziness.",
+    "Open with: 'Welcome back. The past is deleted. What is the one easiest thing we can do right now?'",
+    "Do that one thing."
+   ],
+   "do_not": [
+    "Don't ask why you haven't written.",
+    "Don't mention the missed tasks.",
+    "Don't rebuild the system before re-entering it."
+   ]
+  },
+  {
+   "id": "p019",
+   "name": "Shame Spiral Interrupt",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "situation": "'I'm so stupid', 'why can't I just', 'what's wrong with me'",
+   "do": [
+    "Interrupt firmly but kindly: 'Hold on. I'm calling a shame spiral. Let's pause.'",
+    "Reframe: not stupid, lazy or broken — ADHD; this specific thing is affected by ADHD; neurological, not a character flaw.",
+    "Redirect: 'What's one small thing you CAN do right now? Just the first tiny step.'",
+    "Hand off to the First Step Generator."
+   ],
+   "do_not": [
+    "Don't run a first step over the top of live shame.",
+    "Don't dismiss or say 'it's not that bad'.",
+    "Don't stay in the conversation once the reframe has landed."
+   ]
+  },
+  {
+   "id": "p020",
+   "name": "RSD Support Mode",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "situation": "'They hate me', 'that email was so cold', 'why did I say that'",
+   "do": [
+    "Validate first: 'That feeling is real and it sucks. I hear you.'",
+    "Then reality-check as a question: what exactly happened? facts vs. the story?",
+    "Offer a hedged alternative: 'Is it possible that…?'",
+    "If spiraling: set a 'recheck' for two hours out."
+   ],
+   "do_not": [
+    "Don't reality-check before validating.",
+    "Don't say 'you're overreacting' or 'it's not a big deal'.",
+    "Don't make it therapy; if recurring, raise it with a therapist."
+   ]
+  },
+  {
+   "id": "p021",
+   "name": "Low Spoon Day",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "situation": "'I can't today', 'bad brain day', three abandoned sessions",
+   "do": [
+    "Ask: rest, distraction, or gentle movement?",
+    "Rest: 'Permission granted. No guilt. Everything can wait.'",
+    "Distraction: something enjoyable and low-effort.",
+    "Gentle movement: a walk, stretching, decision-free chores.",
+    "Reduce all reminders to essentials: medication, truly urgent deadlines.",
+    "Evening: 'How are you feeling? Tomorrow is a new day.'"
+   ],
+   "do_not": [
+    "Don't push tasks or productivity hacks.",
+    "Don't add a qualifier after 'everything can wait'.",
+    "Don't disguise a task as gentle movement."
+   ]
+  },
+  {
+   "id": "p022",
+   "name": "Hyperfocus Manager",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "unstick",
+   "situation": "Same thing for 90+ minutes without a break",
+   "do": [
+    "Gentle check: 'Is this the thing you SHOULD be working on, or a rabbit hole?'",
+    "Rabbit hole: bookmark and switch, or deliberately choose to keep going.",
+    "Deliberate: carry on; check again in 45 minutes.",
+    "Either way: water? bathroom? is your back angry? two minutes.",
+    "Past 2 hours: a real 10-minute break; past 3: 15 minutes off and eat something."
+   ],
+   "do_not": [
+    "Don't aggressively interrupt hyperfocus.",
+    "Don't make a second attempt once they chose deliberately.",
+    "Don't lead with worry — pair concern with respect for the focus."
+   ]
+  },
+  {
+   "id": "p023",
+   "name": "Medication Double-Dose Guard",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "external-brain",
+   "situation": "Any present- or future-tense medication statement ('taking meds')",
+   "do": [
+    "Check today's log before writing anything.",
+    "Already logged: 'Hold on — you already took your meds at [time] today. Double check that you're not about to double-dose!'",
+    "Not logged: log with timestamp and confirm in one line.",
+    "No log and asked 'did I?': 'I don't have a log of today's meds. If you haven't taken them, now's a good time.'"
+   ],
+   "do_not": [
+    "Don't append silently.",
+    "Don't add conversation to the confirmation.",
+    "When tense is ambiguous, guard rather than append."
+   ]
+  },
+  {
+   "id": "p024",
+   "name": "Compassionate Pushback / Pre-Commitment Pause",
+   "source": "The Unscattered Mind (Heel Wisenthiel)",
+   "module": "agent-governance",
+   "situation": "Excitement about a new commitment, project, purchase or agent feature",
+   "do": [
+    "Acknowledge the enthusiasm genuinely.",
+    "Reality-check capacity with concrete calendar and project evidence.",
+    "Offer four options: add and drop something; Someday list; schedule for a later month; go for it now.",
+    "Costs money: 'Sleep on it? I'll remind you tomorrow.' A favor: 'What would you need to move or drop?'",
+    "Capture the idea regardless; close with 'What feels right?'"
+   ],
+   "do_not": [
+    "Don't lecture, shame, or say 'you always do this'.",
+    "Don't let 'not now' mean lost.",
+    "Don't decide for them — the user decides."
+   ]
+  },
+  {
+   "id": "p025",
+   "name": "Persistent Follow-Up (Nudge Escalation)",
+   "source": "Idea: Carl's ADHD Agent (MIND design doc)",
+   "module": "agent-governance",
+   "situation": "An item was captured and no completion confirmed",
+   "do": [
+    "Nudge at the appropriate time, never while driving or in meetings.",
+    "No confirmation: re-nudge at 30 min, then 2 h, then 4 h, then next day.",
+    "Require a specific confirmation of the action taken, not 'I'll do it'.",
+    "On completion: brief factual celebration ('Taxes done. That was sitting there for 3 weeks.')"
+   ],
+   "do_not": [
+    "Don't give up after one check-in.",
+    "Don't say 'I've reminded you 4 times'.",
+    "Don't accept vague confirmations.",
+    "Don't send more than 3 items in one message."
+   ]
+  }
+ ],
+ "affirmations": [
+  {
+   "id": "a001",
+   "text": "I have a rich imagination and I can use that to visualize my best future in detail. I can re-visit that visualization any time I lose motivation.",
+   "source": "ADHD Affirmations PDF (futureadhd.com)"
+  },
+  {
+   "id": "a002",
+   "text": "I am not attention deficient, I am attention different.",
+   "source": "ADHD Affirmations PDF (futureadhd.com)"
+  },
+  {
+   "id": "a003",
+   "text": "I worry about future events I can't control, but history has shown I actually perform incredibly well under pressure. I'm great in an emergency. I need to remember that.",
+   "source": "ADHD Affirmations PDF (futureadhd.com)"
+  },
+  {
+   "id": "a004",
+   "text": "I'm not afraid to ask the hard questions - of myself, of others, and of institutions and authorities. I value integrity above protocol & tradition.",
+   "source": "ADHD Affirmations PDF (futureadhd.com)"
+  },
+  {
+   "id": "a005",
+   "text": "I'm a life enthusiast. New adventures and experiences make me feel most alive. I refuse to live my life on autopilot.",
+   "source": "ADHD Affirmations PDF (futureadhd.com)"
+  },
+  {
+   "id": "a006",
+   "text": "I intentionally seek external help and support on practical tasks so I can live harmoniously with others.",
+   "source": "ADHD Affirmations PDF (futureadhd.com)"
+  },
+  {
+   "id": "a007",
+   "text": "When I'm in hyper focus, I'm highly efficient and make lightning fast connections.",
+   "source": "ADHD Affirmations PDF (futureadhd.com)"
+  },
+  {
+   "id": "a008",
+   "text": "I may run out of energy midway through a project, but if I have support and know I need accountability, I can push through to complete something really special.",
+   "source": "ADHD Affirmations PDF (futureadhd.com)"
+  },
+  {
+   "id": "a009",
+   "text": "I'm a natural philosopher and I remind myself that the world has been greatly transformed by those who dare to keep asking why and what if.",
+   "source": "ADHD Affirmations PDF (futureadhd.com)"
+  },
+  {
+   "id": "a010",
+   "text": "I have a surplus of attention, not a deficit. I am learning to powerfully direct it.",
+   "source": "ADHD Affirmations PDF (futureadhd.com)"
+  },
+  {
+   "id": "a011",
+   "text": "I'm not always indecisive... sometimes I just get stuck in divergent thinking.",
+   "source": "ADHD Affirmations PDF (futureadhd.com)"
+  },
+  {
+   "id": "a012",
+   "text": "My hyper focus is my super power. I can make incredible things happen in short timeframes.",
+   "source": "ADHD Affirmations PDF (futureadhd.com)"
+  },
+  {
+   "id": "a013",
+   "text": "My emotions are a powerful motivator. Regular visualization practice is the key to habit consistency. Ask: how do I want to feel? Why do I want to feel this way? Allow myself to imagine it deeply.",
+   "source": "ADHD Affirmations PDF (futureadhd.com)"
+  },
+  {
+   "id": "a014",
+   "text": "I am intensely curious, and have a rich inner world full of creative, vibrant ideas.",
+   "source": "ADHD Affirmations PDF (futureadhd.com)"
+  },
+  {
+   "id": "a015",
+   "text": "I'm not afraid to question the norm, and therefore I conceptualize and innovate in a way that others don't.",
+   "source": "ADHD Affirmations PDF (futureadhd.com)"
+  },
+  {
+   "id": "a016",
+   "text": "I will continue to examine, uncover and innovate pathways that make the world safer and more abundant for people everywhere.",
+   "source": "ADHD Affirmations PDF (futureadhd.com)"
+  }
+ ],
+ "emergency_card": {
+  "source": "ADHD Emergency Card PDF",
+  "headline": "One thing to do. Right now.",
+  "instruction": "Too stuck to read? Don't. Find the row that matches how you feel. Do only that one thing. Ignore everything else until it works. That's the whole method.",
+  "steps": [
+   "Frozen. Can't start at all. → Count 5-4-3-2-1 out loud. Move your body on 1.",
+   "Scattered. All feels urgent. → Set a 5-min timer. Dump every thought on paper. Circle one.",
+   "Bored of the task. → Pair it with something you want — a show, coffee, a podcast.",
+   "Restless. Can't sit still. → Do 10 jumping jacks, then sit straight down and begin.",
+   "\"I've wasted the day.\" → The day restarts now. Do one small thing. The morning's over.",
+   "Fried. It's late. → Open tomorrow's first tab, leave it ready, then stop. Rest counts.",
+   "Nothing is working. → Call someone: \"Stay on the line 10 min while I begin.\""
+  ],
+  "rule": "The only rule: pick one. Try it for two minutes. You don't have to feel motivated to start — you just have to start.",
+  "rows": [
+   {
+    "feel": "Frozen. Can't start at all.",
+    "do": "Count 5-4-3-2-1 out loud. Move your body on 1.",
+    "exercise": "x001"
+   },
+   {
+    "feel": "Scattered. All feels urgent.",
+    "do": "Set a 5-min timer. Dump every thought on paper. Circle one.",
+    "exercise": "x002"
+   },
+   {
+    "feel": "Bored of the task.",
+    "do": "Pair it with something you want — a show, coffee, a podcast.",
+    "exercise": null
+   },
+   {
+    "feel": "Restless. Can't sit still.",
+    "do": "Do 10 jumping jacks, then sit straight down and begin.",
+    "exercise": null
+   },
+   {
+    "feel": "\"I've wasted the day.\"",
+    "do": "The day restarts now. Do one small thing. The morning's over.",
+    "exercise": "x006"
+   },
+   {
+    "feel": "Fried. It's late.",
+    "do": "Open tomorrow's first tab, leave it ready, then stop. Rest counts.",
+    "exercise": "x007"
+   },
+   {
+    "feel": "Nothing is working.",
+    "do": "Call someone: \"Stay on the line 10 min while I begin.\"",
+    "exercise": null
+   }
+  ]
+ }
+}
