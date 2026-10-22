@@ -6,7 +6,7 @@ Adapted from upstream LifeOS `SystemUserBoundary.md` (four zones) and the 2026-1
 |---|---|---|---|---|
 | **SYSTEM** | Dashboard page, content library, scripts, templates, this doc set | `cbrahms/LifeOS` → `CARL/` (private repo) | Read and write | Read |
 | **SHARED STATE** | Registry, focus sequence, capsule (NOW), activity log, parking lot, P1 answers | Control Room artifact store (`meta/*`, `projects/*`) | Write through the page or `ArtifactData` | Contributor: read and write |
-| **PRIVATE STATE** | Energy, reps, mood, values tracker, mastery ladder, evidence log, module settings | Artifact store `data/users/<id>/adhd` (per viewer, hidden from everyone else, the owner included) + browser mirror | Only the viewer's own | Her own only |
+| **PERSON STATE** | Energy, reps, mood, values tracker, mastery ladder, evidence log, module settings | Artifact store `people/carl` and `people/nicole` (shared between the two of you; the header switch picks which) + browser mirror | Read and write | Read and write, both profiles |
 | **PROJECT-PRIVATE** | Resale item master, photos, comps, buyer records | Resale OS repo / Tracker Sheet / Drive, never this repo | Scope-limited grants per project | Co-owner |
 | **HOUSEHOLD-PRIVATE** | Family records, finances, statements, medical | iCloud folders shared one by one; `private/` gitignored | None by default | Shared folder by folder |
 | **VAULT** | Passwords, recovery codes, identity documents, private writing | 1Password + encrypted offline copy | Never | By agreed mechanism only (open question) |
