@@ -1,0 +1,8 @@
+# Blocks commits that contain secrets (API keys, tokens, private keys).
+# One-time setup per clone:  pipx install pre-commit && pre-commit install
+# Scan the whole repo on demand:  pre-commit run gitleaks --all-files
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks
